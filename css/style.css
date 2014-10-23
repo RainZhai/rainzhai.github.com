@@ -340,8 +340,11 @@ body {
   position: relative;
 }
 #header-inner {
-  position: relative;
+  position: fixed;
   overflow: hidden;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 #banner {
   position: absolute;
@@ -366,7 +369,7 @@ body {
 #logo,
 #subtitle {
   text-decoration: none;
-  color: #000;
+  color: #666;
   font-weight: 300;
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
@@ -381,7 +384,7 @@ body {
   letter-spacing: 1px;
 }
 #subtitle-wrap {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 #main-nav {
   float: left;
@@ -399,7 +402,7 @@ body {
   -ms-transition: opacity 0.2s;
   transition: opacity 0.2s;
   display: block;
-  padding: 20px 15px;
+  padding: 10px 15px;
 }
 .nav-icon:hover,
 .main-nav-link:hover {
@@ -411,7 +414,7 @@ body {
   font-size: 14px;
   width: 14px;
   height: 14px;
-  padding: 20px 15px;
+  padding: 10px 15px;
   position: relative;
   cursor: pointer;
 }
@@ -437,7 +440,7 @@ body {
 }
 #sub-nav {
   float: right;
-  margin-right: -15px;
+  margin-right: 20px;
 }
 #nav-rss-link:before {
   content: "\f09e";
