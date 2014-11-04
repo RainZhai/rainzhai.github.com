@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo搭建blog要注意的几点 | 宅鱼</title>
+  <title>Category: phonegap | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.默认使用的googleapi导致加载很慢需要重新修改css，和js的href2.修改css样式需要在 主题下的source 下的 _variables.styl 文件中修改一些样式的变量">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建blog要注意的几点">
-<meta property="og:url" content="http://yoursite.com/2014/10/22/hexo搭建blog要注意的几点/">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="宅鱼">
+<meta property="og:url" content="http://yoursite.com/categories/hybrid/phonegap/">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="1.默认使用的googleapi导致加载很慢需要重新修改css，和js的href2.修改css样式需要在 主题下的source 下的 _variables.styl 文件中修改一些样式的变量">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo搭建blog要注意的几点">
-<meta name="twitter:description" content="1.默认使用的googleapi导致加载很慢需要重新修改css，和js的href2.修改css样式需要在 主题下的source 下的 _variables.styl 文件中修改一些样式的变量">
+<meta name="twitter:title" content="宅鱼">
+<meta name="twitter:description">
 
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -64,14 +64,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hexo搭建blog要注意的几点" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-windows下phonegap-开发环境搭建及一些问题处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/22/hexo搭建blog要注意的几点/" class="article-date">
-  <time datetime="2014-10-22T06:12:50.000Z" itemprop="datePublished">Oct 22 2014</time>
+    <a href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/" class="article-date">
+  <time datetime="2014-10-30T10:06:09.000Z" itemprop="datePublished">Oct 30 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/blog/">blog</a>
+    <a class="article-category-link" href="/categories/hybrid/">hybrid</a>►<a class="article-category-link" href="/categories/hybrid/phonegap/">phonegap</a>
   </div>
 
   </div>
@@ -81,8 +83,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      hexo搭建blog要注意的几点
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/">windows下phonegap 开发环境搭建及一些问题处理</a>
     </h1>
   
 
@@ -90,7 +92,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.默认使用的googleapi导致加载很慢需要重新修改css，和js的href<br>2.修改css样式需要在 主题下的source 下的 _variables.styl 文件中修改一些样式的变量<br><a id="more"></a><br>3.在新添加的tags没有地方可以删除，需要在db.json里面手动进行删除<br>4.在没有设置代理的情况下不能进行自动deploy，这种情况下可以手动将生成的文件拷贝到github客户端(如sourcetree)里面的项目文件目录，然后通过客户端进行提交</p>
+        <h2 id="windows下phonegap_开发环境搭建及一些问题处理">windows下phonegap 开发环境搭建及一些问题处理</h2>
+<p><img src="http://phonegap.com/css/images/graphic_build_bot.png" alt="phonegap"></p>
+<ul>
+<li>安装java环境，安装nodejs，安装集成了ADT的eclipse <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">eclipse下载地址</a>,下载并解压一个ant工具。</li>
+<li>添加下 java JDK  ; android SDK;Ant ;这几个文件的bin文件目录到系统变量</li>
+<li>工具安装完成后,通过npm安装phonegap,cordova代码:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g phonegap</div><div class="line">npm install -g cordova</div></pre></td></tr></table></figure>
+
+<p>这里有个问题要设置npm代理，而且要设置https的代理，不然在创建phonegap项目的时候会出现无法下载git项目包的问题(感谢俊江同学及时的建议^0^)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm config set proxy http:<span class="comment">//server:port</span></div><div class="line">$ npm config set https-proxy http:<span class="comment">//server:port</span></div><div class="line">$ npm config set registry <span class="string">"http://registry.npmjs.org/"</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>创建项目使用命令:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">phonegap create myapp</div><div class="line">cd myapp</div><div class="line">phonegap run android</div></pre></td></tr></table></figure>
+
+<p>这里如果出现编译报错,问题一是环境变量没设置好，另外就是sdk\platforms 下的版本不对，需要下载对应版本的android文件包，另外一个问题是高版本的模拟器不能创建avd所以需要略低版本的android文件包(如果使用手机作测试则不需要考虑这个问题)</p>
 
       
     </div>
@@ -98,37 +117,17 @@
 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hybrid/">hybrid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webapp/">webapp</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2014/10/28/D2-2014的一点总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          D2 2014的一点总结
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/10/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
 
 
-<div class="ds-thread" data-thread-key="2014/10/22/hexo搭建blog要注意的几点/"></div>
-
-</article></section>
+</article>
+  
+  
+</section>
         
           <aside id="sidebar">
   

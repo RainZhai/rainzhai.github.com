@@ -101,6 +101,8 @@
 <p>这一部分有很大一个篇幅讲到了，说实话，没搞过客户端开发的前端不一定能理解，毕竟里面大部分设计到客户端开发相关的内容。另外关于互通有个很重要的概念Bridge，全篇只谈到了概念，没有上代码，略难猜测-_-</p>
 <h3 id="构建与发布流程">构建与发布流程</h3>
 <p>该部分有基础kissy库，加上已经完善的发布流程，这一块我们没有一个统一的前端库，暂时很难做到一致。至于less和sass我觉得主要是看开发自身需要，比如我就没有使用less或sass的习惯。<br>最后，作者讲到hybrid中的h5类似一辆开的很快的拖拉机上了高速路。我觉得很多时候，具体问题还得看场景，比如一个很慢的2g网络环境，使用h5来拉数据和使用原生app来拉数据，不见得哪个会快到哪里去，但是如果在网络环境良好的情况下，使用h5却可以带来很大的灵活性和可维护性，当然页面功能足够简单的时候，不失为一个很好的移动开发方案。</p>
+<h3 id="使用phonegap开发的一点体会">使用phonegap开发的一点体会</h3>
+<p>在使用phonegap搭建hybrid应用，可以发现phonegap的整个www目录可以作为hybrid应用的离线包，样式，js文件等都存放在改目录，并且phonegap中一些访问外网，硬件等特性需要在config.xml文件中配置。具体结构如下:<br><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1elz3i5w77gj203p052745.jpg" alt="phonegap文件目录"><br>另外最近看到一篇很详尽的介绍phonegap运行机制的文章很不错，<a href="http://www.wojilu.com/forum1/post/22475" target="_blank" rel="external">PhoneGap版支付宝Android客户端开发小结</a> 里面关于phonegap的结构图：<br><img src="http://ww2.sinaimg.cn/mw690/629342f9jw1elucqjmegfj20sg0kz42i.jpg" alt="phonegap结构"></p>
 
       
     </div>
@@ -126,7 +128,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类 Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybird/">hybird</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybird/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -135,7 +137,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签 Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybird/">hybird</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -144,7 +146,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云 Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/D2/" style="font-size: NaNpx;">D2</a><a href="/tags/blog/" style="font-size: NaNpx;">blog</a><a href="/tags/html5/" style="font-size: NaNpx;">html5</a><a href="/tags/hybird/" style="font-size: NaNpx;">hybird</a><a href="/tags/hybrid/" style="font-size: NaNpx;">hybrid</a><a href="/tags/webapp/" style="font-size: NaNpx;">webapp</a><a href="/tags/前端/" style="font-size: NaNpx;">前端</a>
+      <a href="/tags/D2/" style="font-size: 10.00px;">D2</a><a href="/tags/blog/" style="font-size: 10.00px;">blog</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/hybrid/" style="font-size: 20.00px;">hybrid</a><a href="/tags/webapp/" style="font-size: 10.00px;">webapp</a><a href="/tags/前端/" style="font-size: 10.00px;">前端</a>
     </div>
   </div>
 
