@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+<title>Rain CSS > Base Layouts</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+<!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+</head>
+<body class="body">
+	<div class="header headerBlue">
+  	<nav class="lsn posr clearfix">
+    	<a href="http://www.webdevelopmentmachine.com" class="headerLink headerLinkBlue l pr pl ib tdn">首页home</a>
+    	<a href="http://www.webdevelopmentmachine.com/blog" class="headerLink headerLinkBlue l pr pl ib tdn">博客blog</a>
+    	<a href="http://www.webdevelopmentmachine.com/demo/game.html" class="headerLink headerLinkBlue l pr pl ib tdn">游戏game</a>
+    </nav>
+  </div>
+	<div class="headerM headerGrey">
+  	<div class="container posr">
+    	<div class="l"><a class="tdn block ptll fsxxl" href="index.html">Rain CSS</a></div>
+    </div>
+  </div>
+	<div class="container mt">
+    <div class="content">
+    	<div class="sidebar l posr">
+          <h2 class="category">Fixed layout</h2>
+          <p>Fixed layout has 1000px width and class <code>container</code> get this layout pattern.</p>
+      </div>
+      
+      <div class="main mainRight posr">
+				<h1 class="entryTitle">Fixed layout</h1>
+        <div class="bgLightBlue round h-20"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mlrauto container mt clearfix">
+    <div class="ib oh">
+        <h2 class="category">Fluid layout</h2>
+        <p>Fixed layout has 80% width and class <code>width-fluid-80</code> get this layout pattern.</p>
+    </div>
+    <div class="wf-75 ib oh">
+      <h1 class="entryTitle">Fluid layout</h1>
+      <div class="bgLightBlue round h-20"></div>
+    </div> 
+  </div>
+  
+	<div class="container mt">
+    <div class="content">
+    	<div class="sidebar l posr">
+          <h2 class="category">Multi-column</h2>
+          <p>Multi-column use class <code>css3_columns</code></p>
+      </div>
+      
+      <div class="main mainRight posr">
+				<h1 class="entryTitle">Multi-column</h1>
+        <div class="entry css3_columns mainBox">  
+          <h1 class="entryTitle bgLightBlue">HTML &amp; CSS</h1>
+          <p><a href="#">ran</a> 发表于 , 分类:<a href="#"></a>, Tips, <a href="#">6条评论 »</a>,10次阅读</p> 
+          <p>HTML (the Hypertext Markup Language) and CSS  (Cascading Style Sheets) are two of the core technologies 
+          for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a 
+          variety of devices. Along with graphics and scripting, HTML and CSS are the basis of building Web pages and 
+          Web Applications. Learn more below about:</p>
+					<h2>What is HTML?</h2>
+
+					<p>HTML is the language for describing the structure of Web pages. HTML gives authors the means to:</p>
+					<ul>
+    				<li>Publish online documents with headings, text, tables, lists, photos, etc.</li>
+            <li>Retrieve online information via hypertext links, at the click of a button.</li>
+            <li>Design forms for conducting transactions with remote services, for use in searching for information, 
+            making reservations, ordering products, etc.</li>
+            <li>Include spread-sheets, video clips, sound clips, and other applications directly in their documents.</li>
+					</ul>
+					<p>With HTML, authors describe the structure of pages using markup. The elements of the language label pieces of 
+          content such as "paragraph," "list," "table," and so on.</p>
+					<h2>What is XHTML?</h2>
+
+          <p>XHTML is a variant of HTML that uses the syntax of XML, the Extensible Markup Language. XHTML has all the same 
+          elements (for paragraphs, etc.) as the HTML variant, but the syntax is slightly different. Because XHTML is an 
+          XML application, you can use other XML tools with it (such as XSLT, a language for transforming XML content).</p>
+
+					<h2>What is CSS?</h2>
+
+					<p>CSS is the language for describing the presentation of Web pages, including colors, layout, and fonts. It allows 
+          to adapt the presentation to different types of devices, such as large screens, small screens, or printers. CSS is 
+          independent of HTML and can be used with any XML-based markup language. The separation of HTML from CSS makes it 
+          easier to maintain sites, share style sheets across pages, and tailor pages to different environments. This is 
+          referred to as the separation of structure (or: content) from presentation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt">
+    <div class="content">
+    	<div class="sidebar l posr">
+          <h2 class="category">Flexible Box</h2>
+          <p>Flexible Box use class <code>css3_flexbox</code></p>
+      	</div>
+      
+      <div class="main mainRight posr">
+		<h1 class="entryTitle">Flexible Box</h1>
+        <div class="entry css3_flexbox wf-100 h-10 mainBox">  
+        	<div class="bglr h-10"></div>
+          <div class="bglb h-10"></div>
+          <div class="bglg h-10"></div>
+        </div>
+      </div>
+
+	    <footer class="footer socialFooter c borderTop">
+	      <p class="bottom pt pb">Copyright 2010-2013 Web Development Machine All rights reserved.</p>
+	    </footer>
+    </div>
+  </div>
+</body>
+</html>

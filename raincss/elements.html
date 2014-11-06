@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+  <title>Blueprint HTML Elements Tests</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="css/rain.css" type="text/css" media="all" />
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+</head>
+  <body class="showgrid">
+		<div class="header headerBlue">
+  	<nav class="lsn posr clearfix">
+    	<a href="http://www.webdevelopmentmachine.com" class="headerLink headerLinkBlue l pr pl ib tdn">首页 home</a>
+    	<a href="http://www.webdevelopmentmachine.com/blog" class="headerLink headerLinkBlue l pr pl ib tdn">博客 blog</a>
+    	<a href="http://www.webdevelopmentmachine.com/demo/game.html" class="headerLink headerLinkBlue l pr pl ib tdn">游戏 game</a>
+    </nav>
+		</div>
+		<div class="headerM headerGrey">
+		  <div class="container posr">
+		    <div class="l"><a class="tdn block ptll fsxxl" href="index.html">Rain CSS</a></div>
+		  </div>
+		</div>
+    <div class="container mt">
+      <h2>测试通用html元素 Tests for common HTML elements</h2>
+      <hr>
+      <h5>段落和盒子 PARAGRAPHS <span class="alt">&amp;</span> BOXES</h5>
+      <div class="span-8">
+        <p>Rain css是一个基于单个css对象的前端框架,所有的单个css对象在screen.css和rain.css里面,所以的对象可以直接拿来调用,并且其完全支持css3, rain css的reset和基本html元素部分使用 blueprint框架.</p>
+        <p>Rain css is a CSS Object oriented implementing,and all object are set in screen.css and rain.css,so you can only invoke it now and it support all css3 properties, and the reset css use blueprint framework.</p>
+      </div>
+
+      <div class="span-8">
+        <p class="small">使用class<code>small</code>,可以说文本内容在视觉上显得更小. Use class <code>small</code>,can make the text more small in visual.</p>
+        <p class="large">而是用class <code>large</code>,则是的文本比普通显示的文本更大. Use class <code>large</code>,let the text more larger than common text.</p>
+      </div>
+
+      <div class="span-8 last">
+        <div class="box">
+          <p class="bottom">Class<code>box</code> 则显示一个淡灰色的内容块,在页面其可以起到着重提示的作用. Class<code>box</code> can show a content box with color light blue,and in a page it can tip the important content.</p>
+        </div>
+        <blockquote> 使用<code>&lt;blockquote&gt;</code>标签则可以标记那些需要用来引用的内容  Use <code>&lt;blockquote&gt;</code> tag,can mark the content that references to other article.
+        </blockquote>
+        <blockquote class="pull-right">使用 <code>&lt;blockquote class="pull-right"&gt;</code> 则将引用的竖线标识挪到内容的右边 
+        </blockquote>
+
+      </div>
+      <hr>
+
+      <h5>列表元素 LISTS</h5>
+      <div class="span-8">
+        <ul>
+          <li><code>&lt;ul&gt;</code>无序列表 Unordered list test</li>
+          <li>Another list element.</li>
+          <li>Yet another element in the list</li>
+          <li>Some long text.</li>
+        </ul>
+        <ol>
+          <li><code>&lt;ol&gt;</code>有序列表 Ordered list test</li>
+          <li>Another list element</li>
+          <li>Yet another element in the list</li>
+        </ol>
+      </div>
+
+      <div class="span-8">
+        <ol>
+          <li>有序列表Ordered list</li>
+          <li>内嵌无序列表Here's a nested unordered list
+          <ul>
+            <li>内嵌无序列表Nested Unordered list</li>
+            <li>内嵌有序列表Nested ordered list
+            <ol>
+              <li>The first</li>
+              <li>And the second</li>
+            </ol>
+            </li>
+          </ul>
+          </li>
+          <li>有序列表Ordered List item</li>
+          <li>内嵌有序列表Nested Ordered list
+          <ol>
+            <li>Some point</li>
+            <li>Nested Unordered list
+            <ul>
+              <li>The first</li>
+              <li>And the second</li>
+            </ul>
+            </li>
+          </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div class="span-8 last">
+      	<p><code>&lt;dl&gt;</code>自定义列表definition list</p>
+        <dl>
+          <dt><code>&lt;dt&gt;</code>定义的条目definition term</dt>
+          <dd><code>&lt;dd&gt;</code>定义的描述definition description</dd>
+          <dt>definition list dt</dt>
+          <dd>definition list dd</dd>
+          <dt>Rain CSS framework</dt>
+          <dd>Rain CSS framework</dd>
+          <dt>Rain CSS framework</dt>
+          <dd>Rain CSS framework</dd>
+        </dl>
+      </div>
+      <hr>
+
+      <h5>标题 HEADINGS</h5>
+      <div class="span-8">
+        <h1>H1: Rain CSS framework</h1>
+        <h2>H2: Rain CSS framework</h2>
+        <h3>H3: Rain CSS framework</h3>
+        <h4>H4: Rain CSS framework</h4>
+        <h5>H5: Rain CSS framework</h5>
+        <h6>H6: Rain CSS framework</h6>
+      </div>
+
+      <div class="span-8">
+        <h1>Heading 1</h1><hr>
+        <h2>Heading 2</h2><hr>
+        <h3>Heading 3</h3><hr>
+        <h4>Heading 4</h4><hr>
+        <h5>Heading 5</h5><hr>
+        <h6>Heading 6</h6>
+      </div>
+
+      <div class="span-8 last">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
+      <hr>
+
+      <h5>杂项元素 Miscellaneous ELEMENTS</h5>
+      <div class="span-8">
+        <p>
+          <strong>&lt;strong&gt;</strong><br>
+          <del>&lt;del&gt; deleted</del><br>
+          <dfn>&lt;dfn&gt; dfn</dfn><br>
+          <em>&lt;em&gt; emphasis</em>
+        </p>
+        <p>
+          <a>&lt;a&gt; anchor</a><br>
+          <a href="http://www.google.com">&lt;a&gt; a + href</a>
+        </p>
+        <p>
+          <abbr title="extended abbr text should show when mouse over">&lt;abbr&gt; abbr - extended text when mouseover.</abbr><br>
+          <acronym title="extended acronym text should show when mouse over">&lt;acronym&gt; acronym - extended text when mouseover.</acronym>
+        </p>
+        <address>
+          &lt;address&gt;<br>
+          唐老鸭Donald Duck<br>
+          555区 Box 555<br>
+          迪士尼Disneyland
+        </address>
+      </div>
+
+      <div class="span-8">
+        <table summary="This is the summary text for this table."  border="0" cellspacing="0" cellpadding="0">
+          <caption><em>带有caption,tr,td的标准table元素 A standard test table with a caption, tr, td elements</em></caption>
+          <tr>
+            <th class="span-4">Table Header One</th>
+            <th class="span-4 last">Table Header Two</th>
+          </tr>
+          <tr>
+            <td>TD One</td>
+            <td>TD Two</td>
+          </tr>
+          <tr>
+            <td colspan="2">TD colspan 2</td>
+          </tr>
+        </table>
+
+        <table summary="This is the summary text for this table."  border="0" cellspacing="0" cellpadding="0">
+          <caption><em>带有thead, tfoot, 和 tbody的标准table元素 A test table with a thead, tfoot, and tbody elements</em></caption>
+          <thead>
+            <tr>
+              <th class="span-4">Table Header One</th>
+              <th class="span-4 last">Table Header Two</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="2">tfoot footer</td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>TD One</td>
+              <td>TD Two</td>
+            </tr>
+            <tr>
+              <td>TD One</td>
+              <td>TD Two</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="span-8 last">
+<pre>&lt;pre&gt;标签保留文本内容里面的空格
+pre  space1空格1
+pre    space2空格2
+pre tab制表</pre>
+
+<code>&lt;code&gt;标签则没有任何的缩进 Not indented 
+indent1 
+indent2 
+indent3</code>
+<br/>
+        <tt>&lt;tt&gt;tt标签下的文本必须等宽并且始终显示一行甚至是文本有换行空格和制表符
+          This tt text should be monospaced
+          and
+          wrap as if
+          one line of text
+          even though the code has newlines, spaces, and tabs.
+          It should be the same size as &lt;p&gt; text.
+        </tt> 
+      </div>
+      <hr/>
+			<h5>文本元素的字体属性 Text Element font property</h5>
+			<div class="span-13 border">
+				<p class="fn">text with class <code>fn</code></p>
+				<p class="fi">text with class <code>fi</code></p>
+				<p class="fo">text with class <code>fo</code></p>
+				<p class="fv">text with class <code>fv</code></p>
+				<p class="fwn">text with class <code>fwn</code></p>
+				<p class="bord">text with class <code>bord</code> or <code>strong</code></p>
+				<p class="fborder">text with class <code>fborder</code></p>
+				<p class="lighter">text with class <code>lighter</code></p> 
+				<p class="fsxxs">text with class <code>fsxxs</code></p>
+				<p class="fsxs">text with class <code>fsxs</code></p>
+				<p class="fss">text with class <code>fss</code></p>
+				<p class="fsm">text with class <code>fsm</code> or <code>fontsizeMedium</code></p>
+				<p class="fsl">text with class <code>fsl</code> or <code>fontsizeLarge</code></p>
+				<p class="fsxl">text with class <code>fsxl</code></p>
+				<p class="fsxxl">text with class <code>fsxxl</code></p>
+			</div>
+			<div class="span-12 border last">
+				<p class="tdn">text with class <code>tdn</code></p>
+				<p class="textDecUnder">text with class <code>textDecUnder</code></p>
+				<p class="textDecOver">text with class <code>textDecOver</code></p>
+				<p class="textDecThough">text with class <code>textDecThough</code></p>
+				<p><span class="valignBase">text</span> with class <code>valignBase</code></p>
+				<p><span class="valignSub">text</span> with class <code>valignSub</code></p>
+				<p><span class="valignSuper">text</span> with class <code>valignSuper</code></p>
+				<p><span class="valignTop">text</span><span class="fs-2">with</span> class <code>valignTop</code></p>
+				<p><span class="valignTtop">text</span> with class <code>valignTtop</code></p>				
+				<p><span class="valignMiddle">text</span> with class <code>valignMiddle</code></p>					
+				<p><span class="valignBottom">text</span> with class <code>valignBottom</code></p>				
+				<p><span class="valignTbottom">text</span> <span class="fs-2">with</span> class <code>valignTbottom</code></p>				
+				<p><span class="tTransCap">text</span> with class <code>tTransCap</code></p>	
+				<p><span class="tTransUpper">text</span> with class <code>tTransUpper</code></p>
+				<p><span class="tTransLower">TEXT</span> with class <code>tTransLower</code></p>
+				<p class="tal">text with class <code>tal</code></p>
+				<p class="tar">text with class <code>tar</code></p>
+				<p class="tac">text with class <code>tac</code></p>
+				<p class="ti">text with class <code>ti</code></p>
+			</div>
+			<hr/>
+			<h5>带图标的链接 Links with icons</h5>
+            <div>
+            <a href="#" class="w-10 h-2 block"><img src="images/wdm_logo.jpg" class="l marginRightS" /><em>web DM</em></a>
+            </div>
+			<h5>文本元素字体大小 Text Element font size</h5>
+			<div>
+				<p class="fs-1 bottom">text with class <code>fs-1</code></p> 
+				<p class="fs-2 bottom">text with class <code>fs-2</code></p> 
+				<p class="fs-3 bottom">text with class <code>fs-3</code></p> 
+				<p class="fs-4 bottom">text with class <code>fs-4</code></p> 
+				<p class="fs-5 bottom">text with class <code>fs-5</code></p> 
+				<p class="fs-6 bottom">text with class <code>fs-6</code></p> 
+				<p class="fs-7 bottom">text with class <code>fs-7</code></p>
+				<p class="fs-8 bottom">text with class <code>fs-8</code></p>  
+				<p class="fs-9 bottom">text with class <code>fs-9</code></p> 
+				<p class="fs-10 bottom">text with class <code>fs-10</code></p>
+			</div> 
+      <hr/>
+
+      <footer class="footer socialFooter c borderTop">
+        <p class="bottom pt pb">Copyright 2010-2014 Web Development Machine All rights reserved.</p>
+      </footer> 
+      <p>
+        <a href="http://validator.w3.org/check?uri=referer">
+          <img src="images/valid.png" alt="Valid HTML 4.01 Strict" height="31" width="88" class="top"/>
+        </a>
+      </p>
+    </div>
+  </body>
+</html>

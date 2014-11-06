@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rain CSS > Dialog</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+<!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+</head>
+
+<body class="body" id="body">
+	<div class="header headerBlue">
+  	<nav class="lsn posr clearfix">
+    	<a href="http://www.webdevelopmentmachine.com" class="headerLink headerLinkBlue l pr pl ib tdn">首页home</a>
+    	<a href="http://www.webdevelopmentmachine.com/blog" class="headerLink headerLinkBlue l pr pl ib tdn">博客blog</a>
+    	<a href="http://www.webdevelopmentmachine.com/demo/game.html" class="headerLink headerLinkBlue l pr pl ib tdn">游戏game</a>
+    </nav>
+  </div>
+	<div class="headerM headerGrey">
+  	<div class="container posr">
+    	<div class="l"><a class="tdn block ptll fsxxl" href="index.html">Rain CSS</a></div>
+    </div>
+  </div>
+  
+	<div class="container mt">
+    <div class="content">
+    	<div class="sidebar l posr">
+      	<h2 class="category">弹出框组件</h2>
+      	<p>弹出框部分由js控制一个页面弹框,可以设置弹出框的头部,内容和按钮</p>
+      	<h2 class="category">Dialog component</h2>
+      	<p>This part is the dialog component,js can create the dialog,and set the head conent and buttons</p>
+      </div>
+      <div class="main mainRight posr">
+    	<h1>弹出框 Dialogs</h1>
+      </div>
+      
+      <footer class="footer socialFooter c borderTop">
+        <p class="bottom pt pb">Copyright 2010-2014 Web Development Machine All rights reserved.</p>
+      </footer> 
+    </div>
+  </div>
+  
+<div class="dialogWrap posf oa hide"> 
+	<div class="c_boxfade dialogWrapIE opacity posa"></div>
+	<!-- The common dialog box -->
+    <div class="dialogBoxSize sogrey ts dialogBox posa">
+      <div class="p bgrey_1b">
+      	<h3 class="bottom">Dialog Box</h3>
+        <span class="close block posa oh tac bord">X</span>
+      </div>
+      <div class="dialogMsg m">this place for content</div>
+      <p class="pl pr tar">
+      <input type="button" class="hm" value="Submit"/>
+      <input type="button" class="hm" value="Cancel"/>      
+      </p>
+    </div>
+	<!-- The dialog box with css3 effect -->
+    <div class="dialogBoxSize dialogBox2 sogrey ts posa round">
+      <div class="p bgrey_1b">
+      	<h3 class="bottom">Dialog Box with CSS3</h3>
+        <span class="close block posa oh tac bord">X</span>
+      </div>
+      <div class="dialogMsg m">this place for content</div>
+      <p class="pl pr tar">
+      <input type="button" class="hl wl rounds gb btn bluebtn" value="Submit"/>
+      <input type="button" class="hl wl rounds ggrey bgrey_2 btn greybtn " value="Cancel"/>      
+      </p>
+    </div>
+    
+	<!-- The dialog box with css3 effect -->
+    <div class="dialogBoxSize dialogBox3 sogrey ts posa round">
+      <div class="p bgrey_1b gg roundt">
+      	<h3 class="bottom">Dialog Box with CSS3</h3>
+        <span class="close block posa oh tac bord">X</span>
+      </div>
+      <div class="dialogMsg m">this place for content</div>
+      <p class="pl pr tar">
+      <input type="button" class="hl wl rounds gb btn bluebtn" value="Submit"/>
+      <input type="button" class="hl wl rounds ggrey bgrey_2 btn greybtn " value="Cancel"/>      
+      </p>
+    </div>
+</div>
+
+<div class="c_testwrap hide">
+    <div class="dialogMsg m">这里是弹出框内容</div>
+</div>
+<div class="c_testwrap2 hide">
+      <div class="dialogMsg m">这是第二个弹出框</div>
+</div>
+<div class="c_testwrap3 hide" id='c_testwrap3'>
+      <div class="dialogMsg m">这是第三个弹出框</div>
+</div>
+<!-- script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.7.2/jquery.min.js"></script -->
+<!--<script src="js/lib/require.js" data-main="js/dialogmain"></script>-->
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/util.js"></script>
+<script src="js/jquery.dialog.js"></script>
+<script>
+b =new dialog({
+  top:'10%',
+  draggable: true,
+  titleText:"hello dialog 2",
+  dialogStyle:{"border":"8px solid #ededed"},
+  titleStyle:{"background":"#F5F5F5"},
+  btnsWrapStyle:{'text-align':'right'},
+  buttonsClass:["hs rounds gb btn bluebtn","hs rounds ggrey btn greybtn ml"],
+  closeCallback: function(){},
+  buttons:"OKCancel",
+  content:$(".c_testwrap2"),
+  beforeShow:function(e){
+    var t = util.getTitle();
+    if(!util.state()){
+      util.pushState({data:{name:'show',obj:'b'},title:t,url:'?show'});
+    }else{
+      util.replaceState({data:{name:'show',obj:'b'},title:t,url:'?show'});
+    }
+  },
+  beforeClose:function(e){ },
+  afterClose:function(e){history.back();},
+  upload: false
+});
+util.registerStateChange(function(){
+  if(!util.state() && b){b.close();}else{b._show();}
+});
+util.initObjByUrl(b);
+//util.augment(c,b);
+b.show();
+</script>
+</body>
+</html>

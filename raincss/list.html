@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rain CSS > List</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+<!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<script type="text/javascript" src='js/jquery-1.7.2.js'></script>
+<style type="text/css">
+.filter input[type='text']{margin: 0;padding: 0;min-height: 36px;line-height: 26px;width: 100%;}
+.filter .iconbtn-left{top: 8px;left:8px;}
+.filter .iconbtn-right{top: 8px;right:8px;}
+.round-20,.css3_round-20 {
+    -moz-border-radius: 20px; /* FF1+ */
+    -webkit-border-radius: 20px; /* Saf3+, Chrome */
+    border-radius: 20px; /* Opera 10.5, IE 9 */
+}
+</style>
+</head>
+<body class="body">
+	<div class="header headerBlue">
+  	<nav class="lsn posr clearfix">
+    	<a href="http://www.webdevelopmentmachine.com" target='_blank' class="headerLink headerLinkBlue l pr pl ib tdn">首页home</a>
+    	<a href="http://www.webdevelopmentmachine.com/blog" target='_blank' class="headerLink headerLinkBlue l pr pl ib tdn">博客blog</a>
+    	<a href="http://www.webdevelopmentmachine.com/demo/game.html" target='_blank' class="headerLink headerLinkBlue l pr pl ib tdn">游戏game</a>
+    </nav>
+  </div>
+	<div class="headerM headerGrey">
+  	<div class="container posr">
+    	<div class="l"><a class="tdn block ptll fsxxl" href="index.html">Rain CSS</a></div>
+    </div>
+  </div>
+  
+	<div class="container mt">
+    <div class="pt">
+        <div class="sidebar l posr">
+            <h2 class="category">Basic list</h2>
+            <p>Basic list</p>
+        </div>
+
+        <div class="main mainRight posr">
+            <h1>Basic List</h1>
+			<ul class="rounds border lsn nop norm">
+				<li class="css3_round_topS borderBottom">
+					<a class="block heightL tdn pl pr css3_round_topS" href="#">Home</a>
+				</li>
+				<li class="borderBottom">
+					<a class="block heightL tdn pl pr hoverlgrey itemColorBlack" href="#">Profile</a>
+				</li>
+				<li class="css3_round_bottomS">
+					<a class="block heightL tdn pl pr hoverlgrey itemColorBlack css3_round_bottomS" href="#">Messages</a>
+				</li>
+			</ul>
+			
+			<ul class="lsn mt">
+				<li class="bgWhite marginBottomSS">
+					<a class="block heightL bgBlue rounds tdn pl pr colorWhite" href="#">Home</a>
+				</li>
+				<li class="bgWhite marginBottomSS"><a class="block heightL rounds tdn pl pr hoverlgrey itemColorBlack" href="#">Profile</a></li>
+				<li class="bgWhite"><a class="block heightL rounds tdn pl pr hoverlgrey itemColorBlack" href="#">Messages</a></li>
+			</ul>
+			
+			<h2>Nav list</h2>				
+			<ul class="rounds border bgLightGrey lsn noLeftPadding pt pb norm css3_text_shadow">
+				<li><a class="block colorGrey strong heightS tdn pl pr" href="#">List header</a></li>
+				<li><a class="block heightS bgBlue tdn pl pr colorWhite" href="#">Home</a></li>
+				<li><a class="block heightS tdn pl pr itemLightGrey2 itemColorBlack" href="#">Library</a></li>
+				<li><a class="block heightS tdn pl pr itemLightGrey2 itemColorBlack" href="#">Apps</a></li>
+				<li><a class="block colorGrey strong heightS tdn pl pr" href="#">Another List header</a></li>
+				<li><a class="block heightS tdn pl pr itemLightGrey2 itemColorBlack" href="#">Profile</a></li>
+				<li><a class="block heightS tdn pl pr itemLightGrey2 itemColorBlack" href="#">Messages</a></li>
+			</ul>
+        </div> 
+		</div>
+		<div class="paddingTop">
+			<div class="sidebar l posr">
+				<h2 class="category">List for Mobile</h2>
+				<p>This part list are use for mobile device</p>
+			</div>
+			<div class="main mainRight posr">
+				<h1>List for Mobile</h1>
+				<fieldset>
+					<legend>Basic List</legend>
+                    <ul id="group-H">
+                    </ul>
+                    <ul id="group-V">
+                    </ul>
+                    <div class="filter mt" id="filter">
+                        <ul id="filterUL">
+                        </ul>
+                    </div>
+				</fieldset>
+			</div>
+	      <footer class="footer socialFooter c borderTop">
+	        <p class="bottom pt pb">Copyright 2010-2014 Web Development Machine All rights reserved.</p>
+	      </footer>
+		</div>
+	</div>
+	<script type="text/javascript" src='js/jquery.group.js'></script>
+    <script type="text/javascript">
+    (function ($) {
+        $.extend({
+            'Filter': function (opt) {
+                var opts = $.extend({
+                    filter: '#filter', //搜索盒子
+                    filterClass: 'bl bright bt bb round-20',  // 搜索框的样式
+                    inputClass: '', //输入框的样式
+                    event: 'input propertychange', //事件
+                    placeholder: 'Search fruits...',  //占位符
+                    callback: $.noop
+                }, {}, opt);
+                var _filter = $(filter);
+                var _search, _close,_ul;
+                var event = opts.event;
+                var mark = true;
+
+                /**
+                 * 封装的搜索对象
+                 */
+                var F = {
+                    /**
+                     * 初始UI
+                     */
+                    initUI: function () {
+                        var filter = '<div class="search posr pl-3 pr-3 mb ' + opts.filterClass + '">'
+                                + '<input class="nob nom nob ' + opts.inputClass + '" type="text" placeholder="' + opts.placeholder + '"/>'
+                                + '<span class="micon iconbtn-left ib bggrey roundall tac posa"><i class="icon-search icon-white"></i></span>'
+                                + '<span class="fclose micon iconbtn-right ib bggrey roundall tac posa hide"><i class="icon-remove icon-white"></i></span></div>';
+                        _filter.prepend($(filter));
+
+                        _search = _filter.find("input[type='text']");
+                        _close = _filter.find('.fclose');
+                    },
+                    /**
+                     *根据条件处理list的状态
+                     * @param  {[bool]} f [判断条件]
+                     */
+                    ulStatic: function (f) {
+                        f ? _ul.show() : _ul.hide();
+                    },
+                    /**
+                     * 关联list，绑定相关事件。
+                     * @param  {[object]} l [list 对象]
+                     */
+                    join: function (g) {
+                        if(Object.prototype.toString.call(g) === '[object Object]'){
+                            _search.on(event, function () {
+                                _ul=_filter.find('ul');
+                                var str = $(this).attr('value');
+                                var _item = _filter.find('li');
+                                F.ulStatic(true);
+                                mark = false;
+                                str == '' ? _close.hide() : _close.show();
+                                _item.each(function (i) {
+                                    if (!$.trim(_item.eq(i).text()).indexOf(str)) {
+                                        _item.eq(i).show();
+                                        mark = true;
+                                    } else {
+                                        _item.eq(i).hide();
+                                    }
+                                });
+                                F.ulStatic(mark);
+                            });
+                            _close.on('click', function () {
+                                _ul.show().find('li').show();
+                            });
+                        }
+                    },
+                    /**
+                     * 绑定事件
+                     */
+                    bindEvent: function () {
+                        _search.on(event, function () {
+                            var str = $(this).attr('value');
+                            str == '' ? _close.hide() : _close.show();
+                        });
+                        _close.on('click', function () {
+                            _search.attr({value: ''});
+                            _close.hide();
+                        });
+                    },
+                    callback:function(){
+                        return opts.callback();
+                    },
+                    /**
+                     * 初始化
+                     */
+                    init: function () {
+                        this.initUI();
+                        this.bindEvent();
+                        this.callback();
+                    }
+                };
+
+                F.init();
+                return F;
+            }
+        });
+    })(jQuery);
+
+    var gh = new $.group({
+        groupSelector: "#group-H",
+        align: 'horizontal',
+        icon: true,
+        childObj: ['item1', 'item2', 'item3']
+    });
+    var gv = new $.group({
+        groupSelector: "#group-V",
+        align: 'vertical',
+        icon: true,
+        childObj: ['item1', 'item2', 'item3']
+    });
+    var fg = new $.group({
+        groupSelector: "#filterUL",
+        align: 'vertical',
+        childObj: ['apple', 'banana', 'paech']
+    });
+    var f = new $.Filter();
+    f.join(fg);
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+<title>Rain CSS > Form</title>
+<!-- Framework CSS -->
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
+<!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+<link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+</head>
+
+<body class="body">
+	<div class="header headerBlue">
+  	<nav class="lsn posr clearfix">
+    	<a href="http://www.webdevelopmentmachine.com" class="headerLink headerLinkBlue l pr pl ib tdn">首页home</a>
+    	<a href="http://www.webdevelopmentmachine.com/blog" class="headerLink headerLinkBlue l pr pl ib tdn">博客blog</a>
+    	<a href="http://www.webdevelopmentmachine.com/demo/game.html" class="headerLink headerLinkBlue l pr pl ib tdn">游戏game</a>
+    </nav>
+  </div>
+	<div class="headerM headerGrey">
+  	<div class="container posr">
+    	<div class="l"><a class="block tdn ptll fsxxl" href="index.html">Rain CSS</a></div>
+    </div>
+  </div>
+  
+	<div class="container marginTop"> 
+    <div class="content">
+    	<div class="sidebar l posr">
+      	<h2 class="category">设置css2样式的表单</h2>
+      	<p>该部分样例来自blueprint框架,并且扩展了其他的常用css对象.input元素的width可以使用class w-数值.</p>
+      	<h2 class="category">Web Form with CSS2</h2>
+      	<p>This part forms example from blueprint framwork,and extend it with other useful css objects.The input width can 
+      	use class w-nember.</p>
+      </div>
+      <div class="main mainRight posr">
+    	<h1>表单 Forms</h1>
+        <form id="dummy" action="" method="post">
+          <fieldset>
+            <legend>表单示例 Sample Form</legend>
+            <p>
+              <label for="dummy0">Text input (title)</label><br>
+              <input type="text" class="title" name="dummy0" id="dummy0" value="Field with class .title" />
+            </p>
+
+            <p>
+              <label for="dummy1">Another field</label><br>
+              <input type="text" class="text" id="dummy1" name="dummy1" value="Field with class .text"/>
+            </p>
+
+            <p>
+              <label for="dummy2">Textarea</label><br>
+              <textarea name="dummy2" id="dummy2" rows="5" cols="20"></textarea>
+            </p>
+
+            <p>
+              <label for="dummy3">A password field</label><br>
+              <input type="password" class="text" id="dummy3" name="dummy3" value="Password"/>
+            </p>
+
+            <p>
+              <input type="submit" value="Submit">
+              <input type="reset" value="Reset">
+            </p>
+
+          </fieldset>
+        </form> 
+        <div class="error">
+          This is a &lt;div&gt; with the class <strong>.error</strong>. <a href="#">Link</a>.
+        </div>
+        <div class="notice">
+          This is a &lt;div&gt; with the class <strong>.notice</strong>. <a href="#">Link</a>.
+        </div>
+        <div class="info">
+          This is a &lt;div&gt; with the class <strong>.info</strong>. <a href="#">Link</a>.
+        </div>
+        <div class="success">
+          This is a &lt;div&gt; with the class <strong>.success</strong>. <a href="#">Link</a>.
+        </div>
+
+        <fieldset>
+          <legend>下拉框,多选框,列表 Select, checkboxes, lists</legend>
+
+          <p>
+            <label for="dummy3">Select field</label><br>
+            <select id="dummy3" name="dummy3">
+              <option value="1">Ottawa</option>
+              <option value="2">Calgary</option>
+              <option value="3">Moosejaw</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="dummy4">Select with groups</label><br>
+            <select id="dummy4" name="dummy4">
+              <option>Favorite pet</option>
+              <optgroup label="mammals">
+                <option>dog</option>
+                <option>cat</option>
+                <option>rabbit</option>
+                <option>horse</option>
+              </optgroup>
+              <optgroup label="reptiles">
+                <option>iguana</option>
+                <option>snake</option>
+              </optgroup>
+            </select>
+          </p>
+
+          <p><label>Radio buttons</label><br>
+            <input type="radio" name="example"> Radio one<br>
+            <input type="radio" name="example"> Radio two<br>
+            <input type="radio" name="example"> Radio three<br>
+          </p>
+
+          <p><label>Checkboxes</label><br>
+            <input type="checkbox"> Check one<br>
+            <input type="checkbox"> Check two<br>
+            <input type="checkbox"> Check three<br>
+          </p>
+        </fieldset>
+        
+        <fieldset>
+          <legend>对齐方式一 Alignment One</legend>
+          <p>
+            <label for="dummy5">Select field</label>
+            <select id="dummy5" name="dummy5">
+              <option value="1">Ottawa</option>
+              <option value="2">Calgary</option>
+              <option value="3">Moosejaw</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="dummy6">Text input (title)</label>
+            <input type="text" class="title" name="dummy6" id="dummy6" value="Field with class .title">
+          </p>
+
+          <p>
+            <label for="dummy7">Select field</label>
+            <select id="dummy7" name="dummy7">
+              <option value="1">Ottawa</option>
+              <option value="2">Calgary</option>
+              <option value="3">Moosejaw</option>
+            </select>
+            <label for="dummy8">Another field</label>
+            <input type="text" class="text" id="dummy8" name="dummy8" value="Field with class .text">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>对齐方式二 Alignment Two</legend>
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="dummy9">Select field</label>
+            <select id="dummy9" name="dummy9" class="marginTopL">
+              <option value="1">Ottawa</option>
+              <option value="2">Calgary</option>
+              <option value="3">Moosejaw</option>
+            </select>
+          </p>
+
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="dummy10">Text input (title)</label>
+            <input type="text" class="title" name="dummy6" id="dummy10" value="Field with class .title">
+          </p> 
+
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="dummy11">Field 1</label>
+            <input type="text" class="text" id="dummy8" name="dummy11" value="Field with class .text">
+          </p>
+          
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="dummy12">Textarea</label>
+            <textarea name="dummy2" class="commonTextarea" id="dummy12" rows="5" cols="20"></textarea>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>表单状态 Form states</legend>
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="warning_bg">Input with warning(bg)</label>
+            <input type="text" class="text bgLightYellow" name="warning_bg" id="warning_bg" value="Field with class .text and .bgLightYellow"/>
+          </p> 
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="error_bg">Input with error(bg)</label>
+            <input type="text" class="text bgLightRed" name="error_bg" id="error_bg" value="Field with class .text and .bgLightRed"/>
+          </p> 
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="success_bg">Input with success(bg)</label>
+            <input type="text" class="text bgLightGreen" name="success_bg" id="success_bg" value="Field with class .text and .bgLightGreen"/>
+          </p> 
+
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="warning_border">Input warning(border)</label>
+            <input type="text" class="text borderYellow" id="warning_border" name="warning_border" value="Field with class .text and .borderYellow"/>
+          </p>
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="error_border">Input error(border)</label>
+            <input type="text" class="text borderRed" id="error_border" name="error_border" value="Field with class .text and .borderRed"/>
+          </p>
+          <p class="clearfix">
+            <label class="commonLable m-15 l tar" for="success_border">Input success(border)</label>
+            <input type="text" class="text borderGreen" id="success_border" name="success_border" value="Field with class .text and .borderGreen"/>
+          </p>
+
+          <p class="clearfix bgLightYellow paddingTop">
+            <label class="commonLable m-15 l tar" for="warning_wrap">Input warning(wrap)</label>
+            <input type="text" class="text" id="warning_wrap" name="warning_wrap" value="Field with class .text"/>
+          </p> 
+					<p class="clearfix bgLightRed paddingTop">
+            <label class="commonLable m-15 l tar" for="warning_wrap">Input error(wrap)</label>
+            <input type="text" class="text" id="warning_wrap" name="warning_wrap" value="Field with class .text"/>
+          </p>
+					<p class="clearfix bgLightGreen paddingTop">
+						<label class="commonLable m-15 l tar" for="warning_wrap">Input success(wrap)</label>
+						<input type="text" class="text" id="warning_wrap" name="warning_wrap" value="Field with class .text"/>
+					</p>
+        </fieldset>
+
+				<fieldset>
+					<legend>表单任意尺寸 Form free sizes</legend>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_1">Field w-1</label>
+						<input type="text" class="ps w-1" id="field_width_1" name="field_width_1" value="Field with class .ps .w-1"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_2">Field w-2</label>
+						<input type="text" class="ps w-2" id="field_width_2" name="field_width_2" value="Field with class .ps .w-2"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_6">Field w-6</label>
+						<input type="text" class="ps w-6" id="field_width_6" name="field_width_6" value="Field with class .ps .w-6"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_10">Field w-10</label>
+						<input type="text" class="ps w-10" id="field_width_10" name="field_width_10" value="Field with class .ps .w-10"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_14">Field w-14</label>
+						<input type="text" class="ps w-14" id="field_width_14" name="field_width_14" value="Field with class .ps .w-14"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_18">Field w-18</label>
+						<input type="text" class="ps w-18" id="field_width_18" name="field_width_18" value="Field with class .ps .w-18"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_22">Field w-22</label>
+						<input type="text" class="ps w-22" id="field_width_22" name="field_width_22" value="Field with class .ps .w-22"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_26">Field w-26</label>
+						<input type="text" class="ps w-26" id="field_width_26" name="field_width_26" value="Field with class .ps .w-26"/>
+					</p>
+					<p class="clearfix">
+						<label class="commonLable m-15 l tar" for="field_width_30">Field w-30</label>
+						<input type="text" class="ps w-30" id="field_width_30" name="field_width_30" value="Field with class .ps .w-30"/>
+					</p>
+				</fieldset>
+      </div> 
+    </div>
+
+    <div class="pt">
+    	<div class="sidebar l posr">
+      	<h2 class="category">使用css3的表单</h2>
+      	<p>这部分使用css3来增强表单效果</p>
+      	<h2 class="category">Web Form with CSS3</h2>
+      	<p>This part forms use css3 to enhance effect</p>
+      </div>
+      <div class="main mainRight posr">
+              <h1>Forms</h1>
+              <form id="dummy" action="" method="post">
+                <fieldset>
+                  <legend>Sample Form</legend>
+                  <p>
+                    <label for="dummy0">Text input (title)</label><br>
+                    <input type="text" class="title rounds inputg sg" name="dummy0" id="dummy0" value="Field with class .title .rounds .sg .inputg .sg" />
+                  </p>
+      
+                  <p>
+                    <label for="dummy1">Another field</label><br>
+                    <input type="text" class="text rounds inputg sg" id="dummy1" name="dummy1" value="Field with class .text .rounds .sg .inputg .sg"/>
+                  </p>
+      
+                  <p>
+                    <label for="dummy2">Textarea</label><br>
+                    <textarea name="dummy2" class="rounds inputg sg" id="dummy2" rows="5" cols="20"></textarea>
+                  </p>
+      
+                  <p>
+                    <label for="dummy3">A password field</label><br>
+                    <input type="password" class="text rounds inputg sg" id="dummy3" name="dummy3" value="Password"/>
+                  </p>
+      
+                  <p>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                  </p>
+      
+                </fieldset>
+              </form> 
+              <div class="error rounds">
+                This is a &lt;div&gt; with the class <strong>.error</strong>. <a href="#">Link</a>.
+              </div>
+              <div class="notice rounds">
+                This is a &lt;div&gt; with the class <strong>.notice</strong>. <a href="#">Link</a>.
+              </div>
+              <div class="info rounds">
+                This is a &lt;div&gt; with the class <strong>.info</strong>. <a href="#">Link</a>.
+              </div>
+              <div class="success rounds">
+                This is a &lt;div&gt; with the class <strong>.success</strong>. <a href="#">Link</a>.
+              </div>
+      
+              <fieldset>
+                <legend>Select, checkboxes, lists</legend>
+                <p>
+                  <label for="dummy3">Select field</label><br/>
+                  <select id="dummy3" name="dummy3" class="rounds inputb ps">
+                    <option value="1">Ottawa</option>
+                    <option value="2">Calgary</option>
+                    <option value="3">Moosejaw</option>
+                  </select>
+                </p>
+      
+                <p>
+                  <label for="dummy4">Select with groups</label><br/>
+                  <select id="dummy4" name="dummy4" class="rounds inputb ps">
+                    <option>Favorite pet</option>
+                    <optgroup label="mammals">
+                      <option>dog</option>
+                      <option>cat</option>
+                      <option>rabbit</option>
+                      <option>horse</option>
+                    </optgroup>
+                    <optgroup label="reptiles">
+                      <option>iguana</option>
+                      <option>snake</option>
+                    </optgroup>
+                  </select>
+                </p>
+      
+                <p><label>Radio buttons</label><br>
+                  <input type="radio" name="example"> Radio one<br>
+                  <input type="radio" name="example"> Radio two<br>
+                  <input type="radio" name="example"> Radio three<br>
+                </p>
+      
+                <p><label>Checkboxes</label><br>
+                  <input type="checkbox"> Check one<br>
+                  <input type="checkbox"> Check two<br>
+                  <input type="checkbox"> Check three<br>
+                </p>
+              </fieldset>
+              
+              <fieldset>
+                <legend>Alignment</legend>
+                <p>
+                  <label for="dummy5">Select field</label>
+                  <select id="dummy5" name="dummy5" class="rounds inputb ps">
+                    <option value="1">Ottawa</option>
+                    <option value="2">Calgary</option>
+                    <option value="3">Moosejaw</option>
+                  </select>
+                </p>
+      
+                <p>
+                  <label for="dummy6">Text input (title)</label>
+                  <input type="text" class="title rounds inputg sg" name="dummy6" id="dummy6" value="Field with class .title .rounds .sg .inputg .sg">
+                </p>
+      
+                <p>
+                  <label for="dummy7">Select field</label>
+                  <select id="dummy7" name="dummy7" class="rounds inputb ps">
+                    <option value="1">Ottawa</option>
+                    <option value="2">Calgary</option>
+                    <option value="3">Moosejaw</option>
+                  </select>
+                  <label for="dummy8">Another field</label>
+                  <input type="text" class="text rounds inputg sg" id="dummy8" name="dummy8" value="Field with class .text .rounds .sg .inputg .sg">
+                </p>
+              </fieldset>
+      
+              <fieldset>
+                <legend>Alignment Two</legend>
+                <p class="clearfix">
+                  <label class="commonLable m-15 l tar" for="dummy9">Select field</label>
+                  <select id="dummy9" name="dummy9" class="marginTopL rounds inputb ps">
+                    <option value="1">Ottawa</option>
+                    <option value="2">Calgary</option>
+                    <option value="3">Moosejaw</option>
+                  </select>
+                </p>
+      
+                <p class="clearfix">
+                  <label class="commonLable m-15 l tar" for="dummy10">Text input (title)</label>
+                  <input type="text" class="title rounds inputg sg" name="dummy6" id="dummy10" value="Field with class .title .sg">
+                </p> 
+      
+                <p class="clearfix">
+                  <label class="commonLable m-15 l tar" for="dummy11">Field 1</label>
+                  <input type="text" class="text rounds inputg sg" id="dummy8" name="dummy11" value="Field with class .text .rounds .sg .inputg .sg">
+                </p>
+      
+                <p class="clearfix">
+                  <label class="commonLable m-15 l tar" for="dummy15">Field 2</label>
+                  <input type="text" class="text rounds sg inputb" id="dummy15" name="dummy15" value="Field with class .text .rounds .sg .inputb">
+                </p>
+                
+                <p class="clearfix">
+                  <label class="commonLable m-15 l tar" for="dummy12">Textarea</label>
+                  <textarea name="dummy2" class="commonTextarea rounds sg inputg" id="dummy12" rows="5" cols="20"></textarea>
+                </p>
+              </fieldset>
+      
+              <fieldset>
+                <legend>Form States</legend> 
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="warning_bg_2">Input with warning(bg)</label>
+                    <input type="text" class="text bgly rounds" name="warning_bg_2" id="warning_bg_2" value="Field with class .text and .bgly .rounds"/>
+                </p> 
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="error_bg_2">Input with error(bg)</label>
+                    <input type="text" class="text bglr rounds" name="error_bg_2" id="error_bg_2" value="Field with class .text and .bglr .rounds"/>
+                </p> 
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="success_bg_2">Input with success(bg)</label>
+                    <input type="text" class="text bglg rounds" name="success_bg_2" id="success_bg_2" value="Field with class .text and .bglg .rounds"/>
+                </p>
+
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="warning_border_2">Input warning(border)</label>
+                    <input type="text" class="text by rounds soy" id="warning_border_2" name="warning_border_2" value="Field with class .text .by .rounds .soy"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="error_border_2">Input error(border)</label>
+                    <input type="text" class="text br rounds sor" id="error_border_2" name="error_border_2" value="Field with class .text .br .rounds sor"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="success_border_2">Input success(border)</label>
+                    <input type="text" class="text bgreen rounds sog" id="success_border_2" name="success_border_2" value="Field with class .text .bgreen .rounds .sog"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="common_border_2">Input common(border)</label>
+                    <input type="text" class="text bblue rounds sob" id="common_border_2" name="common_border_2" value="Field with class .text .bblue .rounds .sob"/>
+                </p>
+			</fieldset>
+
+            <fieldset>
+                <legend>Form free sizes</legend>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_1">Field w-1</label>
+                    <input type="text" class="ps rounds sg inputb w-1" id="field_css3_width_1" name="field_css3_width_1" value="Field with class .ps .rounds .sg .inputb .w-1"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_2">Field w-2</label>
+                    <input type="text" class="ps rounds sg inputb w-2" id="field_css3_width_2" name="field_css3_width_2" value="Field with class .ps .rounds .sg .inputb .w-2"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_6">Field w-6</label>
+                    <input type="text" class="ps rounds sg inputb w-6" id="field_css3_width_6" name="field_css3_width_6" value="Field with class .ps .rounds .sg .inputb .w-6"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_10">Field w-10</label>
+                    <input type="text" class="ps rounds sg inputb w-10" id="field_css3_width_10" name="field_css3_width_10" value="Field with class .ps .rounds .sg .inputb .w-10"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_14">Field w-14</label>
+                    <input type="text" class="ps rounds sg inputb w-14" id="field_css3_width_14" name="field_css3_width_14" value="Field with class .ps .rounds .sg .inputb .w-14"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_18">Field w-18</label>
+                    <input type="text" class="ps rounds sg inputb w-18" id="field_css3_width_18" name="field_css3_width_18" value="Field with class .ps .rounds .sg .inputb .w-18"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_22">Field w-22</label>
+                    <input type="text" class="ps rounds sg inputb w-22" id="field_css3_width_22" name="field_css3_width_22" value="Field with class .ps .rounds .sg .inputb .w-22"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_26">Field w-26</label>
+                    <input type="text" class="ps rounds sg inputb w-26" id="field_css3_width_26" name="field_css3_width_26" value="Field with class .ps .rounds .sg .inputb .w-26"/>
+                </p>
+                <p class="clearfix">
+                    <label class="commonLable m-15 l tar" for="field_css3_width_30">Field w-30</label>
+                    <input type="text" class="ps rounds sg inputb w-30" id="field_css3_width_30" name="field_css3_width_30" value="Field with class .ps .rounds .sg .inputb .w-30"/>
+                </p>
+            </fieldset>
+            </div>
+
+      <footer class="footer socialFooter c borderTop">
+        <p class="bottom pt pb">Copyright 2010-2013 Web Development Machine All rights reserved.</p>
+      </footer> 
+    </div>
+  </div>
+</body>
+</html>
