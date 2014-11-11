@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>分类 Category: blog | 宅鱼</title>
+  <title>分类 Category: 模块化 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="宅鱼">
-<meta property="og:url" content="http://yoursite.com/categories/blog/">
+<meta property="og:url" content="http://yoursite.com/categories/模块化/">
 <meta property="og:site_name" content="宅鱼">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -68,14 +68,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hexo搭建blog要注意的几点" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-requirejs主数据data-main如何清除缓存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/22/hexo搭建blog要注意的几点/" class="article-date">
-  <time datetime="2014-10-22T06:12:50.000Z" itemprop="datePublished">Oct 22 2014</time>
+    <a href="/2014/11/11/requirejs主数据data-main如何清除缓存/" class="article-date">
+  <time datetime="2014-11-11T04:49:08.000Z" itemprop="datePublished">Nov 11 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/blog/">blog</a>
+    <a class="article-category-link" href="/categories/模块化/">模块化</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/22/hexo搭建blog要注意的几点/">hexo搭建blog要注意的几点</a>
+      <a class="article-title" href="/2014/11/11/requirejs主数据data-main如何清除缓存/">requirejs主数据data-main如何清除缓存</a>
     </h1>
   
 
@@ -94,19 +94,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.默认使用的googleapi导致加载很慢需要重新修改css，和js的href<br>2.修改css样式需要在 主题下的source 下的 _variables.styl 文件中修改一些样式的变量<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/22/hexo搭建blog要注意的几点/#more">阅读原文 Read More</a>
-          </p>
-        
+        <p>对各个模块的js文件进行缓存清除，需要在main.js里面加入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config({</div><div class="line">    urlArgs: <span class="string">'v='</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>&lt;script type=”text/javascript”&gt;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">require</span> = {</div><div class="line">baseUrl: <span class="string">""</span>,</div><div class="line">waitSeconds: <span class="number">5</span>,</div><div class="line">urlArgs : <span class="string">"bust="</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</div><div class="line">};</div></pre></td></tr></table></figure>
+
+
+<p>&lt;/script&gt; <br><br>&lt;script type=”text/javascript”  src=”js/lib/require.js” data-main=”js/main” &gt;&lt;/script&gt; </p>
+
       
     </div>
     <footer class="article-footer">
 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requirejs/">requirejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
 
     </footer>
   </div>
