@@ -216,7 +216,7 @@
 <h3 id="构建与发布流程">构建与发布流程</h3>
 <p>该部分有基础kissy库，加上已经完善的发布流程，这一块我们没有一个统一的前端库，暂时很难做到一致。至于less和sass我觉得主要是看开发自身需要，比如我就没有使用less或sass的习惯。<br>最后，作者讲到hybrid中的h5类似一辆开的很快的拖拉机上了高速路。我觉得很多时候，具体问题还得看场景，比如一个很慢的2g网络环境，使用h5来拉数据和使用原生app来拉数据，不见得哪个会快到哪里去，但是如果在网络环境良好的情况下，使用h5却可以带来很大的灵活性和可维护性，当然页面功能足够简单的时候，不失为一个很好的移动开发方案。</p>
 <h3 id="使用phonegap开发的一点体会">使用phonegap开发的一点体会</h3>
-<p>在使用phonegap搭建hybrid应用，可以发现phonegap的整个www目录可以作为hybrid应用的离线包，样式，js文件等都存放在改目录，并且phonegap中一些访问外网，硬件等特性需要在config.xml文件中配置。具体结构如下:<br><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1elz3i5w77gj203p052745.jpg" alt="phonegap文件目录"><br>另外最近看到一篇很详尽的介绍phonegap运行机制的文章很不错，<a href="http://www.wojilu.com/forum1/post/22475" target="_blank" rel="external">PhoneGap版支付宝Android客户端开发小结</a> 里面关于phonegap的结构图：<br><img src="http://ww2.sinaimg.cn/mw690/629342f9jw1elucqjmegfj20sg0kz42i.jpg" alt="phonegap结构"></p>
+<p>在使用phonegap搭建hybrid应用，可以发现phonegap的整个www目录可以作为hybrid应用的离线包，样式，js文件等都存放在改目录，并且phonegap中一些访问外网，硬件等特性需要在config.xml文件中配置。具体结构如下:<br><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1elz3i5w77gj203p052745.jpg" alt="phonegap文件目录"><br>另外最近看到一篇很详尽的介绍phonegap运行机制的文章很不错，<a href="http://www.wojilu.com/forum1/post/22475" target="_blank" rel="external">PhoneGap版支付宝Android客户端开发小结</a> 里面关于phonegap的结构图：<br><img src="http://ww2.sinaimg.cn/mw690/629342f9jw1elucqjmegfj20sg0kz42i.jpg" alt="phonegap结构"><br>ps: phonegap在安卓上面的性能还是略慢，会后@Ngot_ftd 讲过另外一个混合的比较彻底的hybrid框架：Titanium。按照Titanium的说法，其本身就是内置于安卓代码库，不同于phonegap对文件请求进行拦截，所以运行效率有个质的提升。当然，航旅是使用内部开发的node工具进行混合app的开发，其具体实现需要客户端开发提供js对象的支持,具体的通信拦截，就需要该对象的方法调用了。</p>
 
       
     </div>
