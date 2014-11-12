@@ -8,7 +8,8 @@ require.config({
 		util:'lib/util',
 		swipe: 'lib/swipe',
 		head:'app/head',
-		foot:'app/foot'
+		foot:'app/foot',
+		nav:'app/nav'
 	},
   shim : {
     'util' : {
@@ -22,7 +23,7 @@ require.config({
   },
   priority: ['jquery']
 });
-require(['jquery','html','template','util','swipe','head','foot'], function ($,_html,t,util,swipe,head,foot){
+require(['jquery','html','template','util','swipe','head','nav','foot'], function ($,_html,t,util,swipe,head,nav,foot){
 	var html = _html.htmlObj;
 	var headdata = {
 			name: 'Rain CSS'
@@ -40,7 +41,6 @@ require(['jquery','html','template','util','swipe','head','foot'], function ($,_
 			title4:'标题'
 	}
 	var data = {
-			nav: navdata,
 			gamelist:[{
 				url:'http://wande.me/gg/index.html',
 				imgurl:'http://wande.me/game/images/gameicons-2.jpg',
@@ -64,9 +64,15 @@ require(['jquery','html','template','util','swipe','head','foot'], function ($,_
 		responsive: false,
 		tipswrapStyle:{ bottom: "10px",right: "5px"}
 	});
-	var gamelist = t("mainbox",data);
+	var gamelist = t("list-templ",data);
 	var foothtml = foot(footdata);
-	main.add(headhtml).add(s).add(gamelist).add(foothtml);
-	
+	var navhtml = nav(navdata);
+	util.addRoute('/','',function(){
+		main.add(headhtml).add(s).add(navhtml).add(gamelist).add(foothtml);
+	});
+	util.addRoute('/nav1','#gamelist',function(){
+		main.getJQobj().find('#gamelist').empty();
+	});
+	 
 
 });

@@ -3,17 +3,43 @@
 <head>
   <meta charset="utf-8">
   
-  <title>标签 Tag: webapp | 宅鱼</title>
+  <title>如何开发一个简单易用的前端代码库 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宅鱼">
-<meta property="og:url" content="http://yoursite.com/tags/webapp/">
+  <meta name="description" content="一些问题
+
+现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
+
+我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
+
+我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
+
+优点?多浏览器兼容,遵循web标准,代码量少,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何开发一个简单易用的前端代码库">
+<meta property="og:url" content="http://yoursite.com/2014/11/12/如何开发一个简单易用的前端代码库/">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description">
+<meta property="og:description" content="一些问题
+
+现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
+
+我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
+
+我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
+
+优点?多浏览器兼容,遵循web标准,代码量少,">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg">
+<meta property="og:image" content="http://www.webdevelopmentmachine.com/images/cssoo.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宅鱼">
-<meta name="twitter:description">
+<meta name="twitter:title" content="如何开发一个简单易用的前端代码库">
+<meta name="twitter:description" content="一些问题
+
+现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
+
+我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
+
+我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
+
+优点?多浏览器兼容,遵循web标准,代码量少,">
 
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -66,18 +92,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-windows下phonegap-开发环境搭建及一些问题处理" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-如何开发一个简单易用的前端代码库" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/" class="article-date">
-  <time datetime="2014-10-30T10:06:09.000Z" itemprop="datePublished">Oct 30 2014</time>
+    <a href="/2014/11/12/如何开发一个简单易用的前端代码库/" class="article-date">
+  <time datetime="2014-11-12T02:47:46.000Z" itemprop="datePublished">Nov 12 2014</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hybrid/">hybrid</a>►<a class="article-category-link" href="/categories/hybrid/phonegap/">phonegap</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -85,8 +105,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/">windows下phonegap 开发环境搭建及一些问题处理</a>
+    <h1 class="article-title" itemprop="name">
+      如何开发一个简单易用的前端代码库
     </h1>
   
 
@@ -94,24 +114,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="windows下phonegap_开发环境搭建及一些问题处理">windows下phonegap 开发环境搭建及一些问题处理</h2>
-<p><img src="http://phonegap.com/css/images/graphic_build_bot.png" alt="phonegap"></p>
-<ul>
-<li>安装java环境，安装nodejs，安装集成了ADT的eclipse <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">eclipse下载地址</a>,下载并解压一个ant工具。</li>
-<li>添加下 java JDK  ; android SDK;Ant ;这几个文件的bin文件目录到系统变量</li>
-<li>工具安装完成后,通过npm安装phonegap,cordova代码:</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g phonegap</div><div class="line">npm install -g cordova</div></pre></td></tr></table></figure>
-
-<p>这里有个问题要设置npm代理，而且要设置https的代理，不然在创建phonegap项目的时候会出现无法下载git项目包的问题(感谢俊江同学及时的建议^0^)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm config set proxy http:<span class="comment">//server:port</span></div><div class="line">$ npm config set https-proxy http:<span class="comment">//server:port</span></div><div class="line">$ npm config set registry <span class="string">"http://registry.npmjs.org/"</span></div></pre></td></tr></table></figure>
-
-<ul>
-<li>创建项目使用命令:</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">phonegap create myapp</div><div class="line">cd myapp</div><div class="line">phonegap run android</div></pre></td></tr></table></figure>
-
-<p>这里如果出现编译报错,问题一是环境变量没设置好，另外就是sdk\platforms 下的版本不对，需要下载对应版本的android文件包，另外一个问题是高版本的模拟器不能创建avd所以需要略低版本的android文件包(如果使用手机作测试则不需要考虑这个问题)</p>
+        <h2 id="一些问题">一些问题</h2>
+<ol>
+<li><p>现有框架解决了什么问题，缺点是什么？<br>样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。</p>
+</li>
+<li><p>我所面临的问题？<br>不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。</p>
+</li>
+<li><p>我要实现的目标？<br>90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。</p>
+</li>
+<li><p>优点?<br>多浏览器兼容,遵循web标准,代码量少,结构清晰,快速开发,高度复用，维护简便，易于理解使用。</p>
+</li>
+<li><p>框架带来的问题?<br>Html页面过多的class元素，因为放弃多级选择器，导致原本不使用class的元素使用class。</p>
+</li>
+<li><p>如何实现高度复用和简便维护?<br>加入大量的原子对象，以进行自由的重用。<br>增加页面常用对象,以便在项目代码中进行重写。<br>使用java taglib来维护class数量过多的页面标签,方便后期扩展和维护(并且taglib很好的解决了Html页面过多的class元素的问题)。<br>在元素的命名等方面进行约束,避免后期维护困难。</p>
+</li>
+</ol>
+<h2 id="一个前端库诞生">一个前端库诞生</h2>
+<p><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg" alt="rain css"></p>
+<p><a href="http://rainzhai.github.io/raincss/" target="_blank" rel="external">rain css代码库</a></p>
+<h2 id="Rain_css代码结构">Rain css代码结构</h2>
+<p><img src="http://www.webdevelopmentmachine.com/images/cssoo.jpg" alt="结构"></p>
+<h2 id="css代码库过大如何处理">css代码库过大如何处理</h2>
+<p>使用copyCss来进行过滤</p>
+<h2 id="兼容移动端">兼容移动端</h2>
+<p>使用 CSS3 Media Queries来对专门的class进行重写，并新增移动端专用class</p>
+<h2 id="进行hybrid开发的优势">进行hybrid开发的优势</h2>
+<p>1.无需对单独模块增加专门样式文件<br>2.html模块中的class可以方便快速的修改而不影响其他功能模块</p>
 
       
     </div>
@@ -119,17 +147,28 @@
 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hybrid/">hybrid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webapp/">webapp</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 
     </footer>
   </div>
   
-
-
-</article>
+    
+<nav id="article-nav">
   
   
-</section>
+    <a href="/2014/11/11/requirejs主数据data-main如何清除缓存/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">requirejs主数据data-main如何清除缓存</div>
+    </a>
+  
+</nav>
+
+  
+
+
+<div class="ds-thread" data-thread-key="2014/11/12/如何开发一个简单易用的前端代码库/"></div>
+
+</article></section>
         
           <aside id="sidebar">
   

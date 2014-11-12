@@ -68,6 +68,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-如何开发一个简单易用的前端代码库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/12/如何开发一个简单易用的前端代码库/" class="article-date">
+  <time datetime="2014-11-12T02:47:46.000Z" itemprop="datePublished">Nov 12 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/12/如何开发一个简单易用的前端代码库/">如何开发一个简单易用的前端代码库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一些问题">一些问题</h2>
+<ol>
+<li><p>现有框架解决了什么问题，缺点是什么？<br>样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。</p>
+</li>
+<li><p>我所面临的问题？<br>不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。</p>
+</li>
+<li><p>我要实现的目标？<br>90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。</p>
+</li>
+<li><p>优点?<br>多浏览器兼容,遵循web标准,代码量少,结构清晰,快速开发,高度复用，维护简便，易于理解使用。</p>
+</li>
+<li><p>框架带来的问题?<br>Html页面过多的class元素，因为放弃多级选择器，导致原本不使用class的元素使用class。</p>
+</li>
+<li><p>如何实现高度复用和简便维护?<br>加入大量的原子对象，以进行自由的重用。<br>增加页面常用对象,以便在项目代码中进行重写。<br>使用java taglib来维护class数量过多的页面标签,方便后期扩展和维护(并且taglib很好的解决了Html页面过多的class元素的问题)。<br>在元素的命名等方面进行约束,避免后期维护困难。</p>
+</li>
+</ol>
+<h2 id="一个前端库诞生">一个前端库诞生</h2>
+<p><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg" alt="rain css"></p>
+<p><a href="http://rainzhai.github.io/raincss/" target="_blank" rel="external">rain css代码库</a></p>
+<h2 id="Rain_css代码结构">Rain css代码结构</h2>
+<p><img src="http://www.webdevelopmentmachine.com/images/cssoo.jpg" alt="结构"></p>
+<h2 id="css代码库过大如何处理">css代码库过大如何处理</h2>
+<p>使用copyCss来进行过滤</p>
+<h2 id="兼容移动端">兼容移动端</h2>
+<p>使用 CSS3 Media Queries来对专门的class进行重写，并新增移动端专用class</p>
+<h2 id="进行hybrid开发的优势">进行hybrid开发的优势</h2>
+<p>1.无需对单独模块增加专门样式文件<br>2.html模块中的class可以方便快速的修改而不影响其他功能模块</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+
+
+</article>
+  
     <article id="post-D2-2014的一点总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/28/D2-2014的一点总结/" class="article-date">
@@ -139,7 +203,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签 Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -148,7 +212,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云 Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/D2/" style="font-size: 10.00px;">D2</a><a href="/tags/blog/" style="font-size: 10.00px;">blog</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/hybrid/" style="font-size: 20.00px;">hybrid</a><a href="/tags/requirejs/" style="font-size: 10.00px;">requirejs</a><a href="/tags/webapp/" style="font-size: 10.00px;">webapp</a><a href="/tags/前端/" style="font-size: 10.00px;">前端</a><a href="/tags/模块化/" style="font-size: 10.00px;">模块化</a>
+      <a href="/tags/D2/" style="font-size: 10.00px;">D2</a><a href="/tags/blog/" style="font-size: 10.00px;">blog</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/hybrid/" style="font-size: 20.00px;">hybrid</a><a href="/tags/requirejs/" style="font-size: 10.00px;">requirejs</a><a href="/tags/webapp/" style="font-size: 10.00px;">webapp</a><a href="/tags/前端/" style="font-size: 20.00px;">前端</a><a href="/tags/模块化/" style="font-size: 10.00px;">模块化</a>
     </div>
   </div>
 
@@ -157,7 +221,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">文章 Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -167,6 +231,10 @@
     <h3 class="widget-title">最近 Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/11/12/如何开发一个简单易用的前端代码库/">如何开发一个简单易用的前端代码库</a>
+          </li>
         
           <li>
             <a href="/2014/11/11/requirejs主数据data-main如何清除缓存/">requirejs主数据data-main如何清除缓存</a>
@@ -182,10 +250,6 @@
         
           <li>
             <a href="/2014/10/22/hexo搭建blog要注意的几点/">hexo搭建blog要注意的几点</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/22/hello-world/">Hello World</a>
           </li>
         
       </ul>
