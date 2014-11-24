@@ -7,9 +7,14 @@ require.config({
 		template: 'lib/template',
 		util:'lib/util',
 		swipe: 'lib/swipe',
-		head:'app/head',
-		foot:'app/foot',
-		nav:'app/nav'
+		head:'app/view/head',
+		foot:'app/view/foot',
+		nav:'app/view/nav',
+		gamelist:'app/data/gamelist',
+		common:'app/data/common',
+		searchhead:'app/view/searchHead',
+		searchmain:'app/view/searchMain',
+		json:'app/service/json'
 	},
   shim : {
     'util' : {
@@ -25,54 +30,61 @@ require.config({
 });
 require(['jquery','html','template','util','swipe','head','nav','foot'], function ($,_html,t,util,swipe,head,nav,foot){
 	var html = _html.htmlObj;
-	var headdata = {
-			name: 'Rain CSS'
-	};
-	var navdata = {
-			title1:'标题',
-			title2:'标题',
-			title3:'标题',
-			title4:'标题'
-	}
-	var footdata = {
-			title1:'标题',
-			title2:'标题',
-			title3:'标题',
-			title4:'标题'
-	}
-	var data = {
-			gamelist:[{
-				url:'http://wande.me/gg/index.html',
-				imgurl:'http://wande.me/game/images/gameicons-2.jpg',
-				name:'帅哥爱消除',
-				intro:'一款帅哥消除游戏',
-				start:'开始游戏'
-			}]
-	};
-	var slidedata = {data:['../images/s1.jpg','../images/s2.jpg','../images/s3.jpg','../images/s4.jpg']};
+	var headhtml;
+	var navhtml;
+	var foothtml;
+	var gamelist;
+	var slide;
 	
 	var main = new html('#body');
-	var headhtml = head(headdata);
-	var s = new $.swipe({
-		touchSelector : ".c_touch",
-		imgArray: slidedata.data,
-		linksArray:['#','#','#','#'],
-		time : 5000,
-		autorun: true,
-		width: main.getJQobj().width(),
-		height:95,
-		responsive: false,
-		tipswrapStyle:{ bottom: "10px",right: "5px"}
-	});
-	var gamelist = t("list-templ",data);
-	var foothtml = foot(footdata);
-	var navhtml = nav(navdata);
+
 	util.addRoute('/','',function(){
-		main.add(headhtml).add(s).add(navhtml).add(gamelist).add(foothtml);
+		main.remove();
+		main.add(headhtml).add(slide).add(navhtml).add(gamelist).add(foothtml);
 	});
 	util.addRoute('/nav1','#gamelist',function(){
-		main.getJQobj().find('#gamelist').empty();
+		main.remove('#gamelist');
 	});
-	 
+	util.addRoute('/pic1','#pic1',function(){
+		alert(1);
+	});
 
+	/*搜索模块路由*/
+	util.addRoute('/search','#body',function(){
+		main.remove();
+		require(['jquery','searchhead','searchmain','json'],function($,h,m,json){
+			var sheadhtml = h({});
+			var smainhtml;
+			main.add(sheadhtml); 
+/*			$.getJSON("http://127.0.0.1/Rain-CSS-Framework/app/js/app/data/searchData.js",function(d){
+	    	smainhtml = m(d);
+	    	main.add(smainhtml);
+			});*/
+			$.ajax({url:"js/app/data/searchData.php",cache:false,success:function(d){
+			    	smainhtml = m(d);
+			    	main.add(smainhtml);
+					}}
+			);
+		});
+	});
+
+	/*主页模块路由*/
+	require(['common','gamelist'],function(s,g){
+		gamelist = t("list-templ",g);
+		headhtml = head(s.headdata);
+		foothtml = foot(s.footdata);
+		navhtml = nav(s.navdata);
+		slide = new $.swipe({
+			touchSelector : ".c_touch",
+			imgArray: s.slidedata.data,
+			linksArray: s.slidedata.srcs,
+			time : 5000,
+			autorun: true,
+			width: main.getJQobj().width(),
+			height:95,
+			responsive: false,
+			tipswrapStyle:{ bottom: "10px",right: "5px"}
+		});
+		main.add(headhtml).add(slide).add(navhtml).add(gamelist).add(foothtml);
+	}); 
 });
