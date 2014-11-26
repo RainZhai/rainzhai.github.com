@@ -3,26 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>宅鱼</title>
+  <title>requirejs里面ajax回调不执行 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: requirejs里面ajax回调不执行date: 2014-11-24 20:46:22tags:[requirejs,模块化]
-categories: [模块化]
-该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-12345$.ajax({url:'js/app/data/searchData.p">
+  <meta name="description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
+12345$.ajax({url:'js/app/data/searchData.php',cache:false,success:function(d){        smainhtml = m(d);        main.add(smainhtml);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="宅鱼">
+<meta property="og:title" content="requirejs里面ajax回调不执行">
 <meta property="og:url" content="http://yoursite.com/2014/11/24/requirejs里面ajax回调不执行/">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="title: requirejs里面ajax回调不执行date: 2014-11-24 20:46:22tags:[requirejs,模块化]
-categories: [模块化]
-该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-12345$.ajax({url:'js/app/data/searchData.p">
+<meta property="og:description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
+12345$.ajax({url:'js/app/data/searchData.php',cache:false,success:function(d){        smainhtml = m(d);        main.add(smainhtml);">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宅鱼">
-<meta name="twitter:description" content="title: requirejs里面ajax回调不执行date: 2014-11-24 20:46:22tags:[requirejs,模块化]
-categories: [模块化]
-该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-12345$.ajax({url:'js/app/data/searchData.p">
+<meta name="twitter:title" content="requirejs里面ajax回调不执行">
+<meta name="twitter:description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
+12345$.ajax({url:'js/app/data/searchData.php',cache:false,success:function(d){        smainhtml = m(d);        main.add(smainhtml);">
 
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -81,15 +75,27 @@ categories: [模块化]
   <time datetime="2014-11-24T12:46:22.000Z" itemprop="datePublished">Nov 24 2014</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/模块化/">模块化</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      requirejs里面ajax回调不执行
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: requirejs里面ajax回调不执行<br>date: 2014-11-24 20:46:22<br>tags:[requirejs,模块化]</p>
-<h2 id="categories:_[模块化]">categories: [模块化]</h2>
-<p>该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可</p>
+        <p>该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.ajax({url:<span class="string">"js/app/data/searchData.php"</span>,cache:<span class="literal">false</span>,success:<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>{</div><div class="line">        smainhtml = m(d);</div><div class="line">        main.add(smainhtml);</div><div class="line">        }}</div><div class="line">);</div></pre></td></tr></table></figure>
 
 
@@ -99,6 +105,8 @@ categories: [模块化]
 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requirejs/">requirejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
+
     </footer>
   </div>
   
@@ -126,7 +134,7 @@ categories: [模块化]
   <div class="widget-wrap">
     <h3 class="widget-title">分类 Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -135,7 +143,7 @@ categories: [模块化]
   <div class="widget-wrap">
     <h3 class="widget-title">标签 Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -144,7 +152,7 @@ categories: [模块化]
   <div class="widget-wrap">
     <h3 class="widget-title">标签云 Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/D2/" style="font-size: 10.00px;">D2</a><a href="/tags/blog/" style="font-size: 10.00px;">blog</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/hybrid/" style="font-size: 20.00px;">hybrid</a><a href="/tags/requirejs/" style="font-size: 10.00px;">requirejs</a><a href="/tags/webapp/" style="font-size: 10.00px;">webapp</a><a href="/tags/前端/" style="font-size: 20.00px;">前端</a><a href="/tags/模块化/" style="font-size: 10.00px;">模块化</a>
+      <a href="/tags/D2/" style="font-size: 10.00px;">D2</a><a href="/tags/blog/" style="font-size: 10.00px;">blog</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/hybrid/" style="font-size: 20.00px;">hybrid</a><a href="/tags/requirejs/" style="font-size: 20.00px;">requirejs</a><a href="/tags/webapp/" style="font-size: 10.00px;">webapp</a><a href="/tags/前端/" style="font-size: 20.00px;">前端</a><a href="/tags/模块化/" style="font-size: 20.00px;">模块化</a>
     </div>
   </div>
 
@@ -165,7 +173,7 @@ categories: [模块化]
       <ul>
         
           <li>
-            <a href="/2014/11/24/requirejs里面ajax回调不执行/">(no title)</a>
+            <a href="/2014/11/24/requirejs里面ajax回调不执行/">requirejs里面ajax回调不执行</a>
           </li>
         
           <li>
