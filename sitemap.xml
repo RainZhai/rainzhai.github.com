@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2014/10/30/windows%E4%B8%8Bphonegap-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2014-12-19T10:51:29.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2014/12/17/wordpress%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E5%A4%87%E6%B3%A8/</loc>
     <lastmod>2014-12-17T02:59:29.000Z</lastmod>
   </url>
@@ -29,11 +34,6 @@
   <url>
     <loc>http://yoursite.com/2014/11/11/requirejs%E4%B8%BB%E6%95%B0%E6%8D%AEdata-main%E5%A6%82%E4%BD%95%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98/</loc>
     <lastmod>2014-11-11T04:50:54.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2014/10/30/windows%E4%B8%8Bphonegap-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2014-11-04T09:24:58.000Z</lastmod>
   </url>
   
   <url>
