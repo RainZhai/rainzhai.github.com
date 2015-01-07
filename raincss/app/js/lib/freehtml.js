@@ -2,15 +2,6 @@
 *	define jquery plugin freehtml
 */
 (function() {
-	(function(){
-		if(!window.console){window.console = function(){};window.console.info = window.console.debug = window.console.warn = window.console.log = window.console.error = function(str){alert(str);}}
-
-		window.log = function(){
-			if(arguments.length>0){
-				for(var i=0,l=arguments.length;i<l; i++){ console.log(arguments[i]);}
-			}
-		}
-	}());
 	/**
 	* @description 为requirejs注册一个插件Register a plugin.
 	* @param {Object}  - The plugin Object.
@@ -347,8 +338,24 @@
 					o.jq.load(url);
 					return o;
 				},
+				/**	@method 查找指定元素*/
+				find: function(ele/*string*/){
+					if(ele){
+						return o.jq.find(ele);
+					}
+				},
 				/**	@method 清除标签内容*/
 				remove: function(ele/*string | jq | htmlobj*/){
+					if(ele){
+					var _ele = ele.jq || ele;
+					o.jq.find(_ele).remove();
+					}else{
+					o.jq.empty();
+					}
+					return o;
+				},
+				/**	@method 清除标签内容*/
+				empty: function(ele/*string | jq | htmlobj*/){
 					if(ele){
 					var _ele = ele.jq || ele;
 					o.jq.find(_ele).empty();
