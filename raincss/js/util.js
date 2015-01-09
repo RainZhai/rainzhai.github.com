@@ -31,7 +31,7 @@
         tapTimeout;
       var now, delta;
       $(function() {
-        $(document.body).on('touchstart', function(e) {
+        $(document).on('touchstart', function(e) {
           now = Date.now();
           delta = now - (touch.last || now);
           var e = e.originalEvent;
@@ -477,7 +477,7 @@
    * @return {String} 返回已过滤特殊字符的字符串
    */
   util.filter = function(s) {
-    var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&mdash;—|{}【】‘；：”“'。，、？ % + ]");
+    var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&dash;—|{}【】‘；：”“'。，、？ % + ]");
     var rs = "";
     for (var i = 0; i < s.length; i++) {
       rs = rs + s.substr(i, 1).replace(pattern, '');
@@ -645,4 +645,4 @@
     return o;
   };
 
-})(window, jQuery || Zepto);
+})(window, window.jQuery || window.Zepto);

@@ -23,6 +23,7 @@
             speed: 800, //滑动速度
             delay: 5000, //滚动间隔
             preloadamt: 3,
+            preventDefault: true,
             before: function() {}
         }, {}, opt);
         var _selector = $(opts.selector);
@@ -208,14 +209,14 @@
             },
             //touchMove事件
             touchMove: function(event) {
-                event.preventDefault();
+                if(opts.preventDefault) event.preventDefault();
                 o.endLoop();
             },
             // touchEnd事件
             touchEnd: function(event) {
                 var endX = parseInt(event.changedTouches[0].clientX, 10);
                 var d = parseInt((endX - starX), 10);
-                event.preventDefault();
+                if(opts.preventDefault) event.preventDefault();
                 if (d < -opts.length) {
                     o.leftMove();
                 } else if (d > opts.length) {
@@ -237,7 +238,7 @@
             },
             //绑定触屏事件
             bindEvent: function() {
-                if (util.supportTouch ) {
+                if (util.supportTouch) {
                     _selector[0].addEventListener("touchstart", o.touchStar, false);
                     _selector[0].addEventListener("touchend", o.touchEnd, false);
                     _selector[0].addEventListener("touchmove", o.touchMove, false);
@@ -261,4 +262,4 @@
         o.init();
         return o;
     }
-})(jQuery || Zepto);
+})(window.jQuery || window.Zepto);
