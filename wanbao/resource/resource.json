@@ -1,8 +1,16 @@
 {
     "resources": [{
-        "name": "bgImage",
+        "name": "startbg",
         "type": "image",
-        "url": "assets/bg.jpg"
+        "url": "assets/startbg.png"
+    },{
+        "name": "startbtn",
+        "type": "image",
+        "url": "assets/startbtn.png"
+    },{
+        "name": "stage1",
+        "type": "image",
+        "url": "assets/stage1.png"
     }, {
         "name": "egretIcon",
         "type": "image",
@@ -27,6 +35,6 @@
 
     "groups": [{
         "name": "preload",
-        "keys": "bgImage,egretIcon,baoshi1,boom,succ"
+        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,boom,succ"
     }]
 }
