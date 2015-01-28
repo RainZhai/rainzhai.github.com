@@ -1,13 +1,40 @@
 {
-"resources":
-	[
-		{"name":"bgImage","type":"image","url":"assets/bg.jpg"},
-		{"name":"egretIcon","type":"image","url":"assets/egret_icon.png"},
-        {"name":"description","type":"json","url":"config/description.json"}
-	],
+    "resources": [{
+        "name": "startbg",
+        "type": "image",
+        "url": "assets/startbg.png"
+    },{
+        "name": "startbtn",
+        "type": "image",
+        "url": "assets/startbtn.png"
+    },{
+        "name": "stage1",
+        "type": "image",
+        "url": "assets/stage1.png"
+    }, {
+        "name": "egretIcon",
+        "type": "image",
+        "url": "assets/egret_icon.png"
+    }, {
+        "name": "baoshi1",
+        "type": "image",
+        "url": "assets/baosi1.jpg"
+    }, {
+        "name": "boom",
+        "type": "image",
+        "url": "assets/boom.gif"
+    }, {
+        "name": "succ",
+        "type": "image",
+        "url": "assets/succ.jpg"
+    }, {
+        "name": "description",
+        "type": "json",
+        "url": "config/description.json"
+    }],
 
-"groups":
-	[
-        {"name":"preload","keys":"bgImage,egretIcon"}
-	]
+    "groups": [{
+        "name": "preload",
+        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,boom,succ"
+    }]
 }
