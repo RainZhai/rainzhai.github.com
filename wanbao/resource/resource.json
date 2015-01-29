@@ -18,16 +18,40 @@
     }, {
         "name": "baoshi1",
         "type": "image",
-        "url": "assets/baosi1.jpg"
+        "url": "assets/baosi1.png"
     }, {
-        "name": "boom",
+        "name": "baoshi2",
         "type": "image",
-        "url": "assets/boom.gif"
+        "url": "assets/baosi2.png"
+    },{
+        "name": "baoshi3",
+        "type": "image",
+        "url": "assets/baosi3.png"
+    },{
+        "name": "baoshi4",
+        "type": "image",
+        "url": "assets/baosi4.png"
+    },{
+        "name": "boomeff",
+        "type": "image",
+        "url": "assets/boom.png"
+    },{
+        "name": "boomer",
+        "type": "image",
+        "url": "assets/boomer.png"
     }, {
         "name": "succ",
         "type": "image",
         "url": "assets/succ.jpg"
     }, {
+        "name": "replaybtn",
+        "type": "image",
+        "url": "assets/replaybtn.png"
+    },{
+        "name": "getscorebtn",
+        "type": "image",
+        "url": "assets/getscorebtn.png"
+    },{
         "name": "description",
         "type": "json",
         "url": "config/description.json"
@@ -35,6 +59,6 @@
 
     "groups": [{
         "name": "preload",
-        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,boom,succ"
+        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,baoshi2,boomeff,succ,boomer,replaybtn,getscorebtn"
     }]
 }

@@ -54,34 +54,50 @@ class Wanbao extends egret.DisplayObjectContainer{
 
      private  startbg:egret.Bitmap; //开始背景
      private  startbtn:egret.Bitmap; //开始按钮
-     private stage1: egret.Sprite;
+     private  replaybtn:egret.Bitmap; //重玩按钮
+     private  getscorebtn:egret.Bitmap; //获取积分按钮
+     private  stage1: egret.Sprite;//场景一容器
+     private currentStage: number;//当前关卡
      private  stage1bg:egret.Bitmap; //第一关背景
-     //private baoshi : Array;//宝石
+     private  baoshi : any[];//宝石
      private  boom:egret.Bitmap;//爆炸效果
      private  succ:egret.Bitmap;//成功过关
-     private addBoom():void {
+     private  score: number;//分数
+     private scorebar:  egret.TextField;//分数条
+     private boomer:egret.Bitmap; //炸弹图片
+     private initBoom():void {
         //点击后游戏特效
         this.boom = new egret.Bitmap();
-          this.boom.texture = RES.getRes("boom");
-          this.boom.width = 300;
-          this.boom.height = 300;
+          this.boom.texture = RES.getRes("boomeff");
+          this.boom.width = 480;
+          this.boom.height = 440;
           this.boom.x = 0;
           this.boom.y = 0;
           this.boom.alpha = 0;
-         this.stage1.addChild( this.boom); 
      }
-     private addSucc():void {
+     private initSucc():void {
         //点击后游戏特效
          this.succ = new egret.Bitmap();
          this.succ.texture = RES.getRes("succ");
-         this.succ.width = 480;
-         this.succ.height = 800;
-         this.succ.x = 0 ;
-         this.succ.y = 0 ;
+         this.succ.width = 240;
+         this.succ.height = 400;
+         this.succ.x = 100 ;
+         this.succ.y = 100 ;
          this.succ.alpha = 0;
-         this.stage1.addChild(this.succ);
+     }
+     //初始化分数条
+     private initScorebar():void {
+         this.scorebar = new egret.TextField();
+         this.scorebar.text  = "当前积分";
+         this.scorebar.width = 100;
+         this.scorebar.height = 20;
+         this.scorebar.x = 100 ;
+         this.scorebar.y = 10; 
+        this.scorebar.size = 20;
+        this.scorebar.fontFamily = "微软雅黑";
      }
      private init():void {
+        this.score = 0;
         //游戏开始界面和图标
          this.startbg = new egret.Bitmap();
          this.startbg.texture = RES.getRes("startbg");
@@ -98,12 +114,42 @@ class Wanbao extends egret.DisplayObjectContainer{
          this.startbtn.x = this.stage.stageWidth/2 - 60;
          this.startbtn.y = this.stage.stageHeight - 100 ;
          this.addChild(this.startbtn);
+         //重玩按钮
+         this.replaybtn = new egret.Bitmap();
+         this.replaybtn.texture = RES.getRes("replaybtn");
+         this.replaybtn.width = 60;
+         this.replaybtn.height = 60;
+         this.replaybtn.x = this.stage.stageWidth/2 - 60;
+         this.replaybtn.y = this.stage.stageHeight/2;  
+         this.replaybtn.alpha = 0;
 
+         //分数按钮
+         this.getscorebtn = new egret.Bitmap();
+         this.getscorebtn.texture = RES.getRes("getscorebtn");
+         this.getscorebtn.width = 60;
+         this.getscorebtn.height = 60;
+         this.getscorebtn.x = this.stage.stageWidth/2 + 60;
+         this.getscorebtn.y = this.stage.stageHeight/2;  
+         this.getscorebtn.alpha = 0;
+
+         //炸弹
+         this.boomer= new egret.Bitmap();
+         this.boomer.texture = RES.getRes("boomer");
+         this.boomer.width = 50;
+         this.boomer.height = 50;
+         this.boomer.x = this.stage.stageWidth/2 -  25;
+         this.boomer.y = 550 ;
+         this.boomer.alpha = 1;
+
+        this.initBoom();
+        this.initSucc();
+        this.initScorebar();
          this.startbtn.touchEnabled = true;
          this.startbtn.addEventListener( egret.TouchEvent.TOUCH_TAP, this.startgameTouch, this );
      }
      //第一关设置
      private initStage1():void {
+        this.currentStage = 1;
          this.stage1 = new egret.Sprite();
          this.stage1.width = this.stage.stageWidth;
          this.stage1.height = this.stage.stageHeight;
@@ -114,36 +160,65 @@ class Wanbao extends egret.DisplayObjectContainer{
          this.stage1bg.height = this.stage.stageHeight;
          this.stage1bg.x = 0 ;
          this.stage1bg.y = 0 ; 
-         this.stage1.addChild(this.stage1bg); 
-         //this.baoshi = [{src:}];
          //设置宝石
+         /**
+         this.baoshi =new Array();
+          this.baoshi.push({
+            res: 'baoshi1',
+            width: 50,
+            height : 50,
+            x : this.stage.stageWidth/2 -  bs.width/2 ,
+            y : 500
+          });**/
+
+         this.stage1.addChild(this.stage1bg); 
+         this.stage1.addChild(this.succ);
+         this.stage1.addChild( this.boom);
+         this.stage1.addChild( this.scorebar);
+         this.stage1.addChild(this.boomer);
+         this.stage1.addChild(this.replaybtn);
+         this.stage1.addChild(this.getscorebtn);
+
+        this.addChild(this.stage1);
+        this.playStage1();
+     }
+     private playStage1():void {
+        if(this.stage1){  
+         this.boom.alpha = 0;
+         this.replaybtn.alpha = 0;
+         this.getscorebtn.alpha = 0; 
+         if(this.stage1.getChildByName( "bs" )) this.stage1.removeChild(bs);
+         if(this.stage1.getChildByName( "bs2" )) this.stage1.removeChild(bs2); 
+        }
          var bs:egret.Bitmap = new egret.Bitmap();
          bs.texture = RES.getRes("baoshi1");
          bs.width = 50;
          bs.height = 50;
          bs.x = this.stage.stageWidth/2 -  bs.width/2 ;
-         bs.y = 500;
-         this.stage1.addChild(bs);
+         bs.y = 450;
          var bs2:egret.Bitmap = new egret.Bitmap();
-         bs2.texture = RES.getRes("baoshi1");
+         bs2.texture = RES.getRes("baoshi2");
          bs2.width = 50;
          bs2.height = 50;
          bs2.x = this.stage.stageWidth/2 -  bs.width/2 ;
-         bs2.y = 500 ;
+         bs2.y = 450 ;
+         this.boomer.alpha = 1;
+
+         this.stage1.addChild(bs);
          this.stage1.addChild(bs2);
-        this.addBoom();
-        this.addSucc();
-        this.addChild(this.stage1);
          //设置移动动画 
-        egret.Tween.get(bs, { loop: false }).to( {x:350}, 500 ).to( {x:150}, 500 ).to( {x:350}, 500 ).wait(500).to( {alpha:0}, 500 ); 
-        egret.Tween.get(bs2, { loop: false }).to( {x:150}, 500 ).to( {x:350}, 500 ).to( {x:150}, 500 ).wait(500).to( {alpha:0}, 500 ); 
+        egret.Tween.get(bs, { loop: false }).to( {x:320}, 500 ).to( {x:150}, 500 ).to( {x:320}, 500 ).wait(500).to( {alpha:0.1}, 500 ); 
+        egret.Tween.get(bs2, { loop: false }).to( {x:130}, 500 ).to( {x:350}, 500 ).to( {x:130}, 500 ).wait(500).to( {alpha:0.1}, 500 ); 
 
         //在点击后注册事件
          //开启spr1的Touch开关
          bs.touchEnabled = true;
+         bs2.touchEnabled = true;
+         this.boomer.touchEnabled = true;
          //注册事件
-         bs2.addEventListener( egret.TouchEvent.TOUCH_TAP, this.onTouch, this );
-         bs.addEventListener( egret.TouchEvent.TOUCH_TAP, this.onTouch, this );
+         bs.addEventListener( egret.TouchEvent.TOUCH_TAP, this.diamondTouch, this );
+         bs2.addEventListener( egret.TouchEvent.TOUCH_TAP, this.diamondTouch, this );
+         this.boomer.addEventListener( egret.TouchEvent.TOUCH_TAP, this.boomerTouch, this );
      }
 
      private startgameTouch( evt:egret.TouchEvent )
@@ -157,8 +232,31 @@ class Wanbao extends egret.DisplayObjectContainer{
          this.initStage1();
      }
 
-     private onTouch( evt:egret.TouchEvent )
+     private diamondTouch( evt:egret.TouchEvent )
      {
          egret.Tween.get(this.succ, { loop: false }).to({ alpha: 1 }, 200);
+         this.score  = this.score + 500;
+         this.scorebar.text  = "当前积分 : "+ this.score;
      }
+     //炸弹爆炸逻辑
+     private boomerTouch( e:egret.TouchEvent )
+     {
+         this.boomer.alpha = 0;
+         this.boom.x =  e.stageX - 240;
+         this.boom.y =  e.stageY-420;
+         this.boom.alpha = 1;
+         this.replaybtn.alpha = 1;
+         this.getscorebtn.alpha = 1; 
+         this.score  = this.score - 100;
+         this.scorebar.text  = "当前积分 : "+ this.score;
+         this.replaybtn.touchEnabled = true;
+         this.replaybtn.addEventListener( egret.TouchEvent.TOUCH_TAP, this.replayTouch, this );
+     }
+     //重玩按钮逻辑
+     private replayTouch( e:egret.TouchEvent )
+     {
+        this.score = 0;
+        if(this.currentStage ==1) this.playStage1();
+     }
+
 }
