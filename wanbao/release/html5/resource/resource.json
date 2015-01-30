@@ -52,6 +52,10 @@
         "type": "image",
         "url": "assets/getscorebtn.png"
     },{
+        "name": "man1",
+        "type": "image",
+        "url": "assets/man1.png"
+    },{
         "name": "description",
         "type": "json",
         "url": "config/description.json"
@@ -59,6 +63,6 @@
 
     "groups": [{
         "name": "preload",
-        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,baoshi2,boomeff,succ,boomer,replaybtn,getscorebtn"
+        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,baoshi2,boomeff,succ,boomer,replaybtn,getscorebtn,man1"
     }]
 }
