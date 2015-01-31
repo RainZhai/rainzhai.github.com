@@ -197,13 +197,11 @@ var Wanbao = (function (_super) {
             this.getscorebtn.alpha = 0;
             this.man.alpha = 0;
             this.mansay.alpha = 0;
-            console.log(this.stage1.getChildByName("bswrap"));
             if (this.stage1.getChildByName("bswrap")) {
                 this.stage1.removeChild(this.stage1.getChildByName("bswrap"));
             }
         }
         var bs = new egret.Bitmap();
-        bs.name = "bs";
         bs.texture = RES.getRes("baoshi1");
         bs.width = 50;
         bs.height = 50;
@@ -211,7 +209,6 @@ var Wanbao = (function (_super) {
         bs.y = 450;
         bs.touchEnabled = true;
         var bs2 = new egret.Bitmap();
-        bs2.name = "bs2";
         bs2.texture = RES.getRes("baoshi2");
         bs2.width = 50;
         bs2.height = 50;
@@ -242,9 +239,17 @@ var Wanbao = (function (_super) {
         }
         this.initStage1();
     };
-    Wanbao.prototype.diamondTouch = function (evt) {
+    Wanbao.prototype.diamondTouch = function (e) {
         egret.Tween.get(this.succ, { loop: false }).to({ alpha: 1 }, 200);
         this.score = this.score + 500;
+        //小人提示
+        this.man.x = e.stageX - 50;
+        this.man.y = e.stageY - 50;
+        this.man.alpha = 1;
+        this.mansay.x = e.stageX;
+        this.mansay.y = e.stageY - 40;
+        this.mansay.text = this.zan[Math.floor(Math.random() * this.zan.length)];
+        this.mansay.alpha = 1;
         this.scorebar.text = "当前积分 : " + this.score;
     };
     //炸弹爆炸逻辑
@@ -261,6 +266,7 @@ var Wanbao = (function (_super) {
         this.man.alpha = 1;
         this.mansay.x = e.stageX;
         this.mansay.y = e.stageY - 40;
+        this.mansay.text = this.xu[Math.floor(Math.random() * this.xu.length)];
         this.mansay.alpha = 1;
         //计算分数
         if (this.score > 100) {

@@ -242,7 +242,6 @@ class Wanbao extends egret.DisplayObjectContainer{
          //设置移动动画 
         egret.Tween.get(bs, { loop: false }).to( {x:320}, 500 ).to( {x:150}, 500 ).to( {x:320}, 500 ).wait(500).to( {alpha:0.1}, 500 ); 
         egret.Tween.get(bs2, { loop: false }).to( {x:130}, 500 ).to( {x:350}, 500 ).to( {x:130}, 500 ).wait(500).to( {alpha:0.1}, 500 ); 
- 
          //注册事件
          bs.addEventListener( egret.TouchEvent.TOUCH_TAP, this.diamondTouch, this );
          bs2.addEventListener( egret.TouchEvent.TOUCH_TAP, this.diamondTouch, this );
@@ -257,10 +256,19 @@ class Wanbao extends egret.DisplayObjectContainer{
          this.initStage1();
      }
 
-     private diamondTouch( evt:egret.TouchEvent )
+     private diamondTouch( e:egret.TouchEvent )
      {
          egret.Tween.get(this.succ, { loop: false }).to({ alpha: 1 }, 200);
          this.score  = this.score + 500;
+         //小人提示
+         this.man.x =  e.stageX-50;
+         this.man.y =  e.stageY-50;
+         this.man.alpha = 1;
+         this.mansay.x =  e.stageX;
+         this.mansay.y =  e.stageY-40;
+         this.mansay.text = this.zan[Math.floor(Math.random()*this.zan.length)];
+
+         this.mansay.alpha = 1;
          this.scorebar.text  = "当前积分 : "+ this.score;
      }
      //炸弹爆炸逻辑
@@ -278,6 +286,7 @@ class Wanbao extends egret.DisplayObjectContainer{
          this.man.alpha = 1;
          this.mansay.x =  e.stageX;
          this.mansay.y =  e.stageY-40;
+         this.mansay.text = this.xu[Math.floor(Math.random()*this.xu.length)];
          this.mansay.alpha = 1;
          //计算分数
          if(this.score>100){ this.score  = this.score - 100; }
