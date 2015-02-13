@@ -1,0 +1,95 @@
+{
+    "resources": [{
+        "name": "startbg",
+        "type": "image",
+        "url": "assets/startbg.jpg"
+    },{
+        "name": "startbtn",
+        "type": "image",
+        "url": "assets/startbtn.png"
+    },{
+        "name": "stage1",
+        "type": "image",
+        "url": "assets/stage1.jpg"
+    }, {
+        "name": "egretIcon",
+        "type": "image",
+        "url": "assets/egret_icon.png"
+    }, {
+        "name": "baoshi1",
+        "type": "image",
+        "url": "assets/baosi1.png"
+    }, {
+        "name": "baoshi2",
+        "type": "image",
+        "url": "assets/baosi2.png"
+    },{
+        "name": "baoshi3",
+        "type": "image",
+        "url": "assets/baosi3.png"
+    },{
+        "name": "baoshi4",
+        "type": "image",
+        "url": "assets/baosi4.png"
+    },{
+        "name": "boomeff",
+        "type": "image",
+        "url": "assets/boom.png"
+    },{
+        "name": "boomer",
+        "type": "image",
+        "url": "assets/boomer.png"
+    },{
+        "name": "replaybtn",
+        "type": "image",
+        "url": "assets/replaybtn.png"
+    },{
+        "name": "getscorebtn",
+        "type": "image",
+        "url": "assets/getscorebtn.png"
+    },{
+        "name": "man1",
+        "type": "image",
+        "url": "assets/man1.png"
+    },{
+        "name": "nextbtn",
+        "type": "image",
+        "url": "assets/nextbtn.png"
+    },{
+        "name": "listbtn",
+        "type": "image",
+        "url": "assets/listbtn.png"
+    },{
+        "name": "backbtn",
+        "type": "image",
+        "url": "assets/backbtn.png"
+    },{
+        "name": "listbg",
+        "type": "image",
+        "url": "assets/listbg.jpg"
+    },{
+        "name": "boomsound",
+        "type": "sound",
+        "url": "assets/boom.mp3"
+    },{
+        "name": "dingsound",
+        "type": "sound",
+        "url": "assets/ding.mp3"
+    },{
+        "name": "btn_help",
+        "type": "image",
+        "url": "assets/btn_help.png"
+    },{
+        "name": "btn_sun",
+        "type": "image",
+        "url": "assets/btn_sun.png"
+    },{
+        "name": "description",
+        "type": "json",
+        "url": "config/description.json"
+    }],
+    "groups": [{
+        "name": "preload",
+        "keys": "startbg,startbtn,stage1,egretIcon,baoshi1,baoshi2,baoshi3,baoshi4,boomeff,boomer,replaybtn,getscorebtn,man1,nextbtn,listbtn,listbg,backbtn,dingsound,boomsound,btn_help,btn_sun"
+    }]
+}

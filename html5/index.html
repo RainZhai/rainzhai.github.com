@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HelloWorld</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <style>
+        body {
+            text-align: center;
+            background: #000000;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+        html {
+            -ms-touch-action: none; /* Direct all pointer events to JavaScript code. */
+            overflow: hidden;
+        }
+        div, canvas {
+            display:block;
+            position:absolute;
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+.flexbox { display: box; box-orient: horizontal; display: -webkit-box; -webkit-box-orient: horizontal; display: -moz-box; -moz-box-orient: horizontal; }
+.flexbox > div,.flexbox > p,.flexbox > a,.flexbox > span{ -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; }
+
+.paihangwrap{width: 400px; height: 400px;position: absolute; z-index: 99999;color:#fff; padding-left: 30px; padding-top: 100px; display: none;}
+.paihangwrap .item{height: 30px; width: 400px; line-height: 30px; text-align: left; position: relative;}
+.paihangwrap .item span{display: inline-block;font-size: 20px; float: left;}
+.paihangwrap .item span.seris{ width: 20px; }
+.paihangwrap .item span.name{ width: 100px; }
+.paihangwrap .item span.score{ width: 110px; overflow: hidden;}
+.paihangwrap .item span.joyname{ width: 110px; overflow: hidden;}
+.flexbox { display: box; box-orient: horizontal; display: -webkit-box; -webkit-box-orient: horizontal; display: -moz-box; -moz-box-orient: horizontal; }
+.flexbox > div,.flexbox > p,.flexbox > a,.flexbox > span{ -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; }
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix, .container {display:block;}
+    </style>
+</head>
+<body>
+<div id="paihangwrap" class="paihangwrap"></div>
+<div style="position:relative;" id="gameDiv"></div>
+<script src="http://cdn.staticfile.org/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script> 
+var wawa = {};
+  /*添加本地存储*/
+  wawa.savedata = function(k, v) {
+    if (wawa.supportStorage && k && v) {
+      localStorage.setItem(k, v);
+    }
+  };
+  wawa.supportStorage = "localStorage" in window;
+  /*获取本地存储*/
+  wawa.getdata = function(k) {
+    if (wawa.supportStorage && k) {
+      return localStorage.getItem(k);
+    }
+    return null;
+  };
+wawa.savedata("userid","10001");
+wawa.showPaihang = function(){
+    $.ajax({
+        url :  "http://121.40.128.173:8080/WeWaBao/game/queryIntegralRanking",
+        type : "GET",
+        data: "userId="+wawa.userid+"&rows=10",
+        async:false,
+        cache : false,
+        dataType : "jsonp",
+        jsonp: "callbackparam",//服务端用于接收callback调用的function名的参数
+        jsonpCallback:"success_queryIntegralRanking",//callback的function名称
+        success : function(data) {
+            var html = '';
+            var d = data.list;
+            for (var i = 0; i <d.length; i++) {
+                var j = i+1;
+                html = html + '<div class="item clearfix">'
+                +'<span class="seris">'+j+'</span>'
+                +'<span class="name">'+d[i].userId+ '</span>'
+                +'<span class="score">'+d[i].resultTotal+ '</span>'
+                +'</div>';
+            }; 
+            $("#paihangwrap").height(window.screen.height/2).width(window.screen.width-30);
+            $("#paihangwrap").empty().append(html).show();
+            $("#paihangwrap").append('<div class="item">我的当前排名: '+data.count+'</div>');
+        }
+    }); 
+}
+//showPaihang(data.list);
+wawa.hidePaihang = function(){
+    $("#paihangwrap").hide();
+}
+wawa.updateScore = function(uid,score){
+    $.ajax({
+        url :  "http://121.40.128.173:8080/WeWaBao/game/updUserIntegral",
+        type : "GET",
+        data: "userId="+uid+"&blancePay=1&tranFlag=0&integtalValue="+score,
+        async:false,
+        cache : false,
+        dataType : "jsonp",
+        jsonp: "callbackparam",//服务端用于接收callback调用的function名的参数
+        jsonpCallback:"success_updUserIntegral",//callback的function名称
+        success : function(d) {
+            console.log(d);
+        }
+    }); 
+}
+wawa.queryGamePrize = function(){
+    $.ajax({
+        url :  "http://121.40.128.173:8080/WeWaBao/game/queryGamePrize",
+        type : "GET",
+        async:false,
+        cache : false,
+        dataType : "jsonp",
+        jsonp: "callbackparam",//服务端用于接收callback调用的function名的参数
+        jsonpCallback:"success_queryGamePrize",//callback的function名称
+        success : function(d) {
+            console.log(d.list);
+        }
+    });
+}
+wawa.saveGameLog = function(){
+    $.ajax({
+        url :  "http://121.40.128.173:8080/WeWaBao/game/saveGameLog",
+        type : "GET",
+        data: "userId="+wawa.userid+"&total=100&sorce=50&change=0&type=0",
+        async:false,
+        cache : false,
+        dataType : "jsonp",
+        jsonp: "callbackparam",//服务端用于接收callback调用的function名的参数
+        jsonpCallback:"success_saveGameLog",//callback的function名称
+        success : function(d) {
+            console.log(d);
+        }
+    });
+}
+wawa.showWx = function(uid){
+    //微信分享功能
+    var url = "http://wande.me/wabao/release/html5#userId="+uid;
+    var imgurl = "http://120.27.28.121/WeWaBao/resource/images/logo.png";
+    var appId;
+    var timestamp;
+    var nonceStr;
+    var signature;
+    $.ajax({
+        type : "GET",
+        async:false,
+        cache : false,
+        dataType : "jsonp",
+        url :  'http://120.27.28.121/WeWaBao/game/wxConfig',
+        data : "url="+location.href.split('#')[0],
+        dataType : "jsonp",
+        jsonp: "callbackparam",//服务端用于接收callback调用的function名的参数
+        jsonpCallback:"success_wxConfig",//callback的function名称
+        success:function(response){
+            appId = response.appid;
+            timestamp = response.timestamp;
+            nonceStr = response.nonceStr;
+            signature = response.signature;
+        }
+    });
+    wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: appId, // 必填，公众号的唯一标识
+        timestamp: timestamp, // 必填，生成签名的时间戳
+        nonceStr: nonceStr, // 必填，生成签名的随机串
+        signature:signature,// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.error(function(res){
+        alert(res);
+    });
+    wx.ready(function(){
+        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+        wx.onMenuShareTimeline({
+            title: "哇宝网", // 分享标题
+            link: url,  //分享链接
+            imgUrl: imgurl, // 分享图标
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+    //          alert("seccccc")
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+}
+if(wawa.getdata("userid")){
+    wawa.userid = wawa.getdata("userid");
+    wawa.showWx(wawa.userid);
+}else{
+    location.href = 'http://baidu.com'
+}
+</script>
+<script>var document_class = "Wanbao";</script><!--这部分内容在编译时会被替换，要修改文档类，请到工程目录下的egretProperties.json内编辑。-->
+<script src="launcher/egret_require.js"></script>
+<script src="launcher/egret_loader.js"></script>
+<script src="launcher/game-min.js"></script>
+<script>
+    var support = [].map && document.createElement("canvas").getContext;
+    if (support) {
+        egret_h5.startGame();
+    }
+    else {
+        alert("Egret 不支持您当前的浏览器")
+    }
+</script>
+</body>
+</html>
