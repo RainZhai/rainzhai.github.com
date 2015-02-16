@@ -9,21 +9,21 @@
 @media screen and (min-width: 1280px) {
     .body{width:320px;}
 }
-.itemwrap{height:2400px;}
+.itemwrap{}
 .slideitem{ }
 .item-1{ background-color: #b20014; }
 .item-3,.item-2{ background-color: #fff3ea; }
-
+.slideitem{ background-color: #fff3ea; }
 /* .img1,.img2{margin-top: -800px;} */ 
-.logo{ top: 50px; opacity:0.2; transition: all .5s ease-in; -webkit-transition: all .5s ease-in;}
-.fuimg{ top: 220px; opacity:0.2;transition: all .5s ease-in; -webkit-transition: all .5s ease-in; }
+.logo{ top: 50px; opacity:0.2; -webkit-opacity:0.2; transition: all .5s ease-in; -webkit-transition: all .5s ease-in;}
+.fuimg{ top: 220px; opacity:0.2; -webkit-opacity:0.2; transition: all .5s ease-in; -webkit-transition: all .5s ease-in; }
 .starroll{transform: rotate(360deg); -webkit-transform: rotate(360deg); }
 .starroll2{transform: rotate(360deg); -webkit-transform: rotate(360deg); }
 .daimg{ top: 50px; left: -300px; }
 .baiimg{ top: 180px;right: -300px; }
 .nianimg{ top: 290px;left: -300px; }
-.yiluimg{ top: 40px; opacity: 0.2; }
-.ganxieimg{ top: 220px;  opacity: 0.2; }
+.yiluimg{ top: 40px; opacity: 0.2; -webkit-opacity:0.2;}
+.ganxieimg{ top: 220px;  opacity: 0.2; -webkit-opacity:0.2;}
 .imgbottom{top:360px;}
 .img4_1{top:30px;}
 .img5_1{top:30px;}
@@ -38,9 +38,9 @@
     100% {-webkit-transform: scale(1,1);transform: scale(1,1);}
 }
 @-webkit-keyframes 'zoomshow' {
-    0% {-webkit-transform: scale(1,1);transform: scale(1,1);}
-    50% {-webkit-transform: scale(1.1,1.1);transform: scale(1.1, 1.1);}
-    100% {-webkit-transform: scale(1,1);transform: scale(1,1);}
+    0% {-webkit-transform: scale(1,1); transform: scale(1,1);}
+    50% {-webkit-transform: scale(1.1,1.1); transform: scale(1.1, 1.1);}
+    100% {-webkit-transform: scale(1,1); transform: scale(1,1);}
 }
 </style>
 </head>
@@ -103,66 +103,10 @@
 </div>
 <script type="text/javascript" src="zepto.min.js"></script>
 <script type="text/javascript">
-(function ($) {
-window.screenslide =function(obj){
-	this.obj = obj;
-	$.extend(this,{
-		selector: '.j_itemwrap',
-		itemSelectror: '.slideitem',
-		firstslide: function(){},
-		beforeslide: function(){},
-		upCallback: function(){},
-		downCallback: function(){}
-	}, this.obj || {});
-	this.init();
-};
-
-screenslide.prototype = {
-	index: 0,
-	slideheight: window.screen.height,
-	init: function(){
-		$(document).on('touchmove',function(e){
-			e.preventDefault();
-		});
-		this.firstslide();
-		this.registerEvents();
-	},
-	getBox: function(){ 
-		return $(this.selector);
-	},
-	getMax: function(){
-		return $(this.itemSelectror).length;
-	},
-	getIndex: function(){
-		return this.index;
-	},
-	registerEvents: function(){
-		var _this = this;
-		var box = _this.getBox();
-		touch.on(_this.selector, "swipeup",function(e){
-			if(_this.index < _this.getMax()-1){
-				_this.index++;
-				_this.beforeslide();
-				box.velocity({"margin-top":"-"+_this.index * _this.slideheight+"px"},function(){
-					_this.upCallback();
-				});
-			}
-		});
-		touch.on(_this.selector, "swipedown",function(e){
-			if(_this.index > 0){
-				_this.index--;
-				_this.beforeslide();
-				box.velocity({"margin-top":"-"+_this.index * _this.slideheight+"px"},function(){
-					_this.downCallback();
-				});
-			}
-		});
-	}
-}
-})(window.Zepto || window.jQuery); 
 var init = function(){
     window.w = window.screen.width;
-    window.h = window.screen.height;
+    window.h = window.screen.height; 
+    $(".itemwrap").height(10*h);
     $(".slideitem").height(h);
     $('.j_logo').css({
         "left": w/2 - 62+"px"
