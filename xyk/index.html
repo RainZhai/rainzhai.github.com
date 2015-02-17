@@ -112,8 +112,15 @@
 <script type="text/javascript" src="zepto.min.js"></script>
 <script type="text/javascript">
 var init = function(){
-    window.w = window.screen.width;
-    window.h = window.screen.height;
+    if(window.isAndroid){
+        window.w = window.document.body.offsetWidth;
+        window.h = window.document.body.offsetHeight;
+    }else{
+        window.w = window.screen.width;
+        window.h = window.screen.height;
+    }
+    alert(window.isAndroid);
+    alert(window.w);
     $(".itemwrap").css({"height": 10*h +"px"});  
     $(".slideitem").css({"height": h +"px"}); 
     $('.j_logo').css({
