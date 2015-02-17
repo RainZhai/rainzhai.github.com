@@ -1,8 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1,user-scalable=no"/>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="pragma" content="no-cache" />
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
 <style type="text/css">
@@ -46,6 +50,7 @@
     50% {-webkit-transform: scale(1.1,1.1); transform: scale(1.1, 1.1);}
     100% {-webkit-transform: scale(1,1); transform: scale(1,1);}
 }
+.shinianimg{ top: 40px; opacity: 0.2; -webkit-opacity:0.2;}
 </style>
 </head>
 <body class="body">
@@ -98,7 +103,9 @@
                                 </a>
                                 <img src="images/item7_2.jpg" width="280" class="j_img7_2 imgbottom img7_2 posa" />
 		</div>
-		<div class="j_item-8 item-8 slideitem posr tac oh"> 
+		<div class="j_item-8 item-8 slideitem posr tac oh">
+            <img src="images/bg10.jpg" width="100%" class="j_img8 img8" />
+            <img src="images/shinianlogo.png" width="140" class="j_shinian shinianimg posa" />
 		</div> 
 	</div>
 </div>
@@ -106,7 +113,7 @@
 <script type="text/javascript">
 var init = function(){
     window.w = window.screen.width;
-    window.h = window.screen.height;  
+    window.h = window.screen.height;
     $(".itemwrap").css({"height": 10*h +"px"});  
     $(".slideitem").css({"height": h +"px"}); 
     $('.j_logo').css({
@@ -150,6 +157,9 @@ var init = function(){
     });
     $('.j_img8_2').css({
         "left": w/2 - 140+"px"
+    });
+    $('.j_shinian').css({
+        "left": w/2 - 70+"px"
     });
 }
 
@@ -208,8 +218,9 @@ var screenslide = new screenslide({
                             }
                             if(i===7){
                                 screenslide.slide7 = false;
-                                $(".j_img8_1").addClass("imgzoom");
-                                screenslide.slide7 = true;
+                                $(".j_shinian").velocity({"opacity":'1'},500,function(){
+                                    screenslide.slide7 = true; 
+                                });
                             }
 	},
 	downCallback: function(){
@@ -263,8 +274,9 @@ var screenslide = new screenslide({
                             }
                             if(i===7){
                                 screenslide.slide7 = false;
-                                $(".j_img8_1").addClass("imgzoom");
-                                screenslide.slide7 = true;
+                                $(".j_shinian").velocity({"opacity":'1'},500,function(){
+                                    screenslide.slide7 = true; 
+                                });
                             }
 	}
 }); 
@@ -313,7 +325,7 @@ screenslide.animatereset6= function(){
     $(".j_img7_1").removeClass("imgzoom");
 }
 screenslide.animatereset7= function(){ 
-    $(".j_img8_1").removeClass("imgzoom");
+    $(".j_shinian").css({"opacity":'0'});
 }
 </script>
 </body>
