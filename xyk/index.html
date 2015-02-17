@@ -51,6 +51,10 @@
     100% {-webkit-transform: scale(1,1); transform: scale(1,1);}
 }
 .shinianimg{ top: 100px; opacity: 0.2; -webkit-opacity:0.2;}
+.fontimg{ top:100px; left:800px;}
+.fontimg-1{top:105px;}
+.fontimg-4{top:105px;}
+.fontimg2{ top:160px;left:800px;}
 </style>
 </head>
 <body class="body">
@@ -105,10 +109,18 @@
 		</div>
 		<div class="j_item-8 item-8 slideitem posr tac oh">
             <img src="images/bg10.jpg" width="100%" class="j_img8 img8" />
-            <img src="images/shinianlogo2.png" width="160" class="j_shinian shinianimg posa" />
+            <img src="images/f_huan.png" width="50" class="j_h_1 fontimg fontimg-1 posa" />
+            <img src="images/f_qiu.png" width="55" class="j_h_2 fontimg posa" />
+            <img src="images/f_rong.png" width="45" class="j_h_3 fontimg posa" />
+            <img src="images/f_yao.png" width="50" class="j_h_4 fontimg fontimg-4 posa" />
+            <img src="images/f_yi.png" width="50" class="j_h_5 fontimg2 posa" />
+            <img src="images/f_ka.png" width="50" class="j_h_6 fontimg2 posa" />
+            <img src="images/f_jin.png" width="55" class="j_h_7 fontimg2 posa" />
+            <img src="images/f_xiang.png" width="45" class="j_h_8 fontimg2 posa" />
 		</div> 
 	</div>
 </div>
+<!-- <audio src="audio/Cyanic.mp3" id="audio" autoplay="autoplay" loop="loop"></audio> -->
 <script type="text/javascript" src="zepto.min.js"></script>
 <script type="text/javascript">
 var init = function(){
@@ -166,9 +178,30 @@ var init = function(){
     $('.j_img8_2').css({
         "left": w/2 - 140+"px"
     });
-    $('.j_shinian').css({
-        "left": w/2 - 80+"px"
+/*    $('.j_h_1').css({
+        "left": w/2-110+"px"
     });
+    $('.j_h_2').css({
+        "left": w/2-55+"px"
+    });
+    $('.j_h_3').css({
+        "left": w/2+5+"px"
+    });
+    $('.j_h_4').css({
+        "left": w/2+60+"px"
+    });
+    $('.j_h_5').css({
+        "left": w/2-110+"px"
+    });
+    $('.j_h_6').css({
+        "left": w/2-55+"px"
+    });
+    $('.j_h_7').css({
+        "left": w/2+"px"
+    });
+    $('.j_h_8').css({
+        "left": w/2+60+"px"
+    });*/
 }
 
 init();
@@ -225,9 +258,39 @@ var screenslide = new screenslide({
                                 screenslide.slide6 = true;
                             }
                             if(i===7){
-                                screenslide.slide7 = false;
-                                $(".j_shinian").velocity({"opacity":'1'},500,function(){
-                                    screenslide.slide7 = true; 
+                                screenslide.slide7 = false; 
+                                $('.j_h_1').velocity({
+                                    "left": w/2-110+"px"
+                                },100,function(){
+                                    $('.j_h_2').velocity({
+                                        "left": w/2-55+"px"
+                                    },100,function(){
+                                        $('.j_h_3').velocity({
+                                            "left": w/2+5+"px"
+                                        },100,function(){
+                                            $('.j_h_4').velocity({
+                                                "left": w/2+60+"px"
+                                            },100,function(){
+                                                $('.j_h_5').velocity({
+                                                    "left": w/2-110+"px"
+                                                },200,function(){
+                                                    $('.j_h_6').velocity({
+                                                        "left": w/2-55+"px"
+                                                    },200,function(){
+                                                        $('.j_h_7').velocity({
+                                                            "left": w/2+"px"
+                                                        },200,function(){
+                                                            $('.j_h_8').velocity({
+                                                                "left": w/2+60+"px"
+                                                            },200,function(){ 
+                                                                screenslide.slide7 = true;
+                                                            });
+                                                        });
+                                                    });
+                                                }); 
+                                            });
+                                        });
+                                    });
                                 });
                             }
 	},
@@ -281,9 +344,39 @@ var screenslide = new screenslide({
                                 screenslide.slide6 = true;
                             }
                             if(i===7){
-                                screenslide.slide7 = false;
-                                $(".j_shinian").velocity({"opacity":'1'},500,function(){
-                                    screenslide.slide7 = true; 
+                                screenslide.slide7 = false; 
+                                $('.j_h_1').velocity({
+                                    "left": w/2-110+"px"
+                                },100,function(){
+                                    $('.j_h_2').velocity({
+                                        "left": w/2-55+"px"
+                                    },100,function(){
+                                        $('.j_h_3').velocity({
+                                            "left": w/2+5+"px"
+                                        },100,function(){
+                                            $('.j_h_4').velocity({
+                                                "left": w/2+60+"px"
+                                            },100,function(){
+                                                $('.j_h_5').velocity({
+                                                    "left": w/2-110+"px"
+                                                },200,function(){
+                                                    $('.j_h_6').velocity({
+                                                        "left": w/2-55+"px"
+                                                    },200,function(){
+                                                        $('.j_h_7').velocity({
+                                                            "left": w/2+"px"
+                                                        },200,function(){
+                                                            $('.j_h_8').velocity({
+                                                                "left": w/2+60+"px"
+                                                            },200,function(){ 
+                                                                screenslide.slide7 = true;
+                                                            });
+                                                        });
+                                                    });
+                                                }); 
+                                            });
+                                        });
+                                    });
                                 });
                             }
 	}
@@ -333,8 +426,19 @@ screenslide.animatereset6= function(){
     $(".j_img7_1").removeClass("imgzoom");
 }
 screenslide.animatereset7= function(){ 
-    $(".j_shinian").css({"opacity":'0'});
+    $('.j_h_1,.j_h_2,.j_h_3,.j_h_4,.j_h_5,.j_h_6,.j_h_7,.j_h_8').css({
+            "left": "800px"
+        });
 }
+/*window.slide = {
+    initAudio: function(){
+        slide.audio = document.getElementById("audio");
+    }
+}
+slide.initAudio();
+$('body').one('touchmove',function(){
+    slide.audio.play();
+})*/
 </script>
 </body>
 </html>
