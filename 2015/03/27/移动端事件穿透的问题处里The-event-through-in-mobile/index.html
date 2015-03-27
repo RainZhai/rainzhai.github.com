@@ -3,20 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 宅鱼</title>
+  <title>移动端事件穿透的问题处里The event through in mobile | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="在使用tap事件会导致手机端固定定位元素或者绝对定位元素上的点击事件会穿透到下面的元素，解决方法:1.使用click事件2.在tap事件上加上延时
+setTimeout(function(){
+    //处理逻辑
+},100);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2014/10/22/hello-world/index.html">
+<meta property="og:title" content="移动端事件穿透的问题处里The event through in mobile">
+<meta property="og:url" content="http://yoursite.com/2015/03/27/移动端事件穿透的问题处里The-event-through-in-mobile/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta property="og:description" content="在使用tap事件会导致手机端固定定位元素或者绝对定位元素上的点击事件会穿透到下面的元素，解决方法:1.使用click事件2.在tap事件上加上延时
+setTimeout(function(){
+    //处理逻辑
+},100);">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="移动端事件穿透的问题处里The event through in mobile">
+<meta name="twitter:description" content="在使用tap事件会导致手机端固定定位元素或者绝对定位元素上的点击事件会穿透到下面的元素，解决方法:1.使用click事件2.在tap事件上加上延时
+setTimeout(function(){
+    //处理逻辑
+},100);">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -67,12 +73,16 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-移动端事件穿透的问题处里The-event-through-in-mobile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/22/hello-world/" class="article-date">
-  <time datetime="2014-10-22T03:20:28.000Z" itemprop="datePublished">2014-10-22</time>
+    <a href="/2015/03/27/移动端事件穿透的问题处里The-event-through-in-mobile/" class="article-date">
+  <time datetime="2015-03-27T11:15:08.000Z" itemprop="datePublished">2015-03-27</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -81,7 +91,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      移动端事件穿透的问题处里The event through in mobile
     </h1>
   
 
@@ -89,15 +99,11 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在使用tap事件会导致手机端固定定位元素或者绝对定位元素上的点击事件会穿透到下面的元素，解决方法:<br>1.使用click事件<br>2.在tap事件上加上延时</p>
+<pre><code class="javascript">setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="comment">//处理逻辑</span>
+},<span class="number">100</span>);
+</code></pre>
 
       
     </div>
@@ -105,28 +111,26 @@ Quick">
 <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动/">移动</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/10/22/hexo搭建blog要注意的几点/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo搭建blog要注意的几点
-        
-      </div>
-    </a>
   
+    <a href="/2014/12/17/wordpress一些使用备注/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">wordpress一些使用备注</div>
+    </a>
   
 </nav>
 
   
 
 
-<div class="ds-thread" data-thread-key="2014/10/22/hello-world/"></div>
+<div class="ds-thread" data-thread-key="2015/03/27/移动端事件穿透的问题处里The-event-through-in-mobile/"></div>
 
 </article></section>
         
