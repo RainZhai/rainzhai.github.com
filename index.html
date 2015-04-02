@@ -390,22 +390,23 @@ urlArgs : <span class="string">"bust="</span>+<span class="keyword">new</span> <
         <h2 id="windows下phonegap_开发环境搭建及一些问题处理">windows下phonegap 开发环境搭建及一些问题处理</h2><p><img src="http://phonegap.com/css/images/graphic_build_bot.png" alt="phonegap"></p>
 <ul>
 <li>安装java环境，安装nodejs，安装集成了ADT的eclipse <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">eclipse下载地址</a>,下载并解压一个ant工具。</li>
-<li>添加下 java JDK  ; android SDK;Ant ;这几个文件的bin文件目录到系统变量</li>
+<li>添加下 java JDK  ; Ant ;这几个文件的bin文件目录到系统变量，android SDK的sdk目录，platform-tools目录和tools目录到系统变量</li>
 <li>工具安装完成后,通过npm安装phonegap,cordova代码:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g phonegap</span><br><span class="line">npm install -g cordova</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这里有个问题要设置npm代理，而且要设置https的代理，不然在创建phonegap项目的时候会出现无法下载git项目包的问题(感谢俊江同学及时的建议^0^)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set proxy http:<span class="comment">//server:port</span></span><br><span class="line">$ npm config set https-proxy http:<span class="comment">//server:port</span></span><br><span class="line">$ npm config set registry <span class="string">"http://registry.npmjs.org/"</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>创建项目使用命令:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phonegap create myapp</span><br><span class="line">cd myapp</span><br><span class="line">phonegap run android</span><br></pre></td></tr></table></figure>
+<li><p>创建项目使用命令:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phonegap create myapp</span><br><span class="line">cd myapp</span><br><span class="line">phonegap run android</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>这里如果出现编译报错,问题一是环境变量没设置好，另外就是sdk\platforms 下的版本不对，需要下载对应版本的android文件包，另外一个问题是高版本的模拟器不能创建avd所以需要略低版本的android文件包(如果使用手机作测试则不需要考虑这个问题)</p>
-<ul>
+<li><p>在重装phonegap后有一个奇怪的问题，phonegap命令失效，这时候需要使用cordova命令就可以了。。</p>
+</li>
+<li>这里如果出现编译报错,问题一是环境变量没设置好，另外就是sdk\platforms 下的版本不对，需要下载对应版本的android文件包，另外一个问题是高版本的模拟器不能创建avd所以需要略低版本的android文件包(如果使用手机作测试则不需要考虑这个问题)</li>
 <li>添加插件来调用弹窗<br>这里的插件添加具体安装命令需要参照<a href="http://docs.phonegap.com/en/edge/cordova_notification_notification.md.html#notification.confirm_full_example" target="_blank" rel="external">phonegap文档</a>。另外需要在手机查看具体效果，在虚拟机上会出现报错(很怪异的状况)。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">"backbutton"</span>,onBackKeyDown, <span class="literal">false</span>);    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onConfirm</span><span class="params">(i)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(i==<span class="number">1</span>)&#123; navigator.app.exitApp(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBackKeyDown</span><span class="params">()</span></span>&#123;</span><br><span class="line">  navigator.notification.confirm(</span><br><span class="line">      <span class="string">'按确定退出!'</span>,</span><br><span class="line">      onConfirm,</span><br><span class="line">      <span class="string">'确定退出玩的么吗?'</span>,</span><br><span class="line">      [<span class="string">'确定'</span>,<span class="string">'取消'</span>]</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>ps: 电脑全局代理设置可以使用Proxifier</p>
-<h2 id="titanium环境搭建的问题">titanium环境搭建的问题</h2><p>1.nodejs和msysgit(<a href="http://git-scm.com/)需要事先下载并安装好" target="_blank" rel="external">http://git-scm.com/)需要事先下载并安装好</a><br>2.jdk需要安装32位的，64位jdk会导致titanium studio无法启动</p>
+<p>参考地址：(<a href="http://blog.csdn.net/aaawqqq/article/details/19755179" target="_blank" rel="external">http://blog.csdn.net/aaawqqq/article/details/19755179</a>)<br>ps: 电脑全局代理设置可以使用Proxifier</p>
+<h2 id="titanium环境搭建的问题">titanium环境搭建的问题</h2><p>1.nodejs和msysgit(<a href="http://git-scm.com)需要事先下载并安装好" target="_blank" rel="external">http://git-scm.com)需要事先下载并安装好</a><br>2.jdk需要安装32位的，64位jdk会导致titanium studio无法启动</p>
 
       
     </div>
