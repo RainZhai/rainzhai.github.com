@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class="no-js">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type">
-<meta content="text/html; charset=utf-8">
+<head>  
 <meta charset="utf-8">
 <title>阿达西翼起摇活动</title>
 <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1,user-scalable=no">
@@ -14,7 +11,12 @@
 <link rel="stylesheet" type="text/css" href="css/style.css?v=3">
 <style type="text/css">
 #music1:active,#music2:active,#music3:active,#music4:active,#music5:active,#music6:active{ opacity: 0.8; -webkit-opacity: 0.8; }
-.p1-pop *{ border:1px solid red;}
+
+.pop { visibility:hidden; position: relative;  }
+.p1-pop { width: 300px; margin:30% auto 0; z-index: 996;}
+.p1-pop-close { position:absolute; top:15px; right:20px; display:block; width:35px; height:35px; text-indent:-9999em; overflow:hidden; }
+.qna-error,
+.qna-end { width:300px; height:181px;margin:-100px auto 0; z-index: 999;  background-repeat:no-repeat; background-position:0 0; background-size:300px 181px; }
 </style>
 </head>
 <body>
@@ -31,7 +33,8 @@
 </div>
 
 
-<div id="page-pop"> 
+<div id="page-pop">
+  <div class="pop-mask"></div>
 
   <!-- page1 -->
   <div class="pop p1-pop">
@@ -142,7 +145,7 @@ var init = function(){
 	window.w = window.screen.width;
 	window.h = window.screen.height;
 	$("#page-pop,#page-content").css({"height": 1*h +"px"});
-	//$(".pop-mask").css({"height": h +"px"}).css({"visibility":"hidden"});
+	$(".pop-mask").css({"height": h +"px"}).css({"visibility":"hidden"});
 
 	//活动规则
 	$(".p1-btn").on("click",function(){
@@ -190,16 +193,16 @@ var init = function(){
     $(".qna-close").on("click",function(){
         $("#page-pop,.pop-mask,.qna-error,.qna-end").css({"visibility":"hidden"});
         if(errorq===1){
-          $(".j_qna11").css({"visibility":"hidden"});
-          $(".j_qna22").css({"visibility":"visible"});
+          $(".j_qna11").hide();
+          $(".j_qna22").show();
         }
         if(errorq===2){
-          $(".j_qna22").css({"visibility":"hidden"});
-          $(".j_qna33").css({"visibility":"visible"});
+          $(".j_qna22").hide();
+          $(".j_qna33").show();
         }
         if(errorq===3){
-          $(".j_qna33").css({"visibility":"hidden"});
-          $(".j_qna11").css({"visibility":"visible"});
+          $(".j_qna33").hide();
+          $(".j_qna11").show();
         }
     });
 

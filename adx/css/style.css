@@ -11,7 +11,7 @@ img { border:none; vertical-align:middle; }
 .clear { clear:both; height:0; height:1%; font-size:0; line-height:0; border-top:1px solid transparent!important; border-top:0; }
 .word { word-break:break-all; }
 .text { text-overflow:ellipsis; white-space:nowrap; }
-.hide { visibility: hidden;}
+.hide { display: none;}
 
 /* arrow */
 .arrow-up { position:absolute; right:20px; bottom:15%; z-index:99; width:42px; height:auto; }
@@ -26,7 +26,6 @@ img { border:none; vertical-align:middle; }
 /* pop */
 #page-pop { visibility:hidden; z-index:99; position:absolute; width:100%; }
 .pop-mask { width:100%; background-color:rgba(0,0,0,0.5); position: absolute; left:0; top:0; z-index: 1;}
-.pop { visibility:hidden; position:absolute; top:50%; left:50%; z-index:99; }
 
 /* page1 */
 .p1-1 { position:absolute; top:20px; left:20px; }
@@ -36,8 +35,6 @@ img { border:none; vertical-align:middle; }
 .p1-4-5 span { vertical-align:middle; }
 .p1-6 { margin-top:5px; }
 .p1-7 { position:absolute; bottom:15%; left:5%; }
-.p1-pop { margin-top:-108px; margin-left:-150px; }
-.p1-pop-close { position:absolute; top:15px; right:20px; display:block; width:35px; height:35px; text-indent:-9999em; overflow:hidden; }
 
 /* page2 */
 .p2-1 { margin-top:10%; }
@@ -92,8 +89,6 @@ img { border:none; vertical-align:middle; }
 .qna3 .answer-a { height:44px; }
 .qna3 .answer-b { height:20px; margin-top: 5px;}
 /* 问答提醒 */
-.qna-error,
-.qna-end { width:300px; height:181px; margin-left:-150px; margin-top:-90px; background-repeat:no-repeat; background-position:0 0; background-size:300px 181px; }
 .qna-error { background-image:url("../images/qna-error.png"); }
 .qna-end { background-image:url("../images/qna-end.png"); }
 .qna-close { position:absolute; left:38px; bottom:30px; display:block; width:65px; height:25px; }
@@ -103,8 +98,6 @@ img { border:none; vertical-align:middle; }
 .p8-2 { margin-top:28%; }
 .p8-3 { margin-top:12%; }
 .p8-4 { position:absolute; left:20px; bottom:10%; }
-.p8-pop { top:50%; left:50%; width:300px; height:292px; margin-top:-146px; margin-left:-150px; background:url("../images/p8-pop.png") no-repeat; background-size:300px 292px; }
-.p8-pop .text { margin:60px 30px 0 115px; font-weight:bold; color:#fff; text-align:left; line-height:19px; }
 .p8-pop-close { position:absolute; bottom:32px; right:28px; display:block; width:55px; height:22px; }
 
 /* 奖品 */

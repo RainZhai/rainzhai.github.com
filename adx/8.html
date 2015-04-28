@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" class="no-js">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type">
-<meta content="text/html; charset=utf-8">
+<head>  
 <meta charset="utf-8">
 <title>阿达西翼起摇活动</title>
 <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1,user-scalable=no">
@@ -11,7 +8,7 @@
 <meta name="format-detection" content="email=no">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/animations.css">
-<link rel="stylesheet" type="text/css" href="css/style.css?v=313">
+<link rel="stylesheet" type="text/css" href="css/style.css?v=13">
 <style type="text/css">
 .shark{-webkit-animation: sharkani 0.2s 2 ease-in-out;  animation: sharkani 0.2s  2 ease-in-out;}
 .shark2{-webkit-animation: sharkani2 0.2s 2 ease-in-out;  animation: sharkani2 0.2s  2 ease-in-out;}
@@ -48,6 +45,13 @@
   @media only screen and (max-height: 480px) {
     .p8-3{margin:3% }
   }
+.pop { visibility:hidden; position: relative;  }
+.p1-pop { width: 300px; margin:30% auto 0; z-index: 996;}
+.p1-pop-close { position:absolute; top:15px; right:20px; display:block; width:35px; height:35px; text-indent:-9999em; overflow:hidden; }
+.qna-error,
+.qna-end { width:300px; height:181px;margin:-100px auto 0; z-index: 999;  background-repeat:no-repeat; background-position:0 0; background-size:300px 181px; }
+.p8-pop {   width:300px; height:292px; margin:30% auto 0; background:url(images/p8-pop.png) no-repeat; background-size:300px 292px; z-index: 998; }
+.p8-pop .text { position: absolute; top:62px;left:120px; width: 155px;  font-weight:bold; color:#fff; text-align:left; line-height:19px; }
 </style>
 </head>
 <body>
@@ -56,23 +60,7 @@
 
 <div id="page-pop">
   <div class="pop-mask"></div>
-
-  <!-- page1 -->
-  <div class="pop p1-pop">
-    <img src="images/p1-pop.png" width="300">
-    <span class="p1-pop-close"></span>
-  </div>
-
-  <!-- 问答 错误 -->
-  <div class="pop qna-error">
-    <span class="qna-close"></span>
-  </div>
-
-  <!-- 问答 结束 -->
-  <div class="pop qna-end">
-    <span class="qna-close"></span>
-  </div>
-
+  
   <!-- page8 -->
   <div class="pop p8-pop">
     <div class="text">
@@ -106,7 +94,7 @@ var init = function(){
 	window.w = window.screen.width;
 	window.h = window.screen.height;
 	$("#page-pop,#page-content").css({"height": 1*h +"px"});
-	$(".pop-mask").css({"height": h +"px"}).hide();
+        $(".pop-mask").css({"height": h +"px"}).css({"visibility":"hidden"});
 //摇一摇的代码
 $(".j_yyiyao").on("click",function(){
 /*    if($(".j_yyyimg").hasClass("shark")){
@@ -122,41 +110,14 @@ $(".j_yyiyao").on("click",function(){
       }); 
     }); 
 });
-	//活动规则
-	$(".p1-btn").on("click",function(){
-		$("#page-pop,.pop-mask").show();
-		$(".p1-pop").show();
-	});
-	$(".p1-pop-close").on("click",function(){
-		$("#page-pop,.pop-mask").hide();
-		$(".p1-pop").hide();
-	});
 
-    //问答
-    $(".qna1 .answer-b").on("click",function(){
-        $(".qna1").addClass("qna1-current");
-        $("#page-pop,.pop-mask,.qna-error").show();
-    });
-    $(".qna2 .answer-b").on("click",function(){
-        $(".qna2").addClass("qna2-current");
-        $("#page-pop,.pop-mask,.qna-error").show();
-    });
-    //摇奖失败弹框
-    $(".qna3 .answer-b").on("click",function(){
-        $(".qna3").addClass("qna3-current");
-        $("#page-pop,.pop-mask,.qna-end").show();
-    });
-    $(".qna-close").on("click",function(){
-        $("#page-pop,.pop-mask,.qna-error,.qna-end").hide();
-    });
-
-	//我的奖品
-	$(".p8-btn").on("click",function(){
-		$("#page-pop,.pop-mask,.p8-pop").show();
-	});
-	$(".p8-pop-close").on("click",function(){
-		$("#page-pop,.pop-mask,.p8-pop").hide();
-	});
+  //我的奖品
+  $(".p8-btn").on("click",function(){
+    $("#page-pop,.pop-mask,.p8-pop").css({"visibility":"visible"});
+  });
+  $(".p8-pop-close").on("click",function(){
+    $("#page-pop,.pop-mask,.p8-pop").css({"visibility":"hidden"});
+  });
 
 };
 init();
