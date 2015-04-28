@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type">
+<meta content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>阿达西翼起摇活动</title>
+<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/animations.css">
+<link rel="stylesheet" type="text/css" href="css/style.css?v=313">
+<style type="text/css">
+.shark{-webkit-animation: sharkani 0.2s 2 ease-in-out;  animation: sharkani 0.2s  2 ease-in-out;}
+.shark2{-webkit-animation: sharkani2 0.2s 2 ease-in-out;  animation: sharkani2 0.2s  2 ease-in-out;}
+@keyframes 'sharkani' {
+    0% { transform: translateX(0px);}
+    20% {transform: translateX(-40px);}
+    50% {transform: translateX(0);}
+    70% {transform: translateX(40px);}
+    100% {transform: translateX(0deg);}
+}
+@-webkit-keyframes 'sharkani' {
+    0% { transform: translateX(0px);}
+    20% {transform: translateX(-40px);}
+    50% {transform: translateX(0);}
+    70% {transform: translateX(40px);}
+    100% {transform: translateX(0deg);}
+} 
+@keyframes 'sharkani2' {
+    0% { transform: translateX(0px);}
+    20% {transform: translateX(-40px);}
+    50% {transform: translateX(0);}
+    70% {transform: translateX(40px);}
+    100% {transform: translateX(0deg);}
+}
+@-webkit-keyframes 'sharkani2' {
+    0% { transform: translateX(0px);}
+    20% {transform: translateX(-40px);}
+    50% {transform: translateX(0);}
+    70% {transform: translateX(40px);}
+    100% {transform: translateX(0deg);}
+} 
+.p8-3{ height: 250px; width: 320px; margin:12% auto 0; background: url(images/p8-3.png) no-repeat center center; background-size: 100%  100%;}
+  /*iPhone4*/
+  @media only screen and (max-height: 480px) {
+    .p8-3{margin:3% }
+  }
+</style>
+</head>
+<body>
+ 
+
+
+<div id="page-pop">
+  <div class="pop-mask"></div>
+
+  <!-- page1 -->
+  <div class="pop p1-pop">
+    <img src="images/p1-pop.png" width="300">
+    <span class="p1-pop-close"></span>
+  </div>
+
+  <!-- 问答 错误 -->
+  <div class="pop qna-error">
+    <span class="qna-close"></span>
+  </div>
+
+  <!-- 问答 结束 -->
+  <div class="pop qna-end">
+    <span class="qna-close"></span>
+  </div>
+
+  <!-- page8 -->
+  <div class="pop p8-pop">
+    <div class="text">
+      <p>xxxx</p>
+      <p>xxxx</p>
+      <p>xxxx</p>
+      <p>xxxx</p>
+    </div>
+    <span class="p8-pop-close"></span>
+  </div>
+
+</div>
+
+
+<div id="page-content"> 
+  <div class="page page-8">
+    <div class="p8-1"><img src="images/heart.png" width="60"></div>
+    <div class="p8-2"><img src="images/p8-2.png" width="320"></div>
+    <div class="p8-3"><img class="j_yyyimg" src="images/p8-3-2.png" width="130" style="margin:78px auto;"></div>
+    <div class="p8-4"><img class="p8-btn" src="images/p8-btn.png" width="84"></div>
+  </div>  
+</div>
+<a href="javascript:;" class="j_yyiyao" style="bottom:80px; display:block; width:70px; height:20px; right:30px; position:absolute;">摇一摇</a>
+
+<audio src="music/music.mp3" id="audio" autoplay="autoplay" loop="loop"></audio>  
+<script type="text/javascript" src="js/zepto.min.js"></script> 
+<script type="text/javascript" src="js/touch.js"></script> 
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript">
+var init = function(){
+	window.w = window.screen.width;
+	window.h = window.screen.height;
+	$("#page-pop,#page-content").css({"height": 1*h +"px"});
+	$(".pop-mask").css({"height": h +"px"}).hide();
+//摇一摇的代码
+$(".j_yyiyao").on("click",function(){
+/*    if($(".j_yyyimg").hasClass("shark")){
+        $(".j_yyyimg").removeClass("shark").addClass("shark2")
+    }else{ 
+        $(".j_yyyimg").removeClass("shark2").addClass("shark")
+    }*/
+
+    $(".j_yyyimg").velocity({ "translateX":'-40px'},200,function(){  
+      $(".j_yyyimg").velocity({ "translateX":'40px'},200,function(){  
+        $(".j_yyyimg").velocity({ "translateX":'0px'},200,function(){  
+        }); 
+      }); 
+    }); 
+});
+	//活动规则
+	$(".p1-btn").on("click",function(){
+		$("#page-pop,.pop-mask").show();
+		$(".p1-pop").show();
+	});
+	$(".p1-pop-close").on("click",function(){
+		$("#page-pop,.pop-mask").hide();
+		$(".p1-pop").hide();
+	});
+
+    //问答
+    $(".qna1 .answer-b").on("click",function(){
+        $(".qna1").addClass("qna1-current");
+        $("#page-pop,.pop-mask,.qna-error").show();
+    });
+    $(".qna2 .answer-b").on("click",function(){
+        $(".qna2").addClass("qna2-current");
+        $("#page-pop,.pop-mask,.qna-error").show();
+    });
+    //摇奖失败弹框
+    $(".qna3 .answer-b").on("click",function(){
+        $(".qna3").addClass("qna3-current");
+        $("#page-pop,.pop-mask,.qna-end").show();
+    });
+    $(".qna-close").on("click",function(){
+        $("#page-pop,.pop-mask,.qna-error,.qna-end").hide();
+    });
+
+	//我的奖品
+	$(".p8-btn").on("click",function(){
+		$("#page-pop,.pop-mask,.p8-pop").show();
+	});
+	$(".p8-pop-close").on("click",function(){
+		$("#page-pop,.pop-mask,.p8-pop").hide();
+	});
+
+};
+init();
+window.initAudio = function(){
+    window.audio = document.getElementById("audio");
+}
+window.initAudio();
+$('body').one('touchmove',function(){
+    window.audio.play();
+})
+</script>
+
+</body>
+</html>

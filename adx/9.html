@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type">
+<meta content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>阿达西翼起摇活动</title>
+<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/animations.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+  /*iPhone4*/
+  @media only screen and (max-height: 480px) {
+    .bonus-2 {
+    margin: 3% auto 0;
+    }
+    .bonus-4 {
+      margin: 3% auto 0;
+    }
+  }
+</style>
+</head>
+<body>
+  
+<div id="page-pop">
+  <div class="pop-mask"></div>
+
+  <!-- page1 -->
+  <div class="pop p1-pop">
+    <img src="images/p1-pop.png" width="300">
+    <span class="p1-pop-close"></span>
+  </div>
+
+  <!-- 问答 错误 -->
+  <div class="pop qna-error">
+    <span class="qna-close"></span>
+  </div>
+
+  <!-- 问答 结束 -->
+  <div class="pop qna-end">
+    <span class="qna-close"></span>
+  </div>
+
+  <!-- page8 -->
+  <div class="pop p8-pop">
+    <div class="text">
+      <p>xxxx</p>
+      <p>xxxx</p>
+      <p>xxxx</p>
+      <p>xxxx</p>
+    </div>
+    <span class="p8-pop-close"></span>
+  </div>
+
+</div>
+
+
+<div id="page-content">
+
+  <div class="page page-9">
+    <form id="" name="" method="post" action="">
+      <p class="bonus-1"><img src="images/bonus-1.png" height="16"></p>
+      <p class="bonus-point">
+        <img src="images/bonus-point-5.png" height="16">
+      </p>
+      <p class="bonus-2"><img src="images/bonus-2.png" height="16"></p>
+      <div class="bonus-3"><input type="text" maxlength="11" id="telnum" name="" value=""></div>
+      <p class="bonus-4"><img src="images/bonus-4.png" width="252"></p>
+      <p class="bonus-5"><input class="btn-bonus" type="button" id="tjbtn" name="" value="确定"></p>
+    </form>
+  </div> 
+</div>
+
+<audio src="music/music.mp3" id="audio" autoplay="autoplay" loop="loop"></audio> 
+<script type="text/javascript" src="js/zepto.min.js"></script> 
+<script type="text/javascript" src="js/touch.js"></script> 
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript">
+function isMobel(value){
+  if(/^13\d{9}$/g.test(value)||(/^15[0-35-9]\d{8}$/g.test(value))|| (/^18[05-9]\d{8}$/g.test(value))){ return true; }
+  else{ return false; }
+}
+var init = function(){
+	window.w = window.screen.width;
+	window.h = window.screen.height;
+        //提交中奖信息
+        $("#tjbtn").on("click",function(){
+            var tel = $("#telnum").val();
+            //判断是否电信号码
+            if(isMobel(tel)){
+
+            }else{
+              alert("对不起，您输入有误，请输入正确的电信手机号");
+            }
+        });
+
+	$("#page-pop,#page-content").css({"height": 1*h +"px"});
+	$(".pop-mask").css({"height": h +"px"}).hide();
+
+	//活动规则
+	$(".p1-btn").on("click",function(){
+		$("#page-pop,.pop-mask").show();
+		$(".p1-pop").show();
+	});
+	$(".p1-pop-close").on("click",function(){
+		$("#page-pop,.pop-mask").hide();
+		$(".p1-pop").hide();
+	});
+
+    //问答
+    $(".qna1 .answer-b").on("click",function(){
+        $(".qna1").addClass("qna1-current");
+        $("#page-pop,.pop-mask,.qna-error").show();
+    });
+    $(".qna2 .answer-b").on("click",function(){
+        $(".qna2").addClass("qna2-current");
+        $("#page-pop,.pop-mask,.qna-error").show();
+    });
+    $(".qna3 .answer-b").on("click",function(){
+        $(".qna3").addClass("qna3-current");
+        $("#page-pop,.pop-mask,.qna-end").show();
+    });
+    $(".qna-close").on("click",function(){
+        $("#page-pop,.pop-mask,.qna-error,.qna-end").hide();
+    });
+
+	//我的奖品
+	$(".p8-btn").on("click",function(){
+		$("#page-pop,.pop-mask,.p8-pop").show();
+	});
+	$(".p8-pop-close").on("click",function(){
+		$("#page-pop,.pop-mask,.p8-pop").hide();
+	});
+
+};
+init();
+window.initAudio = function(){
+    window.audio = document.getElementById("audio");
+    window.audio1 = document.getElementById("audio1");
+    window.audio2 = document.getElementById("audio2");
+    window.audio3 = document.getElementById("audio3");
+    window.audio4 = document.getElementById("audio4");
+    window.audio5 = document.getElementById("audio5");
+    window.audio6 = document.getElementById("audio6"); 
+}
+window.initAudio();
+$('body').one('touchmove',function(){
+    window.audio.play();
+}) 
+$("#music1").on("click", function(){
+    window.audio.pause();
+    window.audio1.play();
+    window.audio2.pause();
+    window.audio3.pause();
+    window.audio4.pause();
+    window.audio5.pause();
+    window.audio6.pause();
+})
+$("#music2").on("click", function(){
+    window.audio.pause();
+    window.audio2.play();
+    window.audio1.pause();
+    window.audio3.pause();
+    window.audio4.pause();
+    window.audio5.pause();
+    window.audio6.pause();
+})
+$("#music3").on("click", function(){
+    window.audio.pause();
+    window.audio3.play();
+    window.audio1.pause();
+    window.audio2.pause();
+    window.audio4.pause();
+    window.audio5.pause();
+    window.audio6.pause();
+})
+$("#music4").on("click", function(){
+    window.audio.pause();
+    window.audio4.play();
+    window.audio1.pause();
+    window.audio2.pause();
+    window.audio3.pause();
+    window.audio5.pause();
+    window.audio6.pause();
+})
+$("#music5").on("click", function(){
+    window.audio.pause();
+    window.audio5.play();
+    window.audio1.pause();
+    window.audio2.pause();
+    window.audio3.pause();
+    window.audio4.pause();
+    window.audio6.pause();
+})
+$("#music6").on("click", function(){
+    window.audio.pause();
+    window.audio6.play();
+    window.audio1.pause();
+    window.audio2.pause();
+    window.audio3.pause();
+    window.audio4.pause();
+    window.audio5.pause();
+})
+
+</script>
+
+</body>
+</html>
