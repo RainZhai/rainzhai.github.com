@@ -25,7 +25,7 @@ img { border:none; vertical-align:middle; }
 
 /* pop */
 #page-pop { visibility:hidden; z-index:99; position:absolute; width:100%; }
-.pop-mask { width:100%; background-color:rgba(0,0,0,0.5); }
+.pop-mask { width:100%; background-color:rgba(0,0,0,0.5); position: absolute; left:0; top:0; z-index: 1;}
 .pop { visibility:hidden; position:absolute; top:50%; left:50%; z-index:99; }
 
 /* page1 */
