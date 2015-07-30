@@ -130,7 +130,20 @@
       console.log(util.clearLastComma(s));
     }
   };
-
+  //设置手机端基本宽高
+  if(util.isAndroid){
+    win.w = win.document.body.offsetWidth;
+    win.h = win.document.body.offsetHeight;
+  }else{
+    win.w = win.screen.width;
+    win.h = win.screen.height;
+  }
+  //判断并设置事件
+  if(util.supportTouch){
+    util.touch.click = 'tap';
+  }else{
+    util.touch.click = 'click';
+  }
 
   /**
    * 浏览器的特性的简单检测，并非精确判断。
@@ -182,6 +195,66 @@
     }
     return 0;
   }
+  util.setCookie = function(c_name, value, expiredays) {
+    if(c_name && value){
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + expiredays);
+    document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+    }
+  }
+  util.getCookie = function(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+          c_start = c_start + c_name.length + 1;
+          c_end = document.cookie.indexOf(";", c_start);
+          if (c_end == -1) {
+            c_end = document.cookie.length;
+          }
+          return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+  }
+  //删除cookies
+util.delCookie = function(name) {
+  var exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  var cval = Common.getCookie(name);
+  if (cval != null) document.cookie = name +"="+cval + ";expires ="+exp.toGMTString();
+}
+//交换数组元素
+util.swapItems = function(arr, index1, index2) {
+    arr[index1] = arr.splice(index2, 1, arr[index1])[0];
+    return arr;
+};
+//设置列表记录id
+util.setlist = function(name,val) {
+      var list = Common.getCookie(name);
+      if (list) {
+             var arr = list.split(",");
+            if (arr.length < 5) {
+                    if (arr.indexOf(val) > 0) {
+                      var i = arr.indexOf(val);
+                      Common.swapItems(arr, 0, i);
+                    } else { 
+                      arr.unshift(val);//在数组前添加元素
+                    }
+                    Common.setCookie(name, arr.join(","));
+            }else{
+                    if (arr.indexOf(val) > 0) {
+                        var i = arr.indexOf(val);
+                        Common.swapItems(arr, 0, i);
+                    } else { 
+                        arr.unshift(val);//在数组前添加元素
+                    }
+                    arr.pop();//删除最后一个元素
+                    Common.setCookie(name, arr.join(","));
+            }
+      }else{
+            Common.setCookie(name, val);
+      }
+}
   /*增加历史状态*/
   util.pushState = function(obj) {
     if (history && util.checkprop('pushState', history)) {
@@ -582,10 +655,10 @@
       params: null,
       wrapHandle: '#listbox',
       loading: null,//加载提示框对象
-      stop: false
+      stop: false,
+      scrollObj: window
     }, obj || {});
-
-    var win = $(window);
+    var win = $(opt.scrollObj);
     var wrapbox = $(opt.wrapHandle);
     var stop = opt.stop;
     var o = {
@@ -623,20 +696,76 @@
         stop = v;
       },
       init: function() {
+//div滚动的判断
+/**var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
+var nScrollTop = 0;   //滚动到的当前位置
+var nDivHight = $("#div1").height();
+
+$("#div1").scroll(function(){
+  nScrollHight = $(this)[0].scrollHeight;
+  nScrollTop = $(this)[0].scrollTop;
+  if(nScrollTop + nDivHight >= nScrollHight)
+  alert("滚动条到底部了");
+});*/
         win.scroll(function() {
           //手机端滚动到底部加载height=device-height;
           log(stop);
-          if ( !stop && $(opt.lastItemHandle).is(':visible')) {
+          if (!stop && $(opt.lastItemHandle).is(':visible')) {
             if (win.scrollTop() + win.height() >= $(document).height()) {
+              o.setStop(true);
               if (opt.loadurl) {
                 var p = o.getParams();
-                if(opt.loading) opt.loading.show();
+                if (opt.loading) opt.loading.show();
                 $.getJSON(opt.loadurl, p, function(data) {
                   o.setData(data);
                   if ($.isFunction(callback)) callback();
                 });
               }
             }
+          }
+        });
+
+        //侧边栏滚动自动定位到相应的链接
+        $(document).ready(function() {
+          var a = $,
+            b = document,
+            c = a(".j_mainContent "),
+            d = a(".j_sidebar");
+          if (d.length > 0) {
+            var e = d.offset().top,
+              f = d.find(".anchor-btn"),
+              g = function() {
+                for (var b = [], c = 0; c < f.length; c++) b.push(a(a(f[c]).attr("href")).offset().top);
+                return b
+              },
+              h = g(),
+              i = function(b) {
+                for (var c, b = b + 86, d = 0; d < h.length; d++)
+                  if (b < h[d + 1]) {
+                    c = d;
+                    break
+                  }
+                void 0 == c && (c = d - 1), f.parent("li").find("a").removeClass("on"), a(f[c]).parent("li").find("a").addClass("on")
+              },
+              j = function(a) {
+                a > e && !d.hasClass("tab-fix-top") && (d.addClass("tab-fix-top")), e > a && d.hasClass("tab-fix-top") && (d.removeClass("tab-fix-top"));
+                /*, d.css("width", "auto"))*/
+              };
+            a(window).on("scroll", function(c) {
+              var d = a(b).scrollTop();
+              j(d), i(d)
+            }), a(window).on("resize", function(e) {
+              d.hasClass("tab-fix-top");
+              var f = a(b).scrollTop();
+              j(f), i(f)
+            }), a(".anchor-btn").on("click", function(b) {
+              var c = a(this);
+              setTimeout(function() {
+                f.parent("li").find("a").removeClass("on"), c.parent("li").find("a").addClass("on")
+              }, 50)
+            });
+            var k = a(b).scrollTop();
+            j(k)
           }
         });
       }

@@ -3,15 +3,58 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Rain CSS > List</title>
+<title>Rain CSS > Util</title>
 <!-- Framework CSS -->
 <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print"/> 
 <!--[if lte IE 8]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
 <link rel="stylesheet" href="css/rain.css" type="text/css" media="all"/>
-<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
-<script type="text/javascript" src='js/jquery-1.7.2.js'></script>
- 
+<link rel="stylesheet" href="icomoon/style.css" type="text/css" media="all"/>
+<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]--> 
+<link rel="stylesheet" type="text/css" href="css/manhuaDate.1.0.css">
+ <style>
+.searchwrap{ transition: all .5s linear; -webkit-transition: all .5s linear; height: 25px; width: 30px; margin: 20px 0 0 35px;}
+.searchwrap .searchinner{width: 238px;}
+.searchwrap .searchicon{ width: 25px; height: 25px; margin-right: 10px;  border:0 none; cursor: pointer; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMFJREFUeNpiYKAV+P//vwMQr/+PCt4D8XwgNiDWkPn/CYMEUg3ZD8QNUHyfKMOg3kH2hgMWNQVoahSwGYQcJg54XN2ApK4fmwK4d4gIx/fY1DKhqTtIRJxcgNIO+AwiBTzA59zzBLwlgDcY0KK+gMgkkoBNgQFaOmnA4hL0dFaAy7YELNliPxSTlsqhhr3/TxoAG8aIxTBQis0HYgMo/gCNoYVQej0QC6BpSySndDDA4ur35BY1GIZRUm4hG9YPEGAAtovdMQCq9tIAAAAASUVORK5CYII=) no-repeat center center;}
+.searchwrap .searchicon:hover{background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQpJREFUeNpiYKASYEQXsN390wFI5QNxAJLwByDeAMQTD7uyXyBoENCQ+UAqgYDliUDDFuA0CIshB4D4IJQdD8QK+AxjRPLOfiRvBAIVHkBzbQGQ6kdSYwhU8wAmzwSl85H0YBgCAkCxCUCqEcoVQNMDNwgWsAewGYJkWAPUNSBggM0gGDhIREzDYs0Bn0GkgAfYDII51x+fTmCACyC5BKtBG2D+hsYOLtCPxF6IzaCJyIqBhjWguwRLOhPAlSBBiuajZQusAYstYaJnkQSo8wVICHSwYdgyrQI0sRlA8QdowC6E0uuxWJTISGqcAy0ygGYnZMM+kJyOoMWII1KSAQc8WQkSi2ETAAIMADJBW9xL2neoAAAAAElFTkSuQmCC) no-repeat center center; }
+.searchwrap .searchbox{ margin:4px 0;  width: 200px; background: none; border:0 none; color: #fff;}
+.wauto{ width: 238px!important; background: #0067a3; border-radius: 3px; }
+.on{ color: red; }
+.tab-fix-top{ position: fixed; top:0;}
+.link .down {
+  display: inline-block;
+  font-size: 10px;
+  width: 10px;
+  color: #bbb;
+  margin-left: 3px;
+  transform-origin: 50% 48%;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-transition: transform .2s ease-in;
+  -moz-transition: transform .2s ease-in;
+  -o-transition: transform .2s ease-in;
+  transition: transform .2s ease-in;
+}
+.ng-bar-node-hover .down {    transform: rotate(-180deg);    -webkit-transform: rotate(-180deg);    -moz-transform: rotate(-180deg);    -o-transform: rotate(-180deg);    -ms-transform: rotate(-180deg); }
+.sn-arrow-left {
+  display: inline-block;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  border-top: transparent 6px solid;
+  border-bottom: transparent 6px solid;
+  _border-top: 6px solid black;
+  _filter: chroma(color=black);
+  _border-bottom: 6px solid black;
+  _filter: chroma(color=black);
+  border-left: 6px solid #ccc;
+  width: 0;
+  height: 0;
+  margin-top: 9px;
+  margin-right: 6px;
+  border-left: 6px solid #333;
+  transition: all 0.2s linear;
+}
+ </style>  
 </head>
 <body class="body">
 	<div class="header headerBlue">
@@ -28,16 +71,95 @@
   </div>
   
 	<div class="container mt">
-    
+      <div class="content">
+          <div class="sidebar l posr">
+            <div class="sidebox"> 
+                  <div class="j_sidebar sidebar l posr"> 
+                      <ul class="lsn last">
+                        <li>
+                          <a href="#title1" class="anchor-btn p block bglgrey2 on">定位1</a>
+                          <hr class="spline">
+                        </li> 
+                        <li>
+                          <a href="#title2" class="anchor-btn p block bglgrey2">定位2</a>
+                          <hr class="spline">
+                        </li>  
+                      </ul>  
+                      <ul class="lsn last">
+                        <li>
+                          <a class="title fs18px hm" href="#">伸展菜单</a> 
+                        </li> 
+                        <li class="j_secendtitlewrap secendtitlewrap">
+                          <span class="title j_sectitle hm"><i class="sn-arrow-left"></i> 菜单1111</span>
+                          <hr class="spline">
+                          <div class="subwrap j_subwrap hide">
+                            <a href="#" class="sub-item block hm">菜单1-1</a> 
+                            <a href="#" class="sub-item block hm on">菜单1-2</a> 
+                          </div>
+                        </li>  
+                        <li class="j_secendtitlewrap secendtitlewrap">
+                          <span class="title j_sectitle hm"><i class="sn-arrow-left"></i> 菜单222</span>
+                          <hr class="spline">
+                          <div class="subwrap j_subwrap hide">
+                            <a href="#" class="sub-item block hm">菜单2-1</a>
+                          <hr class="spline">
+                            <a href="#" class="sub-item block hm">菜单2-2</a> 
+                          </div>
+                        </li>   
+                      </ul>
+                  </div>
+            </div>  
+          </div>
+
+          <div class="j_mainContent main mainRight posr">
+              <fieldset >
+                  <legend id="title1">搜索框组件</legend>
+                  <div class="bgg">
+                    <div class="j_searchwrap searchwrap oh">
+                    <div class="searchinner  clearfix"><button  class="j_searchicon searchicon block l" ></button> <input type="text" class="j_searchbox searchbox l" /></div>
+                    </div>
+                  </div>
+              </fieldset>
+
+              <fieldset >
+                  <legend >日期</legend>
+                  <input type="text" class="ps w-10" id="starttime" name="starttime" readonly="true" />   
+              </fieldset>
+              
+              <fieldset >
+                  <legend >下拉菜单</legend> 
+                  <div class="j_linksbox link ib posr">
+                    <a href="javascript:void(0);" class="ib bb">
+                      <span>网站导航</span> <span class="ng-iconfont down imooc-icon">&#xea43;</span> 
+                    </a>
+                    <div class="j_sitenav ng-sn-site-nav posa oh  w-10 bglgrey2" style="display: none;">
+                      <a href="#" class=" block p bb">菜单菜单</a>
+                      <a href="#" class=" block p bb">菜单菜单</a>
+                      <a href="#" class=" block p bb">菜单菜单</a>
+                    </div>
+                  </div>
+              </fieldset>
+              
+              <fieldset >
+                  <legend >字数控制</legend> 
+                  <textarea name="miaosu"  id="miaosu" style="width:700px; height:100px; " maxlength="200" placeholder="问题描述" holder=""></textarea>
+                  <p class="tar"><span class="j-limit grey">5-50字</span></p>
+              </fieldset>
+              <p id="title2" style="padding-top:500px; height:500px;  ">内容2</p>
+          </div>
+      </div> 
+
+
 		<div class="paddingTop">
 	      <footer class="footer socialFooter c bt">
 	        <p class="bottom pt pb">Copyright 2010-2014 Web Development Machine All rights reserved.</p>
 	      </footer>
 		</div>
 	</div>
+<script type="text/javascript" src='js/jquery-1.7.2.js'></script>
 <script type="text/javascript" src='js/util.js'></script>
+<script type="text/javascript" src="js/manhuaDate.1.0.js"></script>
 <script type="text/javascript">
-
 
 util.ob = $({});
 $.subscribe = function () {
@@ -109,6 +231,195 @@ Joe.unsubscribe(NewYorkTimes);
 var img =util.cacheImg({src:"images/logo.png",width:200,height:70},"image/png", function(img){
 	log(img.src);
 	$("body").append(img);
+});
+
+$(document).one('hidden.bs.modal', function() {
+          log(1434324);      
+});
+$(document).trigger('hidden.bs.modal');
+
+//搜索框组件
+window.Common = {};
+Common.searchbox = function(callback){
+  this.init(callback);
+}
+Common.searchbox.prototype = {
+  init: function(callback){
+      var me = this;
+      me.searchbox = $('.j_searchbox');
+      me.registerEvent(callback);
+  },
+  registerEvent: function(callback){
+      var me = this;
+      var searchbox = me.searchbox;
+      $(".j_searchicon").on("click", function(){
+        $(".j_searchwrap").toggleClass("wauto");
+      });
+
+      searchbox.on("blur", function(){
+        $(".j_searchwrap").toggleClass("wauto");
+      });
+
+      $(document).on("keypress", function(event) {
+        if($('.j_searchbox').val()){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+               if(typeof(callback) =="function"){
+                callback();
+               }
+            }
+        }
+      });
+  }
+}
+var searchbox = new Common.searchbox();
+//顶部展开效果
+Common.navbar = function(){
+  this.init();
+};
+Common.navbar.prototype = {
+  init: function(){
+    var me = this; 
+    me.nav =$(".j_sitenav");
+    me.registerEvent();
+  },
+    registerEvent: function(){
+        var me = this;
+        var timer;
+        $(".j_linksbox").hover(function() {
+            var nav = $(this).find(".j_sitenav");
+            $(this).addClass("ng-bar-node-hover");
+            nav.show();
+        }, function() {
+            var nav = $(this).find(".j_sitenav");
+            $(this).removeClass("ng-bar-node-hover");
+            nav.hide();
+        });
+        $(".j_sitenav").on("mouseleave", function(){
+            var me = $(this);
+            var nav = $(this).find(".j_sitenav");
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                nav.hide();
+            }, 200);
+        });
+
+    }
+}
+var navbar = new Common.navbar();
+//================== 侧边栏滚动定位 ==================
+$(document).ready(function() {
+    var a = $,
+        b = document,
+        c = a(".j_mainContent "),
+        d = a(".j_sidebar");
+    if (d.length > 0) {
+        var e = d.offset().top,
+            f = d.find(".anchor-btn"),
+            g = function() {
+                for (var b = [], c = 0; c < f.length; c++) b.push(a(a(f[c]).attr("href")).offset().top);
+                return b
+            },
+            h = g(),
+            i = function(b) {
+                for (var c, b = b + 86, d = 0; d < h.length; d++)
+                    if (b < h[d + 1]) {
+                        c = d;
+                        break
+                    }
+                void 0 == c && (c = d - 1), f.parent("li").find("a").removeClass("on"), a(f[c]).parent("li").find("a").addClass("on")
+            },
+            j = function(a) {
+                a > e && !d.hasClass("tab-fix-top") && (d.addClass("tab-fix-top")), e > a && d.hasClass("tab-fix-top") && (d.removeClass("tab-fix-top"));
+                  /*, d.css("width", "auto"))*/
+            };
+        a(window).on("scroll", function(c) {
+            var d = a(b).scrollTop();
+            j(d), i(d)
+        }), a(window).on("resize", function(e) {
+            d.hasClass("tab-fix-top");
+            var f = a(b).scrollTop();
+            j(f), i(f)
+        }), a(".anchor-btn").on("click", function(b) {
+            var c = a(this);
+            setTimeout(function() {
+                f.parent("li").find("a").removeClass("on"), c.parent("li").find("a").addClass("on")
+            }, 50)
+        });
+        var k = a(b).scrollTop();
+        j(k)
+    }
+})
+//==================侧边栏点击伸展 ==================
+$(".j_sectitle").on("click",function(){
+    $(this).parents(".j_secendtitlewrap").siblings().find(".j_subwrap").addClass("hide");
+    $(this).parents(".j_secendtitlewrap").siblings().find(".sn-arrow-left").removeClass("on");
+    $(this).find(".sn-arrow-left").toggleClass("on");
+    $(this).parents(".j_secendtitlewrap").find(".j_subwrap").toggleClass("hide");
+});
+if($(".j_subwrap").find(".on").length>0){
+    $(".j_secendtitlewrap").find(".j_subwrap").addClass("hide");
+    $(".j_secendtitlewrap").find(".sn-arrow-left").removeClass("on");
+    $(".j_subwrap").find(".on").parents(".j_subwrap").removeClass("hide");
+    $(".j_subwrap").find(".on").parents(".j_secendtitlewrap").find(".sn-arrow-left").addClass("on");
+}
+//==================控制最多字数 ==================
+Common.maxlength = function(selector,out,max,min) {
+    if(min>max) min = 0;
+    var  d = $(selector),
+        c = max,
+        a = $(out),
+        b = d.val();
+    var timer;
+    d.attr("holder", d.val());
+    a.text("5-50字");
+    d.bind({
+        focusin: function() {
+            var g = $(this);
+            a.css({color: ""});
+            if (g.val() == b) {
+                g.val("");
+                a.text("5-50字")
+            }
+            $(this).css({"border-color": "#4c93f3"});
+            timer = setInterval(function() {
+                var h = $.trim(g.val());
+                if (h.length > c) {
+                    h = h.substr(0, c);
+                    g.val(h)
+                }
+                if (h.length < min) {
+                    a.text("您还需输入" + (min - h.length) + "个字")
+                } else {
+                    a.text("您还可以输入" + (c - h.length) + "个字")
+                }
+            }, 100)
+        },
+        focusout: function() {
+            $(this).removeClass("focus");
+            if ($(this).val() == "") {
+                $(this).val(b);
+                a.text("5-50字")
+            }
+            $(this).css({"border-color": "#DDD"});
+            clearInterval(timer)
+        }
+    });
+};
+Common.maxlength("#miaosu",".j-limit",50,5);
+$(function (){
+    //日期显示
+    $("#starttime").manhuaDate({               
+      handlerClass: ".j_calender1", 
+      Event : "click",//可选               
+      Left : 0,//弹出时间停靠的左边位置
+      Top : -16,//弹出时间停靠的顶部边位置
+      fuhao : "-",//日期连接符默认为-
+      isTime : false,//是否开启时间值默认为false
+      beginY : 2015,//年份的开始默认为1949
+      endY :2100//年份的结束默认为2049
+    });
+
 });
 </script>
 </body>

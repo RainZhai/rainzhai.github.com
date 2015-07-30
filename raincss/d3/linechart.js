@@ -42,6 +42,7 @@ mobile.drawLineChart = function(obj) {
         showcurval: true, //是否显示当前文本值
         showtip: true, //默认是否显示提示框
         showtext: true,
+        showIndexCircle: false,
         tipCallback: function() {}
     }, obj);
     var parse = d3.time.format('%Y-%m-%d').parse;
@@ -130,7 +131,12 @@ mobile.drawLineChart = function(obj) {
                         stroke:obj.stroke,
                         radius: obj.radius,
                         activeFill: obj.activeFill,
-                        showtext: obj.showtext
+                        showtext: obj.showtext,
+                        tipIndex: obj.tipIndex,
+                        showIndexCircle: obj.showIndexCircle,
+                        callback: function(){
+                            o.showTip(tooltipId,data, obj.tipIndex, obj.tipXDeviation, obj.tipYDeviation);
+                        }
                     });
                     d3.select(this).attr('class', 'pathAnima');
                 });
@@ -146,12 +152,6 @@ mobile.drawLineChart = function(obj) {
                 var left_to_right_appear_transition = new_lines.transition().duration(1000).ease("linear");
                 left_to_right_appear_transition.select(".clippath").remove().select("rect").attr("width", obj.width);
                 left_to_right_appear_transition.select("path").each('end', function() {
-/*                    o.drawEachObjects(data,{
-                        fill:obj.fill,
-                        stroke:obj.stroke,
-                        radius: obj.radius,
-                        activeFill: obj.activeFill
-                    });*/
                 });
             }
         },
@@ -172,7 +172,12 @@ mobile.drawLineChart = function(obj) {
                     stroke: opt.stroke,
                     radius: opt.radius,
                     activeFill: opt.activeFill,
-                    showtext: opt.showtext
+                    showtext: opt.showtext,
+                    showIndexCircle: opt.showIndexCircle,
+                    tipIndex: opt.tipIndex,
+                    callback: function(){
+                        o.showTip(opt.tooltipId,data, opt.tipIndex, opt.tipXDeviation, opt.tipYDeviation);
+                    }
                 });
                 d3.select(this).attr('class', 'pathAnima');
             });
@@ -182,19 +187,26 @@ mobile.drawLineChart = function(obj) {
             new_lines.append("path").attr("fill", opt.areafill).style("clip-path", "url(#clip_pathtemp)").attr("d", function() {
                 return area(data);
             });
-            var left_to_right_appear_transition = new_lines.transition().duration(1000).ease("linear");
-            left_to_right_appear_transition.select(".clippath").remove().select("rect").attr("width", obj.width);
-            left_to_right_appear_transition.select("path").each('end', function() { });
+            var left_to_right_ani = new_lines.transition().duration(1000).ease("linear");
+            left_to_right_ani.select(".clippath").remove().select("rect").attr("width", obj.width);
+            left_to_right_ani.select("path").each('end', function() {
+                
+            });
         },
         drawEachObjects: function(data, opt) {
             circleContainer = svg.append('g').attr('class', 'lineChart-circlewrap');
             textwrap = svg.append("g").attr("class", "lineChart-text").attr("transform", "translate(" + marginWidth / 2 + "," + height / 2 + ")");
-            data.forEach(function(datum, index) {
-                o.drawCircle(circleContainer, datum, index,opt);
+            data.forEach(function(datum, index) {                
+                if(opt.showIndexCircle){
+                    if( index=== opt.tipIndex ) o.drawCircle(circleContainer, datum, index,opt);
+                    if( index === (data.length-1) ) o.drawCircle(circleContainer, datum, index,opt);
+                }else{
+                    o.drawCircle(circleContainer, datum, index,opt);
+                }
                 if( opt.showtext )o.drawText(textwrap, datum, index);
             })
         },
-        drawCircle: function(container, datum, index,opt) {
+        drawCircle: function(container, datum, index, opt) {
             container.datum(datum).append('circle').attr('class', 'lineChart-circle').attr('r', 0).attr('fill', opt.fill).attr("stroke", opt.stroke)
                 .attr('cx', function(d) {
                     return xscale(d.date) + marginWidth / 2
@@ -202,7 +214,7 @@ mobile.drawLineChart = function(obj) {
                 .attr('cy', function(d) {
                     return yscale(d.value)
                 })
-                .transition().delay(obj.duration / 5 * index).attr('r', opt.radius).each('end', function(d, i) {
+                .transition().delay(obj.duration / 20 * index).attr('r', opt.radius).each('end', function(d, i) {
                     //设置默认圆点样式
                     if (obj.cycleActive && index === data.length - 1) {
                         o.setCircleStyle(obj.tipIndex, {
@@ -213,7 +225,8 @@ mobile.drawLineChart = function(obj) {
                     }
                     //显示提示框
                     if (obj.showtip && index === data.length - 1) {
-                        o.initTip();
+                        //o.initTip();
+                        opt.callback();
                     }
                 });
         },
@@ -237,36 +250,34 @@ mobile.drawLineChart = function(obj) {
         },
         //初始化气泡
         initTip: function() {
-            o.showTip(obj.tipIndex, obj.tipXDeviation, obj.tipYDeviation);
-            o.setxAxisStyle(obj.tipIndex, {
+            o.showTip(tooltipId,data, obj.tipIndex, obj.tipXDeviation, obj.tipYDeviation);
+            o.setHighlightText(obj.tipIndex, {
                 "fill": obj.xAxisfill
             }, {
                 "fill": obj.activexAxisFill
             });
         },
-        showTip: function(i) {
+        showTip: function(id, data, i, xoffset, yoffset) {
+            var tooltipId = id;
             if (i >= data.length) {
                 i = data.length - 1;
             }
             if (i < 0) {
                 i = 0;
             }
-            var p = 0,
-                q = 0;
-            if (arguments.length > 1 && arguments[1] != 0) {
-                p = arguments[1];
-            }
-            if (arguments.length > 2 && arguments[2] != 0) {
-                q = arguments[2];
-            }
+            var p = xoffset,
+                q = yoffset; 
             var xPosition = xscale(data[i].date) + p;
             var yPosition = yscale(data[i].value) + q;
             d3.select(tooltipId).classed("hide", false);
             d3.select(tooltipId).select(".j_value").text(data[i].value);
             d3.select(tooltipId).style("opacity", 0)
                 .style("left", xPosition + "px")
+                .style("top", yPosition+ 60 + "px")
+                .style("transform", "scale(0.1,0.1)")
+                .transition().duration(obj.duration/3)
+                .style("transform", "scale(1,1)")
                 .style("top", yPosition + "px")
-                .transition().duration(obj.duration / 3)
                 .style("opacity", 1);
             obj.tipCallback();
         },
@@ -276,7 +287,7 @@ mobile.drawLineChart = function(obj) {
             $(obj.elementId).find("svg").find(".lineChart-circle").eq(i).css(css);
         },
         //对x轴文本设置样式
-        setxAxisStyle: function(i, old, css) {
+        setHighlightText: function(i, old, css) {
             $(obj.elementId).find("svg").find(".lineChart-xAxis").find(".tick").find("text").css(old);
             $(obj.elementId).find("svg").find(".lineChart-xAxis").find(".tick").find("text").eq(i).css(css);
         },
