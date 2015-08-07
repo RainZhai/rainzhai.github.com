@@ -3,26 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>requirejs里面ajax回调不执行 | 宅鱼</title>
+  <title>requirejs里面ajax回调不执行等问题 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
+  <meta name="description" content="requirejs里面ajax回调不执行该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
         smainhtml = m(d);
-        main.add(smainhtml);">
+        main.a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="requirejs里面ajax回调不执行">
+<meta property="og:title" content="requirejs里面ajax回调不执行等问题">
 <meta property="og:url" content="http://yoursite.com/2014/11/24/requirejs里面ajax回调不执行/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
+<meta property="og:description" content="requirejs里面ajax回调不执行该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
         smainhtml = m(d);
-        main.add(smainhtml);">
+        main.a">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="requirejs里面ajax回调不执行">
-<meta name="twitter:description" content="该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可
-$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
+<meta name="twitter:title" content="requirejs里面ajax回调不执行等问题">
+<meta name="twitter:description" content="requirejs里面ajax回调不执行该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可$.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(d){
         smainhtml = m(d);
-        main.add(smainhtml);">
+        main.a">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -91,7 +88,7 @@ $.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(
         
   
     <h1 class="article-title" itemprop="name">
-      requirejs里面ajax回调不执行
+      requirejs里面ajax回调不执行等问题
     </h1>
   
 
@@ -99,13 +96,24 @@ $.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可</p>
-<pre><code class="javascript">$.ajax({url:<span class="string">"js/app/data/searchData.php"</span>,cache:<span class="literal">false</span>,success:<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>{
+        <ol>
+<li>requirejs里面ajax回调不执行<br>该问题主要是因为使用json文件模拟远程接口，requirejs默认不执行该callback（很奇怪的问题），把接口换成php的即可<pre><code class="javascript">$.ajax({url:<span class="string">"js/app/data/searchData.php"</span>,cache:<span class="literal">false</span>,success:<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>{
         smainhtml = m(d);
         main.add(smainhtml);
         }}
 );
 </code></pre>
+</li>
+<li>r.js 合并requirejs里面的模块报错<pre><code class="javascript">paths: {
+    jquery: [ <span class="string">'lib/jquery-1.7.2.min'</span>, <span class="string">'http://cdn.staticfile.org/jquery/1.7.2/jquery.min'</span>]
+}
+</code></pre>
+需要改成:<pre><code class="javascript">paths: {
+    jquery:  <span class="string">'lib/jquery-1.7.2.min'</span>
+}
+</code></pre>
+</li>
+</ol>
 
       
     </div>
@@ -202,7 +210,7 @@ $.ajax({url:&quot;js/app/data/searchData.php&quot;,cache:false,success:function(
           </li>
         
           <li>
-            <a href="/2014/11/24/requirejs里面ajax回调不执行/">requirejs里面ajax回调不执行</a>
+            <a href="/2014/11/24/requirejs里面ajax回调不执行/">requirejs里面ajax回调不执行等问题</a>
           </li>
         
           <li>
