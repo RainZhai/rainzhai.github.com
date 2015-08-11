@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>宅鱼</title>
+  <title>CSS大会的总结 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宅鱼">
-<meta property="og:url" content="http://yoursite.com/tags/hybrid/index.html">
+  <meta name="description" content="CSS 预处理器与 CSS 后处理器说到CSS 预处理器，大家都很熟悉了，本文的重点是介绍从中抽出的CSS 后处理器，这也是近一年多以来，前端社区的一些新趋势。将CSS 后处理器抽象出来之后，会对 CSS 的开发模式带来一些变化，下面从概念开始说起。
+CSS 预处理器广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS大会的总结">
+<meta property="og:url" content="http://yoursite.com/2015/08/11/CSS大会的总结/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description">
+<meta property="og:description" content="CSS 预处理器与 CSS 后处理器说到CSS 预处理器，大家都很熟悉了，本文的重点是介绍从中抽出的CSS 后处理器，这也是近一年多以来，前端社区的一些新趋势。将CSS 后处理器抽象出来之后，会对 CSS 的开发模式带来一些变化，下面从概念开始说起。
+CSS 预处理器广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宅鱼">
-<meta name="twitter:description">
+<meta name="twitter:title" content="CSS大会的总结">
+<meta name="twitter:description" content="CSS 预处理器与 CSS 后处理器说到CSS 预处理器，大家都很熟悉了，本文的重点是介绍从中抽出的CSS 后处理器，这也是近一年多以来，前端社区的一些新趋势。将CSS 后处理器抽象出来之后，会对 CSS 的开发模式带来一些变化，下面从概念开始说起。
+CSS 预处理器广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -64,59 +67,67 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/" class="archive-article-date">
-  <time datetime="2014-10-30T10:06:09.000Z" itemprop="datePublished">Oct 30</time>
+        <section id="main"><article id="post-CSS大会的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/11/CSS大会的总结/" class="article-date">
+  <time datetime="2015-08-11T07:10:35.000Z" itemprop="datePublished">2015-08-11</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/">windows下phonegap 开发环境搭建及一些问题处理</a>
+    <h1 class="article-title" itemprop="name">
+      CSS大会的总结
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/28/D2-2014的一点总结/" class="archive-article-date">
-  <time datetime="2014-10-28T02:41:19.000Z" itemprop="datePublished">Oct 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="CSS_预处理器与_CSS_后处理器">CSS 预处理器与 CSS 后处理器</h2><p>说到CSS 预处理器，大家都很熟悉了，本文的重点是介绍从中抽出的CSS 后处理器，这也是近一年多以来，前端社区的一些新趋势。<br>将CSS 后处理器抽象出来之后，会对 CSS 的开发模式带来一些变化，下面从概念开始说起。</p>
+<h3 id="CSS_预处理器">CSS 预处理器</h3><p>广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、Stylus是目前最主流的 CSS 预处理器。编译前与编译后是完全不同的语言。</p>
+<h3 id="CSS_后处理器">CSS 后处理器</h3><p>CSS 后处理器是对 CSS 进行处理，并最终生成 CSS 的预处理器，它属于广义上的CSS 预处理器。我们很久以前就在用CSS 后处理器了，最典型的例子是CSS 压缩工具（如clean-css），只不过以前没单独拿出来说过。<br>还有最近比较火的Autoprefixer，以Can I Use上的浏览器支持数据为基础，自动处理兼容性问题。编译前与编译后的代码都是 CSS。</p>
+<h3 id="优秀的_CSS_后处理器框架">优秀的 CSS 后处理器框架</h3><p>1.Rework<br>2.PostCSS<br>PostCSS是一个CSS 后处理器框架，允许你通过 JavaScript 对 CSS 进行修改。它的第一个版本发布于 2013 年 11 月，是从Autoprefixer项目中抽象出的框架。</p>
+<h3 id="PostCSS有以下特点：">PostCSS有以下特点：</h3><p>它和Rework非常相似，但提供了更高级的 API，更易扩展它可以在现有Source Map的基础上生成新的Source Map在原有 CSS 格式的保留方面做的更好，便于开发编辑器插件比Rework更年轻，还只有Autoprefixer一个成功案例其实Autoprefixer最初是基于Rework做的，但后来作者有更多需求（上面的列表），就造了PostCSS这个轮子。</p>
+<h3 id="最后">最后</h3><p>CSS 后处理器的出现让CSS 工作流更清晰，但现在他们还远未成熟，还有很多地方能够做的更好。<br>比如Autoprefixer只做语法Prefix层面的兼容，还需要一些专门处理如IE 滤镜兼容这些问题的小模块配合使用。<br>比如可以针对 CSS 中单独使用的图片自动做CSS Sprites 归类与合并的工作。<br>比如可以根据项目对图标字体字形的实际使用情况自动对字体进行体积优化。<br>当每个模块都专注于特定的问题时，那他多数情况下要比一个大而全的集中式框架更靠谱。<br>这个ppt的内容就是讲 PostCSS</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/28/D2-2014的一点总结/">D2 2014的一点总结</a>
-    </h1>
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/27/移动端事件穿透的问题处里The-event-through-in-mobile/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">移动端事件穿透的问题处里The event through in mobile</div>
+    </a>
+  
+</nav>
+
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-</section>
+
+<div class="ds-thread" data-thread-key="2015/08/11/CSS大会的总结/"></div>
+
+</article></section>
         
           <aside id="sidebar">
   
