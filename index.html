@@ -136,8 +136,76 @@ gulp.task(<span class="string">'css'</span>, <span class="function"><span class=
         .pipe(gulp.dest(<span class="string">'./dest'</span>));
 });
 </code></pre>
-<p>运行gulp进行处理:</p>
+<p>运行gulp进行处理,后面带上task的名称:</p>
 <pre><code class="javascript">gulp css
+</code></pre>
+<p>text.css:</p>
+<pre><code class="javascript">.container{
+    display: flex;
+    opacity: <span class="number">.2</span>;
+}
+<span class="comment">/* 变量 */</span>
+:root {
+--fontSize: <span class="number">14</span>px;
+--mainColor: #<span class="number">333</span>;
+--highlightColor: hwb(<span class="number">190</span>, <span class="number">35</span>%, <span class="number">20</span>%);
+}
+<span class="comment">/* 自定义 media queries */</span>
+@custom-media --viewport-medium (min-width: <span class="number">760</span>px) and (max-width: <span class="number">990</span>px);
+    <span class="comment">/* 变量引用 以及使用 calc() 运算*/</span>
+    body {
+    color: <span class="keyword">var</span>(--mainColor);
+    font-size: <span class="keyword">var</span>(--fontSize);
+    line-height: calc(<span class="keyword">var</span>(--fontSize) * <span class="number">1.5</span>);
+    padding: calc((<span class="keyword">var</span>(--fontSize) / <span class="number">2</span>) + <span class="number">1</span>px);
+    }
+    <span class="comment">/* 颜色处理函数 */</span>
+    a {
+    color: color(<span class="keyword">var</span>(--highlightColor) blackness(+<span class="number">20</span>%));
+    background: color(red a(<span class="number">80</span>%))
+    }
+    <span class="comment">/* 使用自定义 media queries */</span>
+    @media (--viewport-medium) {
+    .foo {
+    display: flex;
+    font-size: calc(<span class="keyword">var</span>(--fontSize) * <span class="number">2</span> + <span class="number">6</span>px);
+    }
+}
+</code></pre>
+<p>生成的代码</p>
+<pre><code class="javascript">.container{
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: <span class="number">.2</span>;
+    -ms-filter: <span class="string">"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"</span>;
+}
+<span class="comment">/* 变量 */</span>
+<span class="comment">/* 自定义 media queries */</span>
+<span class="comment">/* 变量引用 以及使用 calc() 运算*/</span>
+body {
+color: #<span class="number">333</span>;
+font-size: <span class="number">14</span>px;
+line-height: <span class="number">21</span>px;
+padding: <span class="number">8</span>px;
+}
+<span class="comment">/* 颜色处理函数 */</span>
+a {
+color: rgb(<span class="number">89</span>, <span class="number">142</span>, <span class="number">153</span>);
+background: #FF0000;
+background: rgba(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.8</span>)
+}
+<span class="comment">/* 使用自定义 media queries */</span>
+@media (min-width: <span class="number">760</span>px) and (max-width: <span class="number">990</span>px) {
+    .foo {
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: <span class="number">34</span>px;
+    }
+}
 </code></pre>
 
       
