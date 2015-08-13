@@ -92,7 +92,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="手机淘宝CSS实践启示录">手机淘宝CSS实践启示录</h2><p>1.勾三股四讲了Web Components，主要是做前端组件，实现高度复用。资料如下:<br><a href="http://www.w3.org/TR/components-intro/" target="_blank" rel="external">Web Components</a> 是 W3C 定义的新标准，目前还在草案阶段。<br>Web Components 的核心思想就是把 UI 元素组件化，即将 HTML、CSS、JS 封装起来，使用的时候就不需要这里贴一段 HTML，那里贴一段样式，最后再贴一段 JS 了。一般来说，它其实是由四个部分的功能组成的：</p>
+        <p>本次大会的ppt都在w3ctech上: <a href="http://www.w3ctech.com/topic/1463" target="_blank" rel="external">http://www.w3ctech.com/topic/1463</a><br>个人具体的学习和总结如下:</p>
+<h2 id="手机淘宝CSS实践启示录">手机淘宝CSS实践启示录</h2><p>1.勾三股四讲了Web Components，主要是做前端组件，实现高度复用。资料如下:<br><a href="http://www.w3.org/TR/components-intro/" target="_blank" rel="external">Web Components</a> 是 W3C 定义的新标准，目前还在草案阶段。<br>Web Components 的核心思想就是把 UI 元素组件化，即将 HTML、CSS、JS 封装起来，使用的时候就不需要这里贴一段 HTML，那里贴一段样式，最后再贴一段 JS 了。一般来说，它其实是由四个部分的功能组成的：</p>
 <ul>
 <li>HTML Imports</li>
 <li>HTML Templates</li>
@@ -198,7 +199,7 @@ MyButtonProto.attachedCallback = <span class="function"><span class="keyword">fu
 <h3 id="HTML_Imports">HTML Imports</h3><pre><code class="html">通过<span class="tag">&lt;<span class="title">link</span>&gt;</span>标签来引入 HTML 文件，使得我们可以用不同的物理文件来组织代码。
 <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"import"</span> <span class="attribute">href</span>=<span class="value">"http://example.com/component.html"</span> &gt;</span>
 </code></pre>
-<p><a href="http://segmentfault.com/a/1190000002931974" target="_blank" rel="external">资料:</a></p>
+<p><a href="http://segmentfault.com/a/1190000002931974" target="_blank" rel="external">资料:跟 Web Components 打个啵</a><br><a href="http://zorro.io" target="_blank" rel="external">http://zorro.io</a></p>
 </li>
 </ul>
 <h2 id="CSS_预处理器与_CSS_后处理器">CSS 预处理器与 CSS 后处理器</h2><h3 id="CSS_预处理器">CSS 预处理器</h3><p>广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、Stylus是目前最主流的 CSS预处理器。编译前与编译后是完全不同的语言。</p>
