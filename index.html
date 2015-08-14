@@ -216,7 +216,8 @@ MyButtonProto.attachedCallback = <span class="function"><span class="keyword">fu
 </ul>
 <h2 id="2-New_W3C_CSS_Checker">2.New W3C CSS Checker</h2><hr>
 <p>Mike Smith讲w3c在开搞新的css checker <a href="https://csschecker.w3.org" target="_blank" rel="external">https://csschecker.w3.org</a>。顺便说了下新语言Rust，确实太新了，14年底刚刚出来。顺带还透露Servo, Mozilla’s next-generation browser engine。撸码圈又多了新的语言了。。。</p>
-<h2 id="3-CSS_预处理器与_CSS_后处理器">3.CSS 预处理器与 CSS 后处理器</h2><h3 id="CSS_预处理器">CSS 预处理器</h3><p>广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、Stylus是目前最主流的 CSS预处理器。编译前与编译后是完全不同的语言。</p>
+<h2 id="3-CSS_预处理器与_CSS_后处理器">3.CSS 预处理器与 CSS 后处理器</h2><hr>
+<h3 id="CSS_预处理器">CSS 预处理器</h3><p>广义上说，目标格式为 CSS 的预处理器是CSS 预处理器，但本文特指以最终生成 CSS 为目的的领域特定语言。Sass、LESS、Stylus是目前最主流的 CSS预处理器。编译前与编译后是完全不同的语言。</p>
 <h3 id="CSS_后处理器">CSS 后处理器</h3><p>CSS 后处理器是对 CSS 进行处理，并最终生成 CSS 的预处理器，它属于广义上的CSS 预处理器。我们很久以前就在用CSS 后处理器了，最典型的例子是CSS 压缩工具（如clean-css），只不过以前没单独拿出来说过。还有最近比较火的Autoprefixer，以Can I Use上的浏览器支持数据为基础，自动处理兼容性问题。编译前与编译后的代码都是 CSS。</p>
 <h3 id="优秀的_CSS_后处理器框架">优秀的 CSS 后处理器框架</h3><p>1.Rework<br>2.PostCSS<br>PostCSS是一个CSS后处理器框架，允许你通过 JavaScript 对 CSS 进行修改。是从Autoprefixer项目中抽象出的框架。</p>
 <h3 id="PostCSS有以下特点：">PostCSS有以下特点：</h3><p>它和Rework非常相似，但提供了更高级的API，更易扩展它可以在现有Source Map的基础上生成新的Source Map在原有 CSS 格式的保留方面做的更好，便于开发编辑器插件比Rework更年轻，还只有Autoprefixer一个成功案例其实Autoprefixer最初是基于Rework做的，但后来作者有更多需求（上面的列表），就造了PostCSS这个轮子。</p>
@@ -331,7 +332,52 @@ background: rgba(<span class="number">255</span>, <span class="number">0</span>,
     }
 }
 </code></pre>
-<h2 id="4-CSS_预处理器与_CSS_后处理器">4.CSS 预处理器与 CSS 后处理器</h2>
+<h2 id="4-Web高性能动画">4.Web高性能动画</h2><hr>
+<p>该ppt深入讲解了提高网页动画性能的各种方法,关于layout,paint,composite 有个比较具体的介绍:</p>
+<pre><code class="html">浏览器在渲染一个页面时，会将页面分为很多个图层，图层有大有小，每个图层上有一个或多个节点。在渲染DOM的时候，浏览器所做的工作实际上是：
+1. 获取DOM后分割为多个图层
+2. 对每个图层的节点计算样式结果（Recalculate style--样式重计算）
+3. 为每个节点生成图形和位置（Layout--回流和重布局）
+4. 将每个节点绘制填充到图层位图中（Paint Setup和Paint--重绘）
+5. 图层作为纹理上传至GPU
+6. 符合多个图层到页面上生成最终屏幕图像（Composite Layers--图层重组）
+
+Chrome中满足以下任意情况就会创建图层：
+* 3D或透视变换（perspective transform）CSS属性
+* 使用加速视频解码的 video 节点
+* 拥有3D（WebGL）上下文或加速的2D上下文的 canvas 节点
+* 混合插件（如Flash）
+* 对自己的opacity做CSS动画或使用一个动画webkit变换的元素
+* 拥有加速CSS过滤器的元素
+* 元素有一个包含复合层的后代节点（一个元素拥有一个子元素，该子元素在自己的层里）
+* 元素有一个z-index较低且包含一个复合层的兄弟元素（换句话说就是该元素在复合层上面渲染）
+
+需要注意的是，如果图层中某个元素需要重绘，那么整个图层都需要重绘。比如一个图层包含很多节点，其中有个gif图，gif图的每一帧，都会重回整个图层的其他节点，然后生成最终的图层位图。所以这需要通过特殊的方式来强制gif图属于自己一个图层（translateZ(0)或者translate3d(0,0,0)），CSS3的动画也是一样（好在绝大部分情况浏览器自己会为CSS3动画的节点创建图层）
+
+简化一下上述过程，每一帧动画浏览器可能需要做如下工作：
+1. 计算需要被加载到节点上的样式结果（Recalculate style--样式重计算）
+2. 为每个节点生成图形和位置（Layout--回流和重布局）
+3. 将每个节点填充到图层中（Paint Setup和Paint--重绘）
+4. 组合图层到页面上（Composite Layers--图层重组）
+
+如果我们需要使得动画的性能提高，需要做的就是减少浏览器在动画运行时所需要做的工作。最好的情况是，改变的属性仅仅印象图层的组合，变换（transform）和透明度（opacity）就属于这种情况
+</code></pre>
+<p>setTimeout的奇葩坑:</p>
+<pre><code class="html">60fps是动力也是压力，因为它意味着我们只有16.7毫秒(1000 / 60)来绘制每一帧。如果使用setTimeout或者setInterval(以下统称为timer)来控制绘制，问题就来了。
+
+首先，Timer计算延时的精确度不够。延时的计算依靠的是浏览器的内置时钟，而时钟的精确度又取决于时钟更新的频率(Timer resolution)。IE8及其之前的IE版本更新间隔为15.6毫秒。假设你设定的setTimeout延迟为16.7ms，那么它要更新两个15.6毫秒才会该触发延时。这也意味着无故延迟了 15.6 x 2 - 16.7 = 14.5毫秒。
+
+            16.7ms
+DELAY: |------------|
+
+CLOCK: |----------|----------|
+          15.6ms    15.6ms
+所以即使你给setTimeout设定的延时为0ms，它也不会立即触发。目前Chrome与IE9+浏览器的更新频率都为4ms(如果你使用的是笔记本电脑，并且在使用电池而非电源的模式下，为了节省资源，浏览器会将更新频率切换至于系统时间相同，也就意味着更新频率更低)。
+</code></pre>
+<p>具体的介绍:<a href="http://www.infoq.com/cn/articles/javascript-high-performance-animation-and-page-rendering/" target="_blank" rel="external">http://www.infoq.com/cn/articles/javascript-high-performance-animation-and-page-rendering</a></p>
+<h2 id="5-重拾_CSS_的乐趣（上）">5.重拾 CSS 的乐趣（上）</h2><hr>
+<p><a href="https://github.com/cssmagic/blog/issues/52" target="_blank" rel="external">https://github.com/cssmagic/blog/issues/52</a></p>
+
       
     </div>
     <footer class="article-footer">
