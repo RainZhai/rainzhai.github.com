@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>宅鱼</title>
+  <title>React Native入门及一些问题处理 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宅鱼">
-<meta property="og:url" content="http://yoursite.com/categories/CSS/index.html">
+  <meta name="description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
+相关开发工具安装Xcode和Android Studio、Android SDK等
+开始项目1react-native init TestApp
+mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
+打开ios/TestApp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native入门及一些问题处理">
+<meta property="og:url" content="http://yoursite.com/2016/03/31/React-Native入门及一些问题处理/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description">
+<meta property="og:description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
+相关开发工具安装Xcode和Android Studio、Android SDK等
+开始项目1react-native init TestApp
+mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
+打开ios/TestApp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宅鱼">
-<meta name="twitter:description">
+<meta name="twitter:title" content="React Native入门及一些问题处理">
+<meta name="twitter:description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
+相关开发工具安装Xcode和Android Studio、Android SDK等
+开始项目1react-native init TestApp
+mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
+打开ios/TestApp">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -64,40 +76,67 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/08/11/CSS大会的总结/" class="archive-article-date">
-  <time datetime="2015-08-11T07:10:35.000Z" itemprop="datePublished">Aug 11</time>
+        <section id="main"><article id="post-React-Native入门及一些问题处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/31/React-Native入门及一些问题处理/" class="article-date">
+  <time datetime="2016-03-31T09:02:02.000Z" itemprop="datePublished">2016-03-31</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hybrid/">hybrid</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/11/CSS大会的总结/">CSS大会的总结</a>
+    <h1 class="article-title" itemprop="name">
+      React Native入门及一些问题处理
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Node-js环境安装">Node.js环境安装</h3><h3 id="Reacty_Native_CLI安装">Reacty Native CLI安装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<h3 id="相关开发工具安装">相关开发工具安装</h3><p>Xcode和Android Studio、Android SDK等</p>
+<h3 id="开始项目">开始项目</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init TestApp</span><br></pre></td></tr></table></figure>
+<p>mac下需要安装brew，安装watchman，安装flow。win下可忽略<br>运行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>打开ios/TestApp.xcodeproj、AndroidStudio打开android目录，待IDE加载完成后（此时要等Android Studio）点击运行按钮（此时要等Xcode），可运行模拟器<br>在安卓下有一个问题<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Error</span> retrieving parent <span class="keyword">for</span> item: No resource found that matches the given name <span class="string">'android:Widget.Holo.Light.ActionButton'</span>.</span><br></pre></td></tr></table></figure></p>
+<p>解决方式为:<br>引入android-support-v7-appcompat(在sdk下)，project.properties里面的 target=android-10 改为 target=android-21(编译器版本过低) 并设置AndroidManifest.xml里面的uses-sdk android:minSdkVersion=”7” 并进行clean。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hybrid/">hybrid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webapp/">webapp</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2015/08/11/CSS大会的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS大会的总结</div>
+    </a>
   
-</section>
+</nav>
+
+  
+
+
+<div class="ds-thread" data-thread-key="2016/03/31/React-Native入门及一些问题处理/"></div>
+
+</article></section>
         
           <aside id="sidebar">
   
