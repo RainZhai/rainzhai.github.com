@@ -8,8 +8,8 @@
   <meta name="description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
 相关开发工具安装Xcode和Android Studio、Android SDK等
 开始项目1react-native init TestApp
-mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
-打开ios/TestApp">
+mac下需要安装brew，安装watchman，安装flow。win下可忽略项目目录下运行1npm start
+打开ios/Te">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native入门及一些问题处理">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/React-Native入门及一些问题处理/index.html">
@@ -17,15 +17,15 @@ mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm
 <meta property="og:description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
 相关开发工具安装Xcode和Android Studio、Android SDK等
 开始项目1react-native init TestApp
-mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
-打开ios/TestApp">
+mac下需要安装brew，安装watchman，安装flow。win下可忽略项目目录下运行1npm start
+打开ios/Te">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native入门及一些问题处理">
 <meta name="twitter:description" content="Node.js环境安装Reacty Native CLI安装1npm install -g react-native-cli
 相关开发工具安装Xcode和Android Studio、Android SDK等
 开始项目1react-native init TestApp
-mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm start
-打开ios/TestApp">
+mac下需要安装brew，安装watchman，安装flow。win下可忽略项目目录下运行1npm start
+打开ios/Te">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -105,9 +105,22 @@ mac下需要安装brew，安装watchman，安装flow。win下可忽略运行1npm
         <h3 id="Node-js环境安装">Node.js环境安装</h3><h3 id="Reacty_Native_CLI安装">Reacty Native CLI安装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
 <h3 id="相关开发工具安装">相关开发工具安装</h3><p>Xcode和Android Studio、Android SDK等</p>
 <h3 id="开始项目">开始项目</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init TestApp</span><br></pre></td></tr></table></figure>
-<p>mac下需要安装brew，安装watchman，安装flow。win下可忽略<br>运行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
-<p>打开ios/TestApp.xcodeproj、AndroidStudio打开android目录，待IDE加载完成后（此时要等Android Studio）点击运行按钮（此时要等Xcode），可运行模拟器<br>在安卓下有一个问题<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Error</span> retrieving parent <span class="keyword">for</span> item: No resource found that matches the given name <span class="string">'android:Widget.Holo.Light.ActionButton'</span>.</span><br></pre></td></tr></table></figure></p>
+<p>mac下需要安装brew，安装watchman，安装flow。win下可忽略<br>项目目录下运行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>打开ios/TestApp.xcodeproj、AndroidStudio打开android目录，待IDE加载完成后（此时要等Android Studio）点击运行按钮（此时要等Xcode），可运行模拟器<br>有一个问题<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Error</span> retrieving parent <span class="keyword">for</span> item: No resource found that matches the given name <span class="string">'android:Widget.Holo.Light.ActionButton'</span>.</span><br></pre></td></tr></table></figure></p>
 <p>解决方式为:<br>引入android-support-v7-appcompat(在sdk下)，project.properties里面的 target=android-10 改为 target=android-21(编译器版本过低) 并设置AndroidManifest.xml里面的uses-sdk android:minSdkVersion=”7” 并进行clean。</p>
+<h2 id="使用纯命令行安装的问题集锦">使用纯命令行安装的问题集锦</h2><p>创建项目后在命令窗口调用 react-native start，启动服务,在浏览器访问<a href="http://localhost:8081/index.android.bundle?platform=android" target="_blank" rel="external">http://localhost:8081/index.android.bundle?platform=android</a> 这个基本没有什么问题。</p>
+<h3 id="1_运行react-native_run-android_出现异常：">1 运行react-native run-android 出现异常：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A problem occurred configuring project <span class="string">':app'</span>.</span><br><span class="line">&gt; Could not resolve all dependencies <span class="keyword">for</span> configuration <span class="string">':app:_debugCompile'</span>.</span><br><span class="line">&gt; Could not find com.android.support:appcompat-v7:<span class="number">23.1</span><span class="number">.1</span>.</span><br></pre></td></tr></table></figure>
+<p>解决方案：安装Android Support Repository与Android Support Library。win下需使用Android SDK将各个版本的api工具进行安装(大部分报错与这些版本相关)。另外需要将support lib里面的一个maven工具包进行安装，这个会导致Could not find com.android.support:appcompat-v7:23.1.1.这个问题。表面上看是找不到这个版本的工具，其实修改后面的23.1.1. 这个版本号一点作用都没有，只能说奇葩谷歌工具包啊。这里要吐槽一下android sdk。尼玛一个东西升级了导致其他一堆东西不能用，这也太扯淡了吧。能考虑一下代码狗的感受吗！！！！</p>
+<p>另外也可以不run-android而只是进行apk的打包，打包命令为:gradlew assembleRelease 打包碰到的问题和run-android一样需要进行排查。另外gradle配置文件的加载需要依赖网络下载。所以需要一个网路畅通的网络。</p>
+<h3 id="2_打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下\android\app\build-gradle_文件有几个配置项目">2 打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下\android\app\build.gradle 文件有几个配置项目</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">compileSdkVersion <span class="number">23</span></span><br><span class="line">buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">defaultConfig &#123;</span><br><span class="line">    applicationId <span class="string">"com.jdapp"</span></span><br><span class="line">    minSdkVersion <span class="number">16</span></span><br><span class="line">    targetSdkVersion <span class="number">22</span></span><br><span class="line">    versionCode <span class="number">1</span></span><br><span class="line">    versionName <span class="string">"1.0"</span></span><br><span class="line">    ndk &#123;</span><br><span class="line">        abiFilters <span class="string">"armeabi-v7a"</span>, <span class="string">"x86"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的compileSdkVersion和buildToolsVersion改了都会导致报错。targetSdkVersion才是打包好的apk适用的安卓版本。所以要把targetSdkVersion版本数改低。</p>
+<h3 id="3_apk在手机上安装好了但是不能使用">3 apk在手机上安装好了但是不能使用</h3><p>打开app出现红色界面并报错ReferenceError: Can’t find variable: require(line 1 the generated bundle)。需要摇动手机在Dev Settings -&gt; Debug server host &amp; port for device里面输入pc的ip:端口。并使用adb工具输入命令adb reverse tcp:8081 tcp:8081 所有问题都解决了，app跑起来了。后面终于可以写react native应用了！！！</p>
+<h3 id="相关链接">相关链接</h3><ol>
+<li><a href="http://q.maiziedu.com/article/8853/" target="_blank" rel="external">http://q.maiziedu.com/article/8853/</a> </li>
+<li><a href="http://blog.csdn.net/raptor/article/details/38538037" target="_blank" rel="external">http://blog.csdn.net/raptor/article/details/38538037</a> </li>
+<li><a href="http://www.cnblogs.com/meteoric_cry/p/4874517.html" target="_blank" rel="external">http://www.cnblogs.com/meteoric_cry/p/4874517.html</a></li>
+<li><a href="http://blog.csdn.net/xu_fu/article/details/48571941" target="_blank" rel="external">http://blog.csdn.net/xu_fu/article/details/48571941</a></li>
+</ol>
 
       
     </div>
