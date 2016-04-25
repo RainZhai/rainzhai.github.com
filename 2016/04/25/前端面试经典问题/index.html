@@ -3,17 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>宅鱼</title>
+  <title>前端面试经典问题 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宅鱼">
-<meta property="og:url" content="http://yoursite.com/archives/2014/10/index.html">
+  <meta name="description" content="1. JS事件的捕获和冒泡下面代码执行结果的顺序:html代码如下:
+&amp;lt;html&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;div id=&quot;test&quot;&amp;gt;
+            &amp;lt;ul&amp;gt;
+                &amp;lt;li&amp;gt;捕获和冒泡&amp;lt;/li&amp;gt;
+            &amp;lt;/ul&amp;gt;
+        &amp;lt;/di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试经典问题">
+<meta property="og:url" content="http://yoursite.com/2016/04/25/前端面试经典问题/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description">
+<meta property="og:description" content="1. JS事件的捕获和冒泡下面代码执行结果的顺序:html代码如下:
+&amp;lt;html&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;div id=&quot;test&quot;&amp;gt;
+            &amp;lt;ul&amp;gt;
+                &amp;lt;li&amp;gt;捕获和冒泡&amp;lt;/li&amp;gt;
+            &amp;lt;/ul&amp;gt;
+        &amp;lt;/di">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宅鱼">
-<meta name="twitter:description">
+<meta name="twitter:title" content="前端面试经典问题">
+<meta name="twitter:description" content="1. JS事件的捕获和冒泡下面代码执行结果的顺序:html代码如下:
+&amp;lt;html&amp;gt;
+    &amp;lt;body&amp;gt;
+        &amp;lt;div id=&quot;test&quot;&amp;gt;
+            &amp;lt;ul&amp;gt;
+                &amp;lt;li&amp;gt;捕获和冒泡&amp;lt;/li&amp;gt;
+            &amp;lt;/ul&amp;gt;
+        &amp;lt;/di">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -64,78 +85,95 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/" class="archive-article-date">
-  <time datetime="2014-10-30T10:06:09.000Z" itemprop="datePublished">Oct 30</time>
+        <section id="main"><article id="post-前端面试经典问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/25/前端面试经典问题/" class="article-date">
+  <time datetime="2016-04-25T03:32:18.000Z" itemprop="datePublished">2016-04-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/30/windows下phonegap-开发环境搭建及一些问题处理/">windows下phonegap 开发环境搭建及一些问题处理</a>
+    <h1 class="article-title" itemprop="name">
+      前端面试经典问题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/28/D2-2014的一点总结/" class="archive-article-date">
-  <time datetime="2014-10-28T02:41:19.000Z" itemprop="datePublished">Oct 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <h3 id="1-_JS事件的捕获和冒泡">1. JS事件的捕获和冒泡</h3><p>下面代码执行结果的顺序:<br>html代码如下:</p>
+<pre><code class="html"><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"test"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">li</span>&gt;</span>捕获和冒泡<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre>
+<p>javascript代码如下:</p>
+<pre><code class="javascript"><span class="keyword">var</span> html = <span class="built_in">document</span>.documentElement;
+<span class="keyword">var</span> body = <span class="built_in">document</span>.body;
+<span class="keyword">var</span> div = body.querySelector(<span class="string">'div'</span>);
+<span class="keyword">var</span> ul = body.querySelector(<span class="string">'ul'</span>);
+<span class="keyword">var</span> li = body.querySelector(<span class="string">'li'</span>);
+
+ul.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">true</span>);
+li.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">true</span>);
+div.addEventListener(<span class="string">'click'</span>,callbackdiv2,<span class="literal">true</span>);
+
+body.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">false</span>);
+html.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">false</span>);
+
+<span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">(event)</span></span>{
+    <span class="keyword">var</span> target = event.currentTarget;
+    <span class="built_in">console</span>.log(target.tagName);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">callbackdiv</span><span class="params">(event)</span></span>{
+    <span class="comment">//event.stopPropagation();</span>
+    <span class="built_in">console</span>.log(<span class="string">"div callback"</span>);
+}
+
+<span class="comment">//输出什么内容</span>
+</code></pre>
+<p>总结就是：先捕获，后冒泡，捕获从上到下，冒泡从下到上（形象点说法：捕获像石头沉入海底，冒泡则像气泡冒出水面）<br>问：假如去掉注释 event.stopPropagation();  结果又会输出什么？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/28/D2-2014的一点总结/">D2 2014的一点总结</a>
-    </h1>
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/31/React-Native入门及一些问题处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Native入门及一些问题处理</div>
+    </a>
+  
+</nav>
+
   
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/10/22/hexo搭建blog要注意的几点/" class="archive-article-date">
-  <time datetime="2014-10-22T06:12:50.000Z" itemprop="datePublished">Oct 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/22/hexo搭建blog要注意的几点/">hexo搭建blog要注意的几点</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-</section>
+<div class="ds-thread" data-thread-key="2016/04/25/前端面试经典问题/"></div>
+
+</article></section>
         
           <aside id="sidebar">
   
