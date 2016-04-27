@@ -72,6 +72,10 @@
   <time datetime="2016-04-25T03:32:18.000Z" itemprop="datePublished">2016-04-25</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -124,8 +128,9 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
 }
 
 <span class="comment">//输出什么内容</span>
+<span class="comment">//div callback -&gt;ul-&gt;li-&gt;body-&gt;html</span>
 </code></pre>
-<p>总结就是：先捕获，后冒泡，捕获从上到下，冒泡从下到上（形象点说法：捕获像石头沉入海底，冒泡则像气泡冒出水面）<br>问：假如去掉注释 event.stopPropagation();  结果又会输出什么？</p>
+<p>总结就是：先捕获，后冒泡，捕获从上到下，冒泡从下到上（形象点说法：捕获像石头沉入海底，冒泡则像气泡冒出水面）<br>问：假如去掉注释 event.stopPropagation();  结果又会输出什么？<br>结果：事件在div元素上传播被阻止，只有div元素响应事件。(还有就是在点击空白区域的时候html元素依然响应事件)</p>
 
       
     </div>
@@ -894,7 +899,7 @@ urlArgs : <span class="string">"bust="</span>+<span class="keyword">new</span> <
   <div class="widget-wrap">
     <h3 class="widget-title">分类 Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
