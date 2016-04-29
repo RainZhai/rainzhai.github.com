@@ -143,8 +143,8 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
     }
     <span class="keyword">return</span> tmpArr;
 }
-</code></pre>
-<pre><code class="javascript"><span class="comment">//2. hash查找</span>
+
+<span class="comment">//2. hash查找</span>
 <span class="function"><span class="keyword">function</span> <span class="title">unique2</span><span class="params">(arr)</span></span>{
     <span class="keyword">var</span> tmpArr = [], hash = {};<span class="comment">//hash为hash表</span>
     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++){
@@ -154,9 +154,9 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
       }
     }
     <span class="keyword">return</span> tmpArr;
-}
-</code></pre>
-<pre><code class="javascript"><span class="comment">//3. 先排序后比前后大小</span>
+} 
+
+<span class="comment">//3. 先排序后比前后大小</span>
 <span class="built_in">Array</span>.prototype.unique3 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">Array</span>();
         <span class="keyword">this</span>.sort();
@@ -167,9 +167,9 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
           temp[temp.length]=<span class="keyword">this</span>[i];
         }
         <span class="keyword">return</span> temp;
-}
-</code></pre>
-<pre><code class="javascript"><span class="comment">//4. 正则匹配</span>
+} 
+
+<span class="comment">//4. 正则匹配</span>
 <span class="built_in">Array</span>.prototype.unique4 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">return</span> <span class="keyword">this</span>.sort().join(<span class="string">",,"</span>).replace(<span class="regexp">/(,|^)([^,]+)(,,\2)+(,|$)/g</span>,<span class="string">"$1$2$4"</span>).replace(<span class="regexp">/,,+/g</span>,<span class="string">","</span>).replace(<span class="regexp">/,$/</span>,<span class="string">""</span>).split(<span class="string">","</span>);
 }
@@ -189,7 +189,11 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
     }
 }
 </code></pre>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/04/25/前端面试经典问题/#more">阅读原文 Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">

@@ -25,6 +25,9 @@
                 &amp;lt;li&amp;gt;捕获和冒泡&amp;lt;/li&amp;gt;
             &amp;lt;/ul&amp;gt;
         &amp;lt;/di">
+<meta property="og:image" content="http://rainzhai.github.io/images/browser_compont.png">
+<meta property="og:image" content="http://rainzhai.github.io/images/render_step.png">
+<meta property="og:image" content="http://rainzhai.github.io/images/parser_step.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试经典问题">
 <meta name="twitter:description" content="1. JS事件的捕获和冒泡下面代码执行结果的顺序:html代码如下:
@@ -162,8 +165,8 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
     }
     <span class="keyword">return</span> tmpArr;
 }
-</code></pre>
-<pre><code class="javascript"><span class="comment">//2. hash查找</span>
+
+<span class="comment">//2. hash查找</span>
 <span class="function"><span class="keyword">function</span> <span class="title">unique2</span><span class="params">(arr)</span></span>{
     <span class="keyword">var</span> tmpArr = [], hash = {};<span class="comment">//hash为hash表</span>
     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++){
@@ -173,9 +176,9 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
       }
     }
     <span class="keyword">return</span> tmpArr;
-}
-</code></pre>
-<pre><code class="javascript"><span class="comment">//3. 先排序后比前后大小</span>
+} 
+
+<span class="comment">//3. 先排序后比前后大小</span>
 <span class="built_in">Array</span>.prototype.unique3 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">Array</span>();
         <span class="keyword">this</span>.sort();
@@ -186,9 +189,9 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
           temp[temp.length]=<span class="keyword">this</span>[i];
         }
         <span class="keyword">return</span> temp;
-}
-</code></pre>
-<pre><code class="javascript"><span class="comment">//4. 正则匹配</span>
+} 
+
+<span class="comment">//4. 正则匹配</span>
 <span class="built_in">Array</span>.prototype.unique4 = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
         <span class="keyword">return</span> <span class="keyword">this</span>.sort().join(<span class="string">",,"</span>).replace(<span class="regexp">/(,|^)([^,]+)(,,\2)+(,|$)/g</span>,<span class="string">"$1$2$4"</span>).replace(<span class="regexp">/,,+/g</span>,<span class="string">","</span>).replace(<span class="regexp">/,$/</span>,<span class="string">""</span>).split(<span class="string">","</span>);
 }
@@ -208,6 +211,54 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
     }
 }
 </code></pre>
+<a id="more"></a>
+<h3 id="4-_Javascript跨域方案">4. Javascript跨域方案</h3><ol>
+<li><p>JSONP<br>　　JSONP (JSON with Padding)是一个简单高效的跨域方式，HTML中的script标签可以加载并执行其他域的javascript，于是我们可以通过script标记来动态加载其他域的资源。例如我要从域A的页面pageA加载域B的数据，那么在域B的页面pageB中我以JavaScript的形式声明pageA需要的数据，然后在 pageA中用script标签把pageB加载进来，那么pageB中的脚本就会得以执行。JSONP在此基础上加入了回调函数，pageB加载完之后会执行pageA中定义的函数，所需要的数据会以参数的形式传递给该函数。JSONP易于实现，但是也会存在一些安全隐患，如果第三方的脚本随意地执行，那么它就可以篡改页面内容，截获敏感数据。但是在受信任的双方传递数据，JSONP是非常合适的选择。</p>
+</li>
+<li><p>通过修改 document.domain 来跨子域<br>把<a href="http://www.example.com/a.html" target="_blank" rel="external">http://www.example.com/a.html</a> 和 <a href="http://example.com/b.html这两个页面的document.domain都设成相同的域名就可以了。但要注意的是，document.domain的设置是有限制的，我们只能把document.domain设置成自身或更高一级的父域，且主域必须相同。例如：a.b.example.com" target="_blank" rel="external">http://example.com/b.html这两个页面的document.domain都设成相同的域名就可以了。但要注意的是，document.domain的设置是有限制的，我们只能把document.domain设置成自身或更高一级的父域，且主域必须相同。例如：a.b.example.com</a> 中某个文档的document.domain 可以设成a.b.example.com、b.example.com 、example.com中的任意一个，但是不可以设成 c.a.b.example.com,因为这是当前域的子域，也不可以设成baidu.com,因为主域已经不相同了。</p>
+</li>
+<li><p>使用window.name来进行跨域(没有浏览器兼容问题)<br>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<br>我们看到在b.html页面上成功获取到了它的上一个页面a.html给window.name设置的值。如果在之后所有载入的页面都没对window.name进行修改的话，那么所有这些页面获取到的window.name的值都是a.html页面设置的那个值。当然，如果有需要，其中的任何一个页面都可以对window.name的值进行修改。注意，window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。</p>
+</li>
+</ol>
+<p>4、使用HTML5中新引进的window.postMessage方法来跨域传送数据<br>window.postMessage(message,targetOrigin)  方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源，目前IE8+、FireFox、Chrome、Opera等浏览器都已经支持window.postMessage方法。<br>调用postMessage方法的window对象是指要接收消息的那一个window对象，该方法的第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符 *  。<br>需要接收消息的window对象，可是通过监听自身的message事件来获取传过来的消息，消息内容储存在该事件对象的data属性中。示例代码如下:</p>
+<pre><code class="html">//a.html
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="function"><span class="keyword">function</span> <span class="title">onLoad</span><span class="params">()</span></span>{
+<span class="keyword">var</span> iframe = <span class="built_in">document</span>.getElementById(<span class="string">'iframe'</span>);
+<span class="keyword">var</span> win = iframe.contentWindow;
+win.postMessage(<span class="string">'的尽快发货上看到'</span>, <span class="string">'*'</span>);
+}
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">id</span>=<span class="value">'iframe'</span> <span class="attribute">src</span>=<span class="value">"http://127.0.0.1/postmsg/b.html"</span> <span class="attribute">onload</span>=<span class="value">"onLoad()"</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">iframe</span>&gt;</span>
+
+//b.html
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>{
+e = e || event;
+alert(e.data);
+}
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<h3 id="5-_一个页面从输入_URL_到页面加载显示完成，这个过程中都发生了什么？">5. 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h3><pre><code>分为<span class="number">4</span>个步骤：
+（<span class="number">1</span>），当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
+（<span class="number">2</span>）， 浏览器与远程<span class="escape">`W</span>eb<span class="escape">`服</span>务器通过<span class="escape">`T</span>CP<span class="escape">`三</span>次握手协商来建立一个<span class="escape">`T</span>CP/IP<span class="escape">`连</span>接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+（<span class="number">3</span>），一旦<span class="escape">`T</span>CP/IP<span class="escape">`连</span>接建立，浏览器会通过该连接向远程服务器发送<span class="escape">`H</span>TTP<span class="escape">`的</span><span class="escape">`G</span>ET<span class="escape">`请</span>求。远程服务器找到资源并使用HTTP响应返回该资源，值为<span class="number">200</span>的HTTP响应状态表示一个正确的响应。
+（<span class="number">4</span>），此时，<span class="escape">`W</span>eb<span class="escape">`服</span>务器提供资源服务，客户端开始下载资源。
+</code></pre><p>请求返回后，便进入了我们关注的前端模块<br>简单来说，浏览器会解析<code>HTML</code>生成<code>DOM Tree</code>，其次会根据CSS生成CSS Rule Tree，而<code>javascript</code>又可以根据<code>DOM API</code>操作<code>DOM</code></p>
+<h3 id="6-_浏览器内核工作原理">6. 浏览器内核工作原理</h3><p>浏览器的主要结构如下：</p>
+<ol>
+<li>用户界面-包括地址栏、后退/前进按钮、书签菜单等。</li>
+<li>浏览器引擎- 询问和操作渲染引擎的接口</li>
+<li>渲染引擎-负责展现所请求的内容，比如如果请求的是html，它就负责解析html和css并且在屏幕上呈现解析后的内容。</li>
+<li>网络模块-网络请求用，比如http请求。它有跨平台的接口以及对应于每个平台的底层实现。</li>
+<li>UI后端-用来绘制基本构件，如下拉框和窗口。UI后端暴露出一个平台无关性的公共接口，底层的它使用操作系统的UI方法。</li>
+<li>javascript解释器—用来解析和执行javascript代码。</li>
+<li>数据存储—这是一个可存储的层。浏览器需要在硬盘上保存各种数据，比如cookies。新的html规范（html5）把浏览器中的“web database”定义为一个完完全全的（虽然很轻）数据库。<br><img src="http://rainzhai.github.io/images/browser_compont.png" alt="浏览器组件"></li>
+</ol>
+<p>渲染引擎主要流程<br>渲染引擎开始会从网络模块获取要请求的文档内容，一般会以8k大小的区块获取。<br>在获取内容之后，是渲染引擎的基本流程：<br><img src="http://rainzhai.github.io/images/render_step.png" alt="渲染引擎主要流程"></p>
+<p>渲染引擎开始解析HTML文档，并且把标签转换成“内容树”上的DOM节点，然后会解析样式，包括外部的css文件和style元素里的数据。这些样式信息将会和HTML中视觉性的属性组合在一起<br>创建另一个树—渲染树。<br>渲染树由带有如颜色和大小等视觉属性的矩形区域构成，这些矩形区域按它们将要显示在屏幕上的顺序排列。<br>渲染树构造完成后，进入到布局阶段，会把每个节点精确地调整到它应该在屏幕上出现的位置上。<br>下一步是绘制，渲染树将会被遍历，每个节点都会通过UI后端层来绘制。<br>理解这是一个渐进的过程相当重要。为了有更好的用户体验，渲染引擎将会尽可能早的把内容在屏幕上显示出来，不会等到所有的HTML都被解析完才开始建造和布局渲染树，当进程还在继续解<br>析源源不断的来自于网络的内容的时候，一部分内容会被解析并且显示出来。<br><img src="http://rainzhai.github.io/images/parser_step.png" alt="渲染流程"></p>
 
       
     </div>
