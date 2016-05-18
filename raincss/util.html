@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="lib/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="lib/tipsy/tipsy.css">
  <style>
+ .container {    width: 1190px;}
 .searchwrap{ transition: all .5s linear; -webkit-transition: all .5s linear; height: 25px; width: 30px; margin: 20px 0 0 35px;}
 .searchwrap .searchinner{width: 238px;}
 .searchwrap .searchicon{ width: 25px; height: 25px; margin-right: 10px;  border:0 none; cursor: pointer; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMFJREFUeNpiYKAV+P//vwMQr/+PCt4D8XwgNiDWkPn/CYMEUg3ZD8QNUHyfKMOg3kH2hgMWNQVoahSwGYQcJg54XN2ApK4fmwK4d4gIx/fY1DKhqTtIRJxcgNIO+AwiBTzA59zzBLwlgDcY0KK+gMgkkoBNgQFaOmnA4hL0dFaAy7YELNliPxSTlsqhhr3/TxoAG8aIxTBQis0HYgMo/gCNoYVQej0QC6BpSySndDDA4ur35BY1GIZRUm4hG9YPEGAAtovdMQCq9tIAAAAASUVORK5CYII=) no-repeat center center;}
@@ -56,6 +57,22 @@
   border-left: 6px solid #333;
   transition: all 0.2s linear;
 }
+/* 可伸展的 slide*/
+.slidewrap li { width: 297px; background-color: #fff; overflow: hidden; transition: all 0.1s ease; -webkit-transition: all 0.1s ease; -ms-transition: all 0.1s ease;}
+.bestslide { border: 1px solid #d7d7d7; margin-top: 25px;}
+.bestslide .slidewrap .slideitem2 {margin-right: 0; border-right: 1px solid #d7d7d7; height: 370px;background-color: #fff; position: relative;}
+.bestslide a.arrowleft{ width: 34px; height: 84px; line-height: 84px; color: #fff; text-align: center; left:0; top:145px;  background: rgba(149,149,149, 0.6); }
+.bestslide a.arrowright{ width: 34px; height: 84px; line-height: 84px; color: #fff; text-align: center; right:0; top:145px;  background: rgba(149,149,149, 0.6);} 
+.bestslide a.arrowleft:hover{ background: rgba(0,172,237, 0.8); }
+.bestslide a.arrowright:hover{ background: rgba(0,172,237, 0.8);}
+/** 带圆圈步骤进度 */
+.stepbox {   border-top: 3px solid #ccc;}
+.stepbox.on {   border-top: 3px solid #0097e0;}
+.stepbox2.on {   border-top: 3px solid #ccc;}
+.dotbox {  width: 17px;  height: 17px; text-align: center;  font-size: 12px;  line-height: 17px;  display: inline-block;  color: #fff; background-color: #999; border:1px solid #ccc; border-radius: 17px; -webkit-border-radius: 17px;}
+.stepbox.on .dotbox {  background-color: #0097e0;  border:1px solid #fff;}
+.stepbox.on .titlename{ color:#0097e0;}
+.stepbox.on .dotbox img{ display: block;}
  </style>  
 </head>
 <body class="body">
@@ -73,6 +90,47 @@
   </div>
   
 	<div class="container mt">
+      <fieldset >
+          <legend >滑动加展开</legend> 
+          <div id="slide2" class="slide bestslide oh posr">
+            <div class="slidemain oh mlrauto">
+              <ul class="j_slidewrap slidewrap lsn nop  clearfix">
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                  <li class="l fl">
+                    <div class="slideitem2 block tac" >
+                        <img src="images/bg2.jpg" width="100%" />
+                    </div>
+                  </li>     
+                </ul>
+            </div>
+            <a href="javascript:;" id="j_arrowleft2" class="posa ib arrowleft  hide fs-2">&lt;</a>
+            <a href="javascript:;" id="j_arrowright2" class="posa ib arrowright  hide fs-2">&gt;</a>
+          </div>
+      </fieldset>
       <div class="content">
           <div class="sidebar l posr">
             <div class="sidebox"> 
@@ -158,10 +216,14 @@
                   省：<select id="cmbProvince"></select>
                   市：<select id="cmbCity"></select>
                   区：<select id="cmbArea"></select>
-                  <br /> 
+                    <div class="j_sresult">
+                      <span class="j_cityitem cityitem rounds b pss">武汉 <a href="javascript:;" class="j_removecity ib c9">x</a></span>
+                    </div>
+                  <div>
                   省：<select id="Select1"></select>
                   市：<select id="Select2"></select>
                   区：<select id="Select3"></select>
+                  </div>
               </fieldset>
               
               <fieldset >
@@ -173,7 +235,42 @@
               
               <fieldset >
                   <legend >tooltip</legend> 
-                  <a href="https://github.com/jaz303/tipsy" id="tooltip1" original-title="Tipsy is a jQuery plugin for creating a Facebook-like tooltips,Tipsy is a jQuery plugin for creating a Facebook-like tooltips,Tipsy is a jQuery plugin for creating a Facebook-like tooltips,Tipsy is a jQuery plugin for creating a Facebook-like tooltips,Tipsy is a jQuery plugin for creating a Facebook-like tooltips">tooltip</a> 
+                  <a href="https://github.com/jaz303/tipsy" id="tooltip1" original-title="Tipsy is a jQuery plugin for creating a Facebook-like tooltips,Tipsy is a jQuery plugin for creating a Facebook-like tooltips">tooltip</a> 
+              </fieldset>
+              <fieldset>
+                  <legend >数据双向绑定</legend> 
+                  <input type="text" data-bind-test="name" />
+                  <input type="text" data-bind-test="name" />
+                  <span data-bind-test="name"></span>
+              </fieldset>
+              <fieldset> 
+                    <legend >带圆圈步骤进度</legend> 
+                    <div class="pl-3 pr-3 css3_flexbox"> 
+                        <div class="wf-20 posr stepbox on">
+                          <span class="posa dotbox " style="left:-2px; top:-10px;">1
+                          <!-- <img src="images/icon57.png" class="posa fullh fullw hide" style="left:0; top:0; "> -->
+                          </span>
+                          <p class="pt fs10px tac titlename" style="margin-left:-40px;">步骤1</p>
+                        </div>
+                        <div class="wf-20 posr stepbox stepbox2 on"> 
+                          <span class="posa dotbox" style="left:-2px; top:-10px;">2
+                          <!-- <img src="images/icon57.png" class="posa fullh fullw hide" style="left:0; top:0; "> -->
+                          </span>
+                          <p class="pt fs10px titlename" style="margin-left:-15px;">步骤2</p>
+                        </div>
+                        <div class="wf-20 posr stepbox">
+                          <span class="posa dotbox" style="left:5px; top:-10px;">3</span>
+                          <p class="pt fs10px titlename" style="margin-left:-8px;">步骤3</p>
+                        </div>
+                        <div class="wf-20 posr stepbox">
+                          <span class="posa dotbox" style="left:14px; top:-10px;">4</span>
+                          <p class="pt fs10px titlename" style="margin-left:10px;">步骤4</p>
+                        </div>
+                        <div class="wf-10 posr stepbox">
+                          <span class="posa dotbox" style="right:-2px; top:-10px;">5</span>
+                          <p class="pt fs10px   titlename" style="margin-right:-40px;">步骤5</p>
+                        </div> 
+                    </div>
               </fieldset>
 
               <p id="title2" style="padding-top:500px; height:500px;  ">内容2</p>
@@ -188,6 +285,7 @@
 	</div>
 <script type="text/javascript" src='js/jquery-1.7.2.js'></script>
 <script type="text/javascript" src='js/util.js'></script>
+<script type="text/javascript" src='js/slide.js'></script>
 <script type="text/javascript" src="js/manhuaDate.1.0.js"></script>
 <script type="text/javascript" src="lib/daterangepicker/moment.js"></script>
 <script type="text/javascript" src="lib/daterangepicker/daterangepicker.js"></script>
@@ -476,7 +574,7 @@ todayStart.setMilliseconds(0)
 var todayEnd = new Date(+todayStart + 24 * 3600000 - 1);
 var amonth = new Date(+todayStart - 24 * 3600000 * 30);
 var threeMonth = new Date(+todayStart - 24 * 3600000 * 90);
-var sixMonth = new Date(+threeMonth - 24 * 3600000 * 180);
+var sixMonth = new Date(+todayStart - 24 * 3600000 * 180);
 var dateOption = {
     "locale":localopts,
     "timePickerIncrement": 365,
@@ -500,9 +598,20 @@ $("#daterangebox").daterangepicker(dateOption, function(start, end, label){
 });
  
 /**--------------- 地址联动 ----------------**/
-addressInit('cmbProvince', 'cmbCity', 'cmbArea', '陕西', '宝鸡市', '金台区');
-addressInit('Select1', 'Select2', 'Select3'); 
-
+addressInit('cmbProvince', 'cmbCity', 'cmbArea', '湖北', '武汉市', '武昌区');
+addressInit('Select1', 'Select2', 'Select3');
+var cityarr = [];
+$("#cmbCity").on("change", function(){
+  var v = $(this).val();
+  for(var i =0;i < cityarr.length; i++){
+    if(v==cityarr[i]){ return false; }
+  }
+  cityarr.push(v); 
+  $(".j_sresult").append('<span class="j_cityitem cityitem rounds b pss mrs">'+v+'<a href="javascript:;" class="j_removecity ib c9">x</a></span>');
+});
+$(".j_removecity").live("click",function(){
+  $(this).parent(".j_cityitem").remove();
+});
 /**---------------数字跳动累加 ----------------**/
 function numJump(){
   var oSpan=document.getElementById("oSpan");
@@ -527,6 +636,117 @@ $("#runnumbtn").on("click",function(){
 });
 /**--------------- tooltip ----------------**/
 $('#tooltip1').tipsy({gravity: $.fn.tipsy.autoNS});
+/**--- 可伸展slide ---**/
+var s = $("#slide2").find('li').length;
+if(s > 5 && s < 10){
+  $("#slide2").find('li').slice(0, (10-s)).clone(true).appendTo($("#slide2").find(".j_slidewrap"));
+}
+//创建slide2
+var slide2 = new $.slide({
+     selector: '#slide2',  //滑动的块 
+     src: [],
+     alt:[],  
+     text: [], 
+     fix: true,  //是否固定大小
+     width: 1190, //宽
+     itemwith: 238,//li的宽度
+     height: 355, //高
+     images: 5,  //展示图片的格式
+     slides: 5,  //每次滑动图片个数
+     length: 40, //触屏最小滑动长度
+     control: false, //是有控制按钮
+     controlwidth:200,
+     loop: false, //是否是无缝轮播
+     auto: false, //自动轮播
+     speed: 300, //滑动速度
+     delay: 5000, //滚动间隔
+     marginRight: 0
+});
+$("#j_arrowleft2").on("click",function(){
+  slide2.rightMove(checkarrow2); 
+});
+$("#j_arrowright2").on("click",function(){
+  slide2.leftMove(checkarrow2); 
+});
+$("#slide2").on("mouseenter",function(){
+  checkarrow2();
+});
+$("#slide2").on("mouseleave",function(){
+    $("#j_arrowright2").hide();
+    $("#j_arrowleft2").hide();
+});
+var checkarrow2 = function(){
+  var i = slide2.getIndex();
+  var s = slide2.getSize();
+  if(s>5 ){
+    if(i===0) {
+      $("#j_arrowright2").show();
+      $("#j_arrowleft2").hide();
+    }
+    if(i>0 && (i+5 < s)){
+      $("#j_arrowright2").show();
+      $("#j_arrowleft2").show();
+    }
+    if( i+5 === s){
+      $("#j_arrowright2").hide();
+      $("#j_arrowleft2").show();
+    } 
+  }
+  if(slide2.getLoop()){
+      $("#j_arrowright2").show();
+      $("#j_arrowleft2").show();
+  }
+}
+$(".j_slidewrap").find("li").hover(function(){
+    var me = $(this);
+    me.width(476);
+    //me.siblings().width(209); 
+    if(me.index()%5 > 3){
+    me.css({"margin-left":"-238px"});
+    } 
+},function(){
+    var me = $(this);
+    me.width(238);
+    if(me.index()%5 > 3){
+      me.css({"margin-left":"0px"});
+    }
+}); 
+/**数据双向绑定 */
+/*
+* User Model
+* @param {uid} String
+*/
+function User(uid) {  
+  var binder = new util.dataBinder(uid);
+
+  var user = {
+    attribute: {},
+
+    // 属性设置器使用数据绑定器pubSub来发布
+    set: function(attr_name, val) {
+      this.attribute[attr_name] = val;
+      binder.publish(uid + ":change", attr_name, val, this);
+    },
+
+    get: function(attr_name) {
+      return this.attribute[attr_name];
+    },
+
+    _binder: binder
+  };
+
+  // Model修改变化
+  binder.on(uid + ":change", function(event, attr_name, new_val, initiator) {
+    if (initiator !== user) {
+      user.set(attr_name, new_val);
+    }
+  });
+
+  return user;
+}
+// test
+var user = new User('test');
+user.set("name", "jackie");
 </script>
 </body>
 </html>

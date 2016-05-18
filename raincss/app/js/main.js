@@ -53,9 +53,9 @@ require(['jquery', 'html', 'util'], function($, _html, util) {
 	var gamelist;
 	var slide;
 	var prefix = 'http://wandeme.com/app/';
-	var prefix2 = 'http://wande.me/app/';
-	var hwprefix = 'http://wande.me/haowan/';
-	var hgprefix = 'http://wande.me/games/';
+	var prefix2 = 'http://wandeme.com/app/';
+	var hwprefix = 'http://wandeme.com/haowan/';
+	var hgprefix = 'http://wandeme.com/games/';
 	//var prefix = 'http://127.0.0.1/Rain-CSS-Framework/app/';
 	//prefix = 'http://10.24.50.152/Rain-CSS-Framework/app/';
 	//创建loading弹出框

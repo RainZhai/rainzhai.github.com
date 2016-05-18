@@ -8,9 +8,13 @@
 <link rel="stylesheet" href="../css/blueprint/screen.css" type="text/css" media="all"/> 
 <link rel="stylesheet" href="../css/rain.css" type="text/css" media="all"/> 
 <style type="text/css">
+@media  only screen and (min-width: 1190px){
 .body{width:320px;}
-.idcard .idcard-add a.ia-succ {color: #999;  padding-top: 7.25em;  margin-top: 1em;  display: inline-block;  background-size: 70px 54px;  color: #ff6666;}
-.idcard .ia-tip {  position: absolute;  right: 0px;  top: 0px;  background: #b2b2b2;  color: #fff;  font-size: 14px;  padding: 0.4em;}
+}
+.idcard .idcard-add a.ia-succ {color: #999;  padding-top: 7.25em;  margin-top: 1em;  display: inline-block;  background-size: 70px 54px;  color: #ff6666; z-index: 99;}
+.idcard .idcard-add .ia-tip {  position: absolute;  right: 0px;  top: 0px;  background: #b2b2b2;  color: #fff;  font-size: 14px;  padding: 0.4em; z-index: 99;}
+.idcard .idcard-add{ position: relative;}
+.idcard .idcard-add img{ position: absolute; top:0; left: 0; width: 100%; height: 100%; z-index: 9;}
 </style>
 </head>
 <body class="body">
@@ -22,7 +26,7 @@
                 <div id="up_1" class="idcard-add h-20 b fullw posr">
                     <a href="javascript:;" class="ia-add">
                         <div class="fs-10 tac">+</div>
-                        <input id="file_1" capture="camera" accept="image/*" name="file_1" type="file" style="font-size: 118px;cursor: pointer;position: absolute;right: 0;top: 0; width: 100%; height: 100%;z-index:999;filter:alpha(opacity=0);opacity:0;">
+                        <input id="file_1" capture="camera" accept="image/*" name="file_1" type="file" style=" cursor: pointer;position: absolute;right: 0;top: 0; width: 100%; height: 100%;z-index:999;filter:alpha(opacity=0);opacity:0;">
                         <p class="tac">点击添加身份证正面照片</p>
                     </a>
                 </div>
@@ -36,7 +40,7 @@
                 <div id="up_2" class="idcard-add h-20 b fullw posr">
                     <a href="javascript:;" class="ia-add">
                         <div class="fs-10 tac">+</div>
-                        <input id="file_2" capture="camera" accept="image/*" name="file_2" type="file" style="font-size: 118px;cursor: pointer;position: absolute;right: 0;top: 0; width: 100%; height: 100%;z-index:999;filter:alpha(opacity=0);opacity:0;">
+                        <input id="file_2" capture="camera" accept="image/*" name="file_2" type="file" style=" cursor: pointer;position: absolute;right: 0;top: 0; width: 100%; height: 100%;z-index:999;filter:alpha(opacity=0);opacity:0;">
                          <p class="tac">点击添加身份证反面照片</p>
                     </a>
                 </div>
@@ -67,6 +71,10 @@ $(function(){
         var tail = domId.substring(domId.length - 1);
         $("#up_" + tail).hide();
         $("#upover_" + tail).show();
+        var file = e.target.files[0];
+        util.preview(file, function(img){
+            $("#upover_" + tail).append(img);
+        });
         isReady+=tail;
     })
     $(".ia-tip").click(function(){
