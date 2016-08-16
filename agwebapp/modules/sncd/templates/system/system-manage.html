@@ -1,0 +1,56 @@
+<div class="container-wrapper">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>系统管理</h3>
+            <p>提供系统相关信息及功能的配置</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group input-group-no-border"><span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input class="form-control" ng-model="titleFilter" type="text" placeholder="输入关键字"></div>
+    </div>
+    <div class="panel panel-default" ng-repeat="sys in sysList|filter:titleFilter">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{sys.sysCnname}}</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>版本</th>
+                        <th>代码库</th>
+                        <th>系统环境</th>
+                        <th>质量趋势</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0)" ng-click="getSystemVersions(sys, 1)">进行中({{sys.processNum}})</a>
+                            <a href="javascript:void(0)" ng-click="getSystemVersions(sys, 2)">已结束({{sys.finishNum}})</a>
+                            <a href="javascript:void(0)" ng-click="createVersion(sys)">创建版本</a>
+                        </td>
+                        <td>
+                            {{sys.reposName}}
+                        </td>
+                        <td>
+                            <span ng-if="!sys.$edit">{{sys.environment}}</span>
+                            <div ng-if="sys.$edit"><input type="text" ng-model="sys.environment"></div>
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" ng-click="goPackageConfig(sys);">打包配置</a>
+                            <a href="javascript:void(0)" ng-click="deleteItem(sys);">删除</a>
+                            <a href="javascript:void(0)" ng-if="!sys.$edit" ng-click="sys.$edit=true">编辑</a>
+                            <a href="javascript:void(0)" ng-if="sys.$edit" ng-click="sys.$edit=false; updateItem(sys);">保存</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <sn-pager current-page="pager.currentPage" items-per-page="pager.itemsPerPage" total-items="pager.totalItems" list-size="pager.listSize"></sn-pager>
+</div>

@@ -1,0 +1,25 @@
+<ul class="sidebar-menu" ng-controller="SideMenuCtrl as menuCtrl">
+    <li class="header">主菜单</li>
+    <li ng-repeat="menu1 in menuCtrl.menus"
+        class="treeview" ng-class="{true:'active'}[menuCtrl.isMenuSelected(menu1)]">
+        <a href="javascript:void(0)" ng-click="menuCtrl.selectMenu1(menu1)">
+            <i ng-class="menu1.icon"></i>
+            <span>{{menu1.name}}</span>
+            <i ng-show="menu1.children" class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li ng-repeat="menu2 in menu1.children">
+                <a href="javascript:void(0)" ng-click="menuCtrl.selectMenu2(menu2)">
+                    <i ng-class="menu2.icon"></i>
+                    {{menu2.name}}
+                </a>
+
+                <ul class="treeview-menu" ng-show="menu2.children">
+                    <li ng-repeat="menu3 in menu2.children">
+                        <a ui-sref="{{menu3.state}}"><i class="fa fa-circle-o"></i> {{menu3.name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,101 @@
+<div class="container-wrapper">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="panel panel-danger">
+                <div class="panel-heading">我的关注</div>
+                <div class="panel-body min-height-300">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>系统</th>
+                            <th>版本</th>
+                            <th>技术负责人</th>
+                            <th>发布操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="branch in branchList">
+                            <td>
+                                {{branch.sysName}}
+                            </td>
+                            <td>
+                                {{branch.branchName}}
+                            </td>
+                            <td>
+                                {{branch.techManager}}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)">sit发布</a>
+                                <a href="javascript:void(0)">pre发布</a>
+                                <a href="javascript:void(0)">prd发布</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <footer>
+                        <div sn-mini-pager itemsPerPage="{{pager.pageSize}}" totalItems="{{pager.totalCount}}" listSize="5"
+                             class="text-right">
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-success">
+                <div class="panel-heading">我的动态</div>
+                <div class="panel-body min-height-300">
+                    <div class="trend-list">
+                        <div class="trend-item" ng-repeat="ds in dynamicState">
+                            <p><span></span>{{ds.updateTime}}</p>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" width="33" height="33" src="/images/user_logo.png" alt="avatar">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <p><a>{{ds.operator}}</a> 在系统 <a>{{ds.project}}</a> 中进行了 <a>{{ds.task}}</a>
+                                        的任务</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="link-cursor" ng-click="dynamic(3)">更多我的动态</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="panel panel-info">
+                <div class="panel-heading">阻塞原因</div>
+                <div class="panel-body">
+                    <div echarts="option2" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="panel panel-warning">
+                <div class="panel-heading">严重原因</div>
+                <div class="panel-body">
+                    <div echarts="option3" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">质量趋势</div>
+                <div class="panel-body">
+                    <div echarts="option" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

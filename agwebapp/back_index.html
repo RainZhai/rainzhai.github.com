@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ng AdminLTE 2</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+<!-- Bootstrap 3.3.4 -->
+<link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Ionicons 2.0.0 -->
+<link href="libs/ionicons/css/ionicons.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="libs/adminlte/css/AdminLTE.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+<link href="libs/adminlte/css/skins/_all-skins.min.css" rel="stylesheet"
+	type="text/css" />
+
+<link href="css/admin.css" rel="stylesheet" type="text/css" />
+<link href="css/controls.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery-1.7.2.min.js"></script>
+
+</head>
+<body class="skin-blue sidebar-mini fixed"">
+	<section class="content">
+		<div class="modal-body">
+			<div class="modal-body">
+				<form class="form-horizontal" name="executeSqlForm">
+					<div class="form-group">
+						<label class="col-sm-2 control-label"><span
+							class="text-danger">*</span>SQL</label>
+						<div class="col-sm-8">
+							<input type="text" name="sql" id="sql" class="form-control" required />
+						</div>
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-primary" id="execute">确定</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr id="filed">
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="rowset">
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+<script src="js/back.js"></script>
+</html>

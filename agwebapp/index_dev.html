@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>控制台</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons 2.0.0 -->
+    <link href="libs/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="libs/adminlte/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="libs/adminlte/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="css/controls.css" rel="stylesheet" type="text/css" />
+
+    <!--这里是各模块样式表-->
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <link href="css/home.css" rel="stylesheet" type="text/css" />
+    <link href="css/system.css" rel="stylesheet" type="text/css" />
+    <link href="css/version.css" rel="stylesheet" type="text/css" />
+
+
+<script src="js/mock-min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-ui-router.min.js"></script>
+<script src="./js/mock.angular.js"></script>
+<!-- 我把模拟数据都写在这个文件夹里了 -->
+<script src="./js/mockData.js"></script>
+    <script src="modules/main.js"></script>
+    <script src="modules/common/common.js"></script>
+    <!--这里开始是各业务用到的过滤器-->
+    <script type="text/javascript" src="modules/common/filters/common-filters.js"></script>
+
+    <script src="modules/portal/controllers/portal.js"></script>
+    <script src="modules/portal/controllers/header.js"></script>
+    <script src="modules/portal/controllers/sidebar.js"></script>
+    <script src="modules/portal/controllers/controlsidebar.js"></script>
+    <script src="modules/portal/controllers/sidemenu.js"></script>
+    <script src="modules/portal/service/user.js"></script>
+
+    <script src="modules/dashboard/controllers/dashboard.js"></script>
+    <script src="modules/dashboard/services/list.js"></script>
+    <script src="modules/dashboard/controllers/orders.js"></script>
+    <script src="modules/dashboard/controllers/deploy.js"></script>
+
+    <!--这里开始是sncd过滤器-->
+    <script src="modules/sncd/filters/system.js"></script>
+    <script src="modules/sncd/filters/version.js"></script>
+
+    <!--这里开始是sncd远程请求-->
+    <script src="modules/sncd/services/home.js"></script>
+    <script src="modules/sncd/services/systemManage.js"></script>
+    <script src="modules/sncd/services/versionManage.js"></script>
+    <script src="modules/sncd/services/qualityCenter.js"></script>
+
+    <!--这里开始是sncd界面的控制器-->
+    <script src="modules/sncd/controllers/home/home.js"></script>
+
+    <script src="modules/sncd/controllers/system/systemManage.js"></script>
+
+    <script src="modules/sncd/controllers/version/versionInProgress.js"></script>
+    <script src="modules/sncd/controllers/version/createVersion.js"></script>
+    <script src="modules/sncd/controllers/version/endedVersion.js"></script>
+    <script src="modules/sncd/controllers/version/releaseList.js"></script>
+    <script src="modules/sncd/controllers/version/versionDetail.js"></script>
+
+    <script src="modules/sncd/controllers/sysAndVersInfo/version.js"></script>
+    <script src="modules/sncd/controllers/sysAndVersInfo/code.js"></script>
+    <script src="modules/sncd/controllers/sysAndVersInfo/system.js"></script>
+    <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchBasic.js"></script>
+    <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchAuth.js"></script>
+    <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchPerson.js"></script>
+
+    <script src="modules/sncd/controllers/quality/qualityCenter.js"></script>
+    <script src="modules/sncd/controllers/quality/qualityCompare.js"></script>
+
+    <script src="modules/sncd/controllers/publish/publishList.js"></script>
+</head>
+<body class="skin-blue sidebar-mini fixed"
+      ng-app="sncd" ng-controller="PortalCtrl as portalCtrl"
+      ng-class="{true:'sidebar-collapse'}[portalCtrl.sidebarCollapsed()]">
+<div class="wrapper">
+    <header ng-include="'modules/portal/templates/header.html'"></header>
+
+    <aside ng-include="'modules/portal/templates/aside.html'"></aside>
+
+    <div class="content-wrapper" ui-view></div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="#">angularjs 控制台</a>.</strong> All rights reserved.
+    </footer>
+
+    <aside ng-include="'modules/portal/templates/control-sidebar.html'"></aside>
+</div><!-- ./wrapper -->
+
+<script id="alertTpl" type="text/html">
+    <div class="modal fade in">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">{{title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="alert-content">
+                            <span>{{content}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-flat" ng-show="ok" ng-click="ok()">确定</button>
+                    <button type="button" class="btn btn-primary btn-flat btn-reverse" ng-show="cancel" ng-click="cancel()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+</body>
+</html>

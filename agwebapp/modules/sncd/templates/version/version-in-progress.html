@@ -1,0 +1,51 @@
+<div class="container-wrapper">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>进行中版本</h3>
+            <p>提供版本相关信息及功能的配置</p>
+        </div>
+    </div>
+
+    <div class="panel panel-default" ng-repeat="sys in versList">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{sysCnname}}
+                <span class="pull-right">分支：111</span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>版本</th>
+                    <th>状态</th>
+                    <th>配置操作</th>
+                    <th>发布操作</th>
+                    <th>质量趋势</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <a ui-sref="VersionDetail">{{sys.vername}}</a>
+                    </td>
+                    <td>
+                        {{"059" | versionStatusFileter}}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)">解版</a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)">SIT发布</a><br/>
+                        <a href="javascript:void(0)">Pre发布</a><br/>
+                        <a href="javascript:void(0)">Prd发布</a>
+                    </td>
+                    <td>
+                        {{1 | quaTrendFilter}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

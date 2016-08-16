@@ -1,0 +1,51 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">价值中心系统
+                    <span class="pull-right">分支CMO：孙迁</span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>版本</th>
+                        <th>路径</th>
+                        <th>分支CMO</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            服务搜索[1.5.5]
+                        </td>
+                        <td>
+                            http://192.168.130.17/svn/udmp_code/branches/SNCD_V2.0.0
+                        </td>
+                        <td>
+                            朱钟雷
+                        </td>
+                        <td>
+                            已封版
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-class="{'active': selectedTab==1}"><a ui-sref="VersionBranchBasic" ng-click="selectedTab=1">分支基本信息</a></li>
+            <li ng-class="{'active': selectedTab==2}"><a ui-sref="VersionBranchAuth" ng-click="selectedTab=2">分支权限</a></li>
+            <li ng-class="{'active': selectedTab==3}"><a ui-sref="VersionBranchPerson" ng-click="selectedTab=3">分支发布人员</a></li>
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div ui-view></div>
+    </div>
+</div>

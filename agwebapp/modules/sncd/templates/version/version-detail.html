@@ -1,0 +1,10 @@
+<div class="container-wrapper">
+    <ul class="nav nav-tabs">
+        <li ng-class="{'active': selectedTab==1}"><a ui-sref="VersionInfo" ng-click="selectedTab=1">版本信息</a></li>
+        <li ng-class="{'active': selectedTab==2}"><a ui-sref="SystemInfo" ng-click="selectedTab=2">系统信息</a></li>
+        <li ng-class="{'active': selectedTab==3}"><a ui-sref="CodeInfo" ng-click="selectedTab=3">代码库</a></li>
+    </ul>
+
+    <div class="tab-content-wrapper" ui-view></div>
+
+</div>
