@@ -1,4 +1,4 @@
-app = angular.module("sncd", ["ui.router", "sn.controls"]);
+app = angular.module("sncd", ["ui.router", "sn.controls","angularModalService","ngAnimate",'ivh.treeview']);
  
 //app = angular.module('sncd', []);
 //使用mockjax方法覆盖Ajax请求
@@ -28,6 +28,11 @@ angular.module("sncd").config(function($stateProvider, $urlRouterProvider) {
             url: '/system-manage',
             templateUrl: 'modules/sncd/templates/system/system-manage.html',
             controller: 'SystemManageCtrl'
+        })
+        .state('CreateSystem', {
+            url: '/create-system',
+            templateUrl: 'modules/sncd/templates/system/create-system.html',
+            controller: 'CreateSystemCtrl'
         })
 
         //版本管理
@@ -71,7 +76,7 @@ angular.module("sncd").config(function($stateProvider, $urlRouterProvider) {
         })
         .state('SystemInfo', {
             parent: 'VersionDetail',
-            url: '/version-info',
+            url: '/system-info',
             templateUrl: 'modules/sncd/templates/sysAndVersInfo/system.html',
             controller: 'SystemInfoCtrl'
         })
@@ -117,15 +122,7 @@ angular.module("sncd").config(function($stateProvider, $urlRouterProvider) {
             url: '/my-quality',
             templateUrl: 'modules/sncd/templates/quality/quality-center.html',
             controller: 'QualityCenterCtrl'
-        })
-
-        //发布
-        .state('Publish', {
-            url: '/publish',
-            templateUrl: 'modules/sncd/templates/publish/publish-list.html',
-            controller: 'PublishListCtrl'
-        })
-
+        })  
 });
 
 angular.module("sncd").factory('noCacheInterceptor', function() {

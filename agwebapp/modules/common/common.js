@@ -110,7 +110,6 @@ angular.module("sn.controls").service("DialogService", ["$http", "$document", "$
         modal: function (param, data) {
             $http.get(param.url).then(function (result) {
                 dialogCounter += 2;
-
                 var mask = angular.element('<div class="modal-backdrop fade in"></div>');
                 $document.find("body").append(mask);
                 mask.css("z-index", zIndex + dialogCounter);
@@ -121,7 +120,7 @@ angular.module("sn.controls").service("DialogService", ["$http", "$document", "$
                     angular.extend(newScope, data);
                 }
                 var element = $compile(dialog)(newScope);
-
+                debugger;
                 $document.find("body").append(element);
                 element.css("display", "block");
                 element.css("z-index", zIndex + dialogCounter + 1);

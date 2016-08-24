@@ -1,0 +1,32 @@
+<div class="modal" style="display:block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="sysform" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="close()">
+                  <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">添加新系统</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="sysCnname" placeholder="系统名称" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="reposName" placeholder="代码库" required />
+                    </div>
+                    <select class="form-control" ng-model="environment" placeholder="系统环境">
+                    <option value="linux">linux</option>
+                    <option value="window">window</option>
+                    <option value="mac">mac</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="close()">Close</button>
+                    <button type="button" class="btn btn-primary" ng-disabled="sysform.$invalid" ng-click="save()">Save</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

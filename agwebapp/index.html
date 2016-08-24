@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -13,11 +14,13 @@
     <!-- Ionicons 2.0.0 -->
     <link href="libs/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="libs/adminlte/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="libs/adminlte/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="libs/adminlte/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
+    <link href="//rawgit.com/iVantage/angular-ivh-treeview/master/dist/ivh-treeview.css" rel="stylesheet">
+    <link href="//rawgit.com/iVantage/angular-ivh-treeview/master/dist/ivh-treeview-theme-basic.css" rel="stylesheet">
 
     <link href="css/admin.css" rel="stylesheet" type="text/css" />
     <link href="css/controls.css" rel="stylesheet" type="text/css" />
@@ -27,16 +30,17 @@
     <link href="css/home.css" rel="stylesheet" type="text/css" />
     <link href="css/system.css" rel="stylesheet" type="text/css" />
     <link href="css/version.css" rel="stylesheet" type="text/css" />
-
-
-<script src="js/mock-min.js"></script>
+    <script src="js/mock-min.js"></script>
     <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-animate.min.js"></script>
     <script src="libs/angular/angular-ui-router.min.js"></script>
-<script src="./js/mock.angular.js"></script>
-<!-- 我把模拟数据都写在这个文件夹里了 -->
-<script src="./js/mockData.js"></script>
+    <script src="./js/mock.angular.js"></script>
+    <!-- 我把模拟数据都写在这个文件夹里了 -->
+    <script src="./js/mockData.js"></script>
     <script src="modules/main.js"></script>
     <script src="modules/common/common.js"></script>
+    <script src="modules/common/angular-modal-service.js"></script>
+    <script src="//rawgit.com/iVantage/angular-ivh-treeview/master/dist/ivh-treeview.min.js"></script>
     <!--这里开始是各业务用到的过滤器-->
     <script type="text/javascript" src="modules/common/filters/common-filters.js"></script>
 
@@ -60,12 +64,12 @@
     <script src="modules/sncd/services/home.js"></script>
     <script src="modules/sncd/services/systemManage.js"></script>
     <script src="modules/sncd/services/versionManage.js"></script>
-    <script src="modules/sncd/services/qualityCenter.js"></script>
 
     <!--这里开始是sncd界面的控制器-->
     <script src="modules/sncd/controllers/home/home.js"></script>
 
     <script src="modules/sncd/controllers/system/systemManage.js"></script>
+    <script src="modules/sncd/controllers/system/createSystem.js"></script>
 
     <script src="modules/sncd/controllers/version/versionInProgress.js"></script>
     <script src="modules/sncd/controllers/version/createVersion.js"></script>
@@ -79,33 +83,28 @@
     <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchBasic.js"></script>
     <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchAuth.js"></script>
     <script src="modules/sncd/controllers/sysAndVersInfo/versionBranchPerson.js"></script>
-
-    <script src="modules/sncd/controllers/quality/qualityCenter.js"></script>
-    <script src="modules/sncd/controllers/quality/qualityCompare.js"></script>
-
-    <script src="modules/sncd/controllers/publish/publishList.js"></script>
 </head>
-<body class="skin-blue sidebar-mini fixed"
-      ng-app="sncd" ng-controller="PortalCtrl as portalCtrl"
-      ng-class="{true:'sidebar-collapse'}[portalCtrl.sidebarCollapsed()]">
-<div class="wrapper">
-    <header ng-include="'modules/portal/templates/header.html'"></header>
 
-    <aside ng-include="'modules/portal/templates/aside.html'"></aside>
+<body class="skin-blue sidebar-mini fixed" ng-app="sncd" ng-controller="PortalCtrl as portalCtrl" ng-class="{true:'sidebar-collapse sidebar-open'}[portalCtrl.sidebarCollapsed()]">
+    <div class="wrapper">
+        <header ng-include="'modules/portal/templates/header.html'"></header>
 
-    <div class="content-wrapper" ui-view></div>
+        <aside ng-include="'modules/portal/templates/aside.html'"></aside>
 
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="#">angularjs 控制台</a>.</strong> All rights reserved.
-    </footer>
+        <div class="content-wrapper" ui-view></div>
 
-    <aside ng-include="'modules/portal/templates/control-sidebar.html'"></aside>
-</div><!-- ./wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+            </div>
+            <strong>Copyright &copy; 2014-2015 <a href="#">angularjs 控制台</a>.</strong> All rights reserved.
+        </footer>
 
-<script id="alertTpl" type="text/html">
+        <aside ng-include="'modules/portal/templates/control-sidebar.html'"></aside>
+    </div>
+    <!-- ./wrapper -->
+
+    <script id="alertTpl" type="text/html">
     <div class="modal fade in">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -130,4 +129,5 @@
 </script>
 
 </body>
+
 </html>

@@ -80,6 +80,12 @@ angular.module('sncd').service('SystemService', ['mockService', 'HttpService', '
                     return handleRspData(data);
                 });
             },
+            //新增一条记录
+            createSystem: function (params) {
+                return HttpService.post("/angular/system/createSystem.htm", params).then(function (data) {
+                    return handleRspData(data);
+                });
+            },
             //获取全部中心list
             getOrgList: function () {
                 return HttpService.post("/angular/system/allOrgList.htm").then(function (data) {
