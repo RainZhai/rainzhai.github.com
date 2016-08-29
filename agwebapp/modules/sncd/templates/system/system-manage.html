@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <div class="checkbox">
-                        <label><input type="checkbox" ng-click="selectAll($event)" ng-checked="isSelectedAll()" /> {{}}全选</label>
+                        <label><input type="checkbox" ng-click="selectAll($event)" ng-checked="isSelectedAll()" /> 全选</label>
                     <a href="javascript:void(0)" ng-click="removeSelectedItem();">删除选中</a>
                     </div>
                 </div>
@@ -65,7 +65,6 @@
                             1
                         </td>
                         <td>
-                            <a href="javascript:void(0)" ng-click="goPackageConfig(sys);">打包配置</a>
                             <a href="javascript:void(0)" ng-click="deleteItem(sys);">删除</a>
                             <a href="javascript:void(0)" ng-if="!sys.$edit" ng-click="sys.$edit=true">编辑</a>
                             <a href="javascript:void(0)" ng-if="sys.$edit" ng-click="sys.$edit=false; updateItem(sys);">保存</a>

@@ -7,11 +7,18 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-body">
-            <div>
-            <input type="text" ng-model="sysCnname" placeholder="版本号" required/>
-            <input type="text" ng-model="reposName" placeholder="代码库" required/>
-            <input type="button" ng-click="add()" value="创建" /> 
-            </div>
+
+            <form name="versionform" novalidate>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="sysCnname" placeholder="系统名称" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="reposName" placeholder="代码库" required />
+                </div>
+                <div class="form-group">
+                <input type="button" class="btn btn-primary" ng-disabled="versionform.$invalid" ng-click="add()" value="创建" /> 
+                </div>
+            </form>
         </div>
     </div>
 </div>

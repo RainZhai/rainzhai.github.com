@@ -41,8 +41,6 @@ angular.module('sncd').service('VersionManageService', ['mockService', 'HttpServ
                 });
             },
 
-
-
             //检查版本号是否已经存在
             isVersionExist:function (params){
                 return	HttpService.get("/angular/version/isVersionExist.htm", params).then(function(data) {
@@ -57,13 +55,13 @@ angular.module('sncd').service('VersionManageService', ['mockService', 'HttpServ
                 });
             },
 
-            //// 获取我的版本
+            // 获取我的版本
             getMyVersion: function (params) {
                 return HttpService.post("/angular/version/myversion.htm", params).then(function(data) {
                     return handleRspData(data);
                 });
             },
-            //// 封板
+            // 封板
             freezenVersion: function (params) {
                 return HttpService.post("/angular/version/freezen.htm", params).then(function(data) {
                     return handleRspData(data);
@@ -101,72 +99,7 @@ angular.module('sncd').service('VersionManageService', ['mockService', 'HttpServ
                 return HttpService.post("/angular/version/mergeVersion.htm", params).then(function(data) {
                     return handleRspData(data);
                 });
-            },
-
-            //合并分支详情
-            mergeVersionInfo:function (params){
-                return HttpService.post("/angular/version/mergeVersionInfo.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-
-            isPackageConfig:function (params){
-                return HttpService.post("/angular/version/isPackageConfig.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-
-            packageVersionDialog:function (params){
-                return HttpService.post("/angular/version/packageVersionDialog.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-
-            //打包地址页面
-            packageVersionInit:function (params){
-                return HttpService.post("/angular/version/packageVersionInit.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-
-            //checkReview
-            checkReview:function (params){
-                return HttpService.post("/angular/version/checkReview.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-            //checkBuild
-            checkBuild:function (params){
-                return HttpService.post("/angular/version/checkBuild.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-            //checkFrozen
-            checkFrozen:function (params){
-                return HttpService.post("/angular/version/checkFrozen.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-            //执行打包
-            packageVersion:function (params){
-                return HttpService.post("/angular/version/packageVersion.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-            //打包日志
-            getPackageLog:function (params){
-                return HttpService.post("/angular/version/getPackageLog.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
-            },
-            //PC打包日志
-            getPcPackageLog:function (params){
-                return HttpService.post("/angular/version/getPcPackageLog.htm", params).then(function(data) {
-                    return handleRspData(data);
-                });
             }
-
-
         };
 
     }]);

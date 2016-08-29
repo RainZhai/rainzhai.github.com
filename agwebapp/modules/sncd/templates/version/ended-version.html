@@ -1,9 +1,58 @@
 <div class="container-wrapper">
-
     <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-heading">
             <h3>已结束版本</h3>
         </div>
-    </div>
+        <div class="panel-body">
+            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="input-group pull-right global-search">
+                            <label class="input-group-addon">全局搜索</label>
+                            <input type="text" class="form-control" ng-model="titleFilter" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="example1" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" ng-model="vm.allChecked" ng-change="vm.checkAll(vm.allChecked)"
+                                        /></th>
+                                    <th ng-repeat="column in vm.columns" ng-if="!column.hidden" ng-click="vm.sort.toggle(column)" ng-class="{sortable: column.sortable !== false}">
+                                        {{column.label}}
+                                        <i ng-if="column.name === vm.sort.column && vm.sort.direction" class="glyphicon glyphicon-chevron-down"></i>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="text" ng-model="vm.filter.id" class="form-control" /></td>
+                                    <td><input type="text" ng-model="vm.filter.name" class="form-control" /></td>
+                                    <td><input type="text" ng-model="vm.filter.followers" class="form-control" /></td>
+                                    <td><input type="text" ng-model="vm.filter.birthday" class="form-control" /></td>
+                                    <td><input type="text" ng-model="vm.filter.income" class="form-control" /></td>
+                                </tr>
+                                <tr ng-repeat="item in vm.items|filter:titleFilter|filter: vm.filter|orderBy:vm.sort.column:vm.sort.direction===-1">
+                                    <td><input type="checkbox" ng-model="item.$checked " /></td>
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.followers|number}}</td>
+                                    <td>{{item.birthday|date}} {{vm.age(item.birthday)}}岁</td>
+                                    <td>{{item.income|currency}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <sn-pager current-page="pager.currentPage " items-per-page="pager.itemsPerPage " total-items="pager.totalItems
+                                    " list-size="pager.listSize "></sn-pager>
 
+            </div>
+        </div>
+    </div>
 </div>

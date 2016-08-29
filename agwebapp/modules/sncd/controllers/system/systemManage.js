@@ -17,14 +17,21 @@ angular.module('sncd').controller('SystemManageCtrl', ['$scope', 'SystemService'
         //$scope.currWorkNo = $rootScope.currUser && $rootScope.currUser.workNo;
         //tree
         vm.treelist = [{
-            label: 'Glasses',
-            value: 'glasses',
+            label: '项目GNUN',
+            value: 'gnun',
             children: [{
-                label: 'Top Hat',
-                value: 'top_hat'
+                label: '平台UU',
+                value: 'plat_uu',
+                children: [{
+                    label: '二级平台QW',
+                    value: 'plat_qw'
+                }, {
+                        label: '二级平台HYT',
+                        value: 'plat_hyt'
+                    }]
             }, {
-                    label: 'Curly Mustache',
-                    value: 'mustachio'
+                    label: '平台BO',
+                    value: 'plat_bo'
                 }]
         }];
 
