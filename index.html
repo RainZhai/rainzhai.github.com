@@ -359,13 +359,20 @@ html.addEventListener(<span class="string">'click'</span>,callback,<span class="
 <h3 id="2-打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下-android-app-build-gradle-文件有几个配置项目"><a href="#2-打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下-android-app-build-gradle-文件有几个配置项目" class="headerlink" title="2 打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下\android\app\build.gradle 文件有几个配置项目"></a>2 打包的apk在安卓机上不能安装，这个问题也比较扯淡。在项目目录下\android\app\build.gradle 文件有几个配置项目</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">compileSdkVersion <span class="number">23</span></div><div class="line">buildToolsVersion <span class="string">"23.0.1"</span></div><div class="line"></div><div class="line">defaultConfig &#123;</div><div class="line">    applicationId <span class="string">"com.jdapp"</span></div><div class="line">    minSdkVersion <span class="number">16</span></div><div class="line">    targetSdkVersion <span class="number">22</span></div><div class="line">    versionCode <span class="number">1</span></div><div class="line">    versionName <span class="string">"1.0"</span></div><div class="line">    ndk &#123;</div><div class="line">        abiFilters <span class="string">"armeabi-v7a"</span>, <span class="string">"x86"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这里的compileSdkVersion和buildToolsVersion改了都会导致报错。targetSdkVersion才是打包好的apk适用的安卓版本。所以要把targetSdkVersion版本数改低。</p>
 <h3 id="3-apk在手机上安装好了但是不能使用"><a href="#3-apk在手机上安装好了但是不能使用" class="headerlink" title="3 apk在手机上安装好了但是不能使用"></a>3 apk在手机上安装好了但是不能使用</h3><p>打开app出现红色界面并报错ReferenceError: Can’t find variable: require(line 1 the generated bundle)。需要摇动手机在Dev Settings -&gt; Debug server host &amp; port for device里面输入pc的ip:端口。并使用adb工具输入命令adb reverse tcp:8081 tcp:8081 所有问题都解决了，app跑起来了。后面终于可以写react native应用了！！！</p>
-<p>###相关链接</p>
-<ol>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ol>
 <li><a href="http://q.maiziedu.com/article/8853/" target="_blank" rel="external">http://q.maiziedu.com/article/8853/</a> </li>
 <li><a href="http://blog.csdn.net/raptor/article/details/38538037" target="_blank" rel="external">http://blog.csdn.net/raptor/article/details/38538037</a> </li>
 <li><a href="http://www.cnblogs.com/meteoric_cry/p/4874517.html" target="_blank" rel="external">http://www.cnblogs.com/meteoric_cry/p/4874517.html</a></li>
 <li><a href="http://blog.csdn.net/xu_fu/article/details/48571941" target="_blank" rel="external">http://blog.csdn.net/xu_fu/article/details/48571941</a></li>
 </ol>
+<h3 id="IOS-app开发的问题处理"><a href="#IOS-app开发的问题处理" class="headerlink" title="IOS app开发的问题处理"></a>IOS app开发的问题处理</h3><ol>
+<li><p>包重复删除重复的依赖包即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Error</span> building DependencyGraph:</div><div class="line"> <span class="built_in">Error</span>: Naming collision detected: <span class="regexp">/Users/</span>rainzhai/workspace/ReactApp/node_modules/react-web/node_modules/fbjs/package.json collides <span class="keyword">with</span> /Users/rainzhai/workspace/ReactApp/node_modules/react-native/node_modules/fbjs/package.json</div></pre></td></tr></table></figure>
+</li>
+<li><p>Could not connect to development server.  AppDelegate.m中的jsCodeLocation 改为自己本机IP地址就可</p>
+</li>
+</ol>
+<p><a href="https://github.com/facebook/react-native/issues" target="_blank" rel="external">https://github.com/facebook/react-native/issues</a></p>
 
       
     </div>

@@ -28,7 +28,8 @@
 <meta property="og:image" content="http://rainzhai.github.io/images/browser_compont.png">
 <meta property="og:image" content="http://rainzhai.github.io/images/render_step.png">
 <meta property="og:image" content="http://rainzhai.github.io/images/parser_step.png">
-<meta property="og:updated_time" content="2016-04-29T09:47:46.000Z">
+<meta property="og:image" content="https://segmentfault.com/a/1190000005875191">
+<meta property="og:updated_time" content="2016-12-02T16:09:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试经典问题">
 <meta name="twitter:description" content="1. JS事件的捕获和冒泡下面代码执行结果的顺序:html代码如下:
@@ -261,7 +262,34 @@ alert(e.data);
 </ol>
 <p>渲染引擎主要流程<br>渲染引擎开始会从网络模块获取要请求的文档内容，一般会以8k大小的区块获取。<br>在获取内容之后，是渲染引擎的基本流程：<br><img src="http://rainzhai.github.io/images/render_step.png" alt="渲染引擎主要流程"></p>
 <p>渲染引擎开始解析HTML文档，并且把标签转换成“内容树”上的DOM节点，然后会解析样式，包括外部的css文件和style元素里的数据。这些样式信息将会和HTML中视觉性的属性组合在一起<br>创建另一个树—渲染树。<br>渲染树由带有如颜色和大小等视觉属性的矩形区域构成，这些矩形区域按它们将要显示在屏幕上的顺序排列。<br>渲染树构造完成后，进入到布局阶段，会把每个节点精确地调整到它应该在屏幕上出现的位置上。<br>下一步是绘制，渲染树将会被遍历，每个节点都会通过UI后端层来绘制。<br>理解这是一个渐进的过程相当重要。为了有更好的用户体验，渲染引擎将会尽可能早的把内容在屏幕上显示出来，不会等到所有的HTML都被解析完才开始建造和布局渲染树，当进程还在继续解<br>析源源不断的来自于网络的内容的时候，一部分内容会被解析并且显示出来。<br><img src="http://rainzhai.github.io/images/parser_step.png" alt="渲染流程"></p>
+<h3 id="7-requirejs循环依赖问题"><a href="#7-requirejs循环依赖问题" class="headerlink" title="7 requirejs循环依赖问题"></a>7 requirejs循环依赖问题</h3><p>一.问题：A依赖B（即A引用B且调用B中的方法），B也依赖A，这即为循环依赖，那么，当B调用A中的方法时，会发现A为undefined，这就是循环依赖导致的问题。<br>二.解决循环依赖的方法：<br>1.用scope模式传参方式；<br>2.用pubsub解耦；<br>3.用require(“A”)的方式： </p>
+<pre><code class="javascript">define([‘<span class="built_in">require</span>‘,‘jquery‘,‘a‘],
+<span class="function"><span class="keyword">function</span>(<span class="params">require, $, a</span>)</span>{
+<span class="keyword">return</span> {
+loading : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{
+<span class="built_in">require</span>(‘a‘).addBag(data);
+}
+}
+});
+</code></pre>
+<h3 id="8-数组乱序"><a href="#8-数组乱序" class="headerlink" title="8 数组乱序"></a>8 数组乱序</h3><p>关于数组乱序，正确的解法应该是 Fisher–Yates Shuffle，复杂度 O(n)。</p>
+<p>其实它的思想非常的简单，遍历数组元素，将其与之前的任意元素交换。因为遍历有从前向后和从后往前两种方式，所以该算法大致也有两个版本的实现。</p>
+<p>从后往前的版本：</p>
+<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">shuffle</span>(<span class="params">array</span>) </span>{
+  <span class="keyword">var</span> _array = array.concat();
 
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = _array.length; i--; ) {
+    <span class="keyword">var</span> j = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (i + <span class="number">1</span>));
+    <span class="keyword">var</span> temp = _array[i];
+    _array[i] = _array[j];
+    _array[j] = temp;
+  }
+
+  <span class="keyword">return</span> _array;
+}
+</code></pre>
+<p><img src="https://segmentfault.com/a/1190000005875191" alt="数组乱序"></p>
+<h3 id="9-js模板引擎原理"><a href="#9-js模板引擎原理" class="headerlink" title="9 js模板引擎原理"></a>9 js模板引擎原理</h3><h3 id="10-js深拷贝"><a href="#10-js深拷贝" class="headerlink" title="10 js深拷贝"></a>10 js深拷贝</h3>
       
     </div>
     <footer class="article-footer">
