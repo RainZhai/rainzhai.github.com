@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Eruda: Console for Mobile browsers</title>
+    <style type="text/css">
+    body,
+    html {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    
+    html {
+        background: #f8f9fa;
+    }
+    
+    body {
+        max-width: 800px;
+        background: #fff;
+        margin: 0 auto;
+    }
+    
+    .header {
+        background: #eda29b;
+        position: relative;
+        margin: 0;
+        padding: 30px 0 40px 0;
+        color: #fff;
+    }
+    
+    #c {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .header img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+    }
+    
+    #triangle {
+        width: 100%;
+        position: relative;
+        top: -50px;
+        margin-bottom: -25px;
+    }
+    
+    .github-link {
+        font-size: 14px;
+        color: #555;
+        margin-top: 0;
+    }
+    
+    .title,
+    .subtitle,
+    .github-link,
+    .hint {
+        font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+        text-align: center;
+    }
+    
+    .title {
+        font-size: 36px;
+        padding-left: 15px;
+        text-align: left;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .subtitle {
+        text-align: left;
+        font-size: 12px;
+        position: relative;
+        z-index: 10;
+        padding-left: 15px;
+        margin-bottom: 50px;
+        text-decoration: underline;
+    }
+    
+    .github-link a {
+        color: #76a2ee;
+        font-size: 18px;
+    }
+    
+    .hint {
+        color: #555;
+        margin-bottom: 50px;
+    }
+    
+    .buttons {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .buttons li {
+        color: #fff;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .2), 0 3px 1px -2px rgba(0, 0, 0, .1);
+        position: relative;
+        text-align: center;
+        transition: background .3s, color .3s;
+        cursor: pointer;
+    }
+    
+    .buttons li.green {
+        background: #c4ff5f;
+        color: #666;
+    }
+    
+    .buttons li.green:active {
+        background: #c4ff5f;
+    }
+    
+    .buttons li.yellow {
+        background: #f2d367;
+        color: #e07556;
+    }
+    
+    .buttons li.yellow:active {
+        background: #bca351;
+    }
+    
+    .buttons li.orange {
+        background: #e17555;
+        color: #9c3c53;
+    }
+    
+    .buttons li.orange:active {
+        background: #bc5f45;
+    }
+    
+    .buttons li.purple {
+        background: #9d3b53;
+        color: #513056;
+    }
+    
+    .buttons li.purple:active {
+        background: #843245;
+    }
+    </style>
+    <script src="eruda.min.js"></script>
+    <script>
+    eruda.init();
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <canvas id="c"></canvas>
+        <img src="http://7xn2zy.com1.z0.glb.clouddn.com/eruda_banner_bg.png" alt="Eruda" />
+        <h1 class="title">Eruda</h1>
+        <h2 class="subtitle">Console for Mobile Browsers</h2>
+    </header>
+    <svg id="triangle" width="800" height="70" viewBox="0,0,80,5" preserveAspectRatio="none">
+        <polygon points="0,0 0,5 80,5" style="fill:#fff" />
+    </svg>
+    </p>
+    <p class="hint">Click the right bottom button to inspect this page!</p>
+    <ul class="buttons">
+        <li id="log-btn" class="green" style="z-index: 100;" ontouchstart>Trigger Console Log
+        </li>
+        <li id="error-btn" class="yellow" style="z-index: 100;" ontouchstart>Trigger Error
+        </li>
+        <li id="ajax-btn" class="orange" style="z-index: 90;" ontouchstart>Send Ajax Request
+        </li>
+        <li id="fps-btn" class="purple" style="z-index: 80;" ontouchstart>Load FPS Plugin
+        </li>
+    </ul>
+    <script src="eustia.min.js"></script>
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F49ba6eabd43121d820d9120777bdaf30' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+    var $event = _['$event'],
+        loadJs = _['loadJs'],
+        raf = _['raf'],
+        Class = _['Class'],
+        ajax = _['ajax'];
+
+    console.log('%cHello, This is Eruda:)', 'color: #e17555;');
+
+
+    $event.on('#log-btn', 'click', function() {
+        console.log("hi");
+        console.log("<a href='wandeme.com'>wandeme</a>");
+        console.log('<form id="dummy" action="" method="post"><fieldset><legend>表单示例 Sample Form</legend><p><label for="dummy0">Text input (title)</label><br><input type="text" class="title" name="dummy0" id="dummy0" value="Field with class .title"></p><p><label for="dummy1">Another field</label><br><input type="text" class="text" id="dummy1" name="dummy1" value="Field with class .text"></p><p><input type="submit" value="Submit"><input type="reset" value="Reset"></p></fieldset></form>');
+        console.log({name:"hi"});
+    });
+
+    $event.on('#error-btn', 'click', function() {
+        TriggerError()
+    });
+
+    $event.on('#ajax-btn', 'click', function() {
+        ajax.get('test.json')
+    });
+
+    $event.on('#fps-btn', 'click', function() {
+        if (window.erudaFps) return;
+        loadJs('eruda-fps.min.js', function() {
+            eruda.add(erudaFps).show('fps').show();
+        });
+    });
+
+    // http://codepen.io/towc/pen/mJzOWJ/
+    var c = document.getElementById('c');
+    var w = c.width = getCanvasWidth(),
+        h = c.height = 210,
+        ctx = c.getContext('2d'),
+        opts = {
+            len: 20,
+            count: 50,
+            baseTime: 10,
+            addedTime: 10,
+            dieChance: .05,
+            spawnChance: 1,
+            sparkChance: .1,
+            sparkDist: 10,
+            sparkSize: 2,
+            color: 'hsl(hue,100%,light%)',
+            baseLight: 50,
+            addedLight: 10, // [50-10,50+10]
+            shadowToTimePropMult: 6,
+            baseLightInputMultiplier: .01,
+            addedLightInputMultiplier: .02,
+            cx: w / 2,
+            cy: h / 2,
+            repaintAlpha: .04,
+            hueChange: .1
+        },
+        tick = 0,
+        lines = [],
+        dieX = w / 2 / opts.len,
+        dieY = h / 2 / opts.len,
+        baseRad = Math.PI * 2 / 6;
+
+    ctx.fillStyle = '#eda29b';
+    ctx.fillRect(0, 0, w, h);
+
+    function loop() {
+        raf(loop);
+
+        ++tick;
+
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = 'rgba(237, 162, 155,alp)'.replace('alp', opts.repaintAlpha);
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'lighter';
+
+        if (lines.length < opts.count && Math.random() < opts.spawnChance) lines.push(new Line);
+
+        lines.map(function(line) {
+            line.step()
+        });
+    }
+
+    var Line = Class({
+        className: 'Line',
+        initialize: function() {
+            this.reset();
+        },
+        reset: function() {
+            this.x = 0;
+            this.y = 0;
+            this.addedX = 0;
+            this.addedY = 0;
+
+            this.rad = 0;
+
+            this.lightInputMultiplier = opts.baseLightInputMultiplier + opts.addedLightInputMultiplier * Math.random();
+
+            this.color = opts.color.replace('hue', tick * opts.hueChange);
+            this.cumulativeTime = 0;
+
+            this.beginPhase();
+        },
+        beginPhase: function() {
+            this.x += this.addedX;
+            this.y += this.addedY;
+
+            this.time = 0;
+            this.targetTime = (opts.baseTime + opts.addedTime * Math.random()) | 0;
+
+            this.rad += baseRad * (Math.random() < .5 ? 1 : -1);
+            this.addedX = Math.cos(this.rad);
+            this.addedY = Math.sin(this.rad);
+
+            if (Math.random() < opts.dieChance || this.x > dieX || this.x < -dieX || this.y > dieY || this.y < -dieY)
+                this.reset();
+        },
+        step: function() {
+            ++this.time;
+            ++this.cumulativeTime;
+
+            if (this.time >= this.targetTime)
+                this.beginPhase();
+
+            var prop = this.time / this.targetTime,
+                wave = Math.sin(prop * Math.PI / 2),
+                x = this.addedX * wave,
+                y = this.addedY * wave;
+
+            ctx.shadowBlur = prop * opts.shadowToTimePropMult;
+            ctx.fillStyle = ctx.shadowColor = this.color.replace('light', opts.baseLight + opts.addedLight * Math.sin(this.cumulativeTime * this.lightInputMultiplier));
+            ctx.fillRect(opts.cx + (this.x + x) * opts.len, opts.cy + (this.y + y) * opts.len, 2, 2);
+
+            if (Math.random() < opts.sparkChance)
+                ctx.fillRect(opts.cx + (this.x + x) * opts.len + Math.random() * opts.sparkDist * (Math.random() < .5 ? 1 : -1) - opts.sparkSize / 2, opts.cy + (this.y + y) * opts.len + Math.random() * opts.sparkDist * (Math.random() < .5 ? 1 : -1) - opts.sparkSize / 2, opts.sparkSize, opts.sparkSize)
+        }
+    });
+
+    loop();
+
+    window.addEventListener('resize', function() {
+        w = c.width = getCanvasWidth();
+        h = c.height = 210;
+        ctx.fillStyle = '#eda29b';
+        ctx.fillRect(0, 0, w, h);
+
+        opts.cx = w / 2;
+        opts.cy = h / 2;
+
+        dieX = w / 2 / opts.len;
+        dieY = h / 2 / opts.len;
+    });
+
+    function getCanvasWidth() {
+        return window.innerWidth > 800 ? 800 : window.innerWidth;
+    }
+    </script>
+</body>
+
+</html>
