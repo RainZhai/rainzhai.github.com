@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[转]Three.js + HTML5 Audio API 打造3D音乐频谱，Let’s ROCK! | 宅鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继续玩味之前写的音乐频谱作品，将原来在Canvas标签上的 作图利用Three.js让它通过WebGL呈现，这样就打造出了一个全立体感的频谱效果了。
+项目详情及源码项目GitHub地址：https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/tree/master
+在线演示地址：http://wayou.github.io/3D_Audio_Sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]Three.js + HTML5 Audio API 打造3D音乐频谱，Let’s ROCK!">
+<meta property="og:url" content="http://rainzhai.github.io/2014/03/24/e8-bd-acthree-js-html5-audio-api-e6-89-93-e9-80-a03d-e9-9f-b3-e4-b9-90-e9-a2-91-e8-b0-b1-ef-bc-8clets-rock/index.html">
+<meta property="og:site_name" content="宅鱼">
+<meta property="og:description" content="继续玩味之前写的音乐频谱作品，将原来在Canvas标签上的 作图利用Three.js让它通过WebGL呈现，这样就打造出了一个全立体感的频谱效果了。
+项目详情及源码项目GitHub地址：https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/tree/master
+在线演示地址：http://wayou.github.io/3D_Audio_Sp">
+<meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]Three.js + HTML5 Audio API 打造3D音乐频谱，Let’s ROCK!">
+<meta name="twitter:description" content="继续玩味之前写的音乐频谱作品，将原来在Canvas标签上的 作图利用Three.js让它通过WebGL呈现，这样就打造出了一个全立体感的频谱效果了。
+项目详情及源码项目GitHub地址：https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/tree/master
+在线演示地址：http://wayou.github.io/3D_Audio_Sp">
+  
+    <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico"  type="image/x-ico">
+   
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宅鱼</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">部落格</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/raincss">RainCSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-e8-bd-acthree-js-html5-audio-api-e6-89-93-e9-80-a03d-e9-9f-b3-e4-b9-90-e9-a2-91-e8-b0-b1-ef-bc-8clets-rock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/03/24/e8-bd-acthree-js-html5-audio-api-e6-89-93-e9-80-a03d-e9-9f-b3-e4-b9-90-e9-a2-91-e8-b0-b1-ef-bc-8clets-rock/" class="article-date">
+  <time datetime="2014-03-24T03:56:12.000Z" itemprop="datePublished">2014-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html5/">html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [转]Three.js + HTML5 Audio API 打造3D音乐频谱，Let’s ROCK!
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>继续玩味之前写的音乐频谱作品，将原来在Canvas标签上的 作图利用Three.js让它通过WebGL呈现，这样就打造出了一个全立体感的频谱效果了。</p>
+<p>项目详情及源码<br>项目GitHub地址：<a href="https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/tree/master" target="_blank" rel="external">https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/tree/master</a></p>
+<p>在线演示地址：<a href="http://wayou.github.io/3D_Audio_Spectrum_VIsualizer" target="_blank" rel="external">http://wayou.github.io/3D_Audio_Spectrum_VIsualizer</a></p>
+<p>如果你想的话，可以从这里下载示例音乐：<a href="http://pan.baidu.com/s/1eQqqSfS" target="_blank" rel="external">http://pan.baidu.com/s/1eQqqSfS</a></p>
+<p>Note:<br>可以直接点击’play default’ 播放自带的音乐，神探夏洛克插曲，如果你也看了的话，听着应该会有感的<br>支持文件拖拽进行播放，将音频文件拖拽到页面即可<br>也可以通过文件上传按钮选择一个音频文件进行播放<br>鼠标拖拽可以移动镜头变换视野<br>鼠标滚轮可以进行缩放<br>右上角的控制面板可以进行一些外观及镜头上的设置，可以自己探索玩玩<br>利用Three.js呈现</p>
+<p>关于音频处理方面的逻辑基本和之前介绍HTML5 Audio API那篇博客里讲的差不多，差别只在这个项目里面将频谱的展示从2d的canvas换成3d的WebGL进行展示，使用的是Three.js。所以只简单介绍关于3d场景方面的构建，具体实现可以访问项目GitHub页面下载源码。</p>
+<p>构建跃动的柱条<br>每根绿色柱条是一个CubeGeometry，柱条上面的盖子也是CubeGeometry，只是长度更短而以，同时使用的是白色。</p>
+<p>//创建绿色柱条的形状<br>var cubeGeometry = new THREE.CubeGeometry(MWIDTH, 1, MTHICKNESS);<br>//创建绿色柱条的材质<br>var cubeMaterial = new THREE.MeshPhongMaterial({<br>    color: 0x01FF00,<br>    ambient: 0x01FF00,<br>    specular: 0x01FF00,<br>    shininess: 20,<br>    reflectivity: 5.5<br>});<br>//创建白色盖子的形状<br>var capGeometry = new THREE.CubeGeometry(MWIDTH, 0.5, MTHICKNESS);<br>//创建白色盖子的材质<br>var capMaterial = new THREE.MeshPhongMaterial({<br>    color: 0xffffff,<br>    ambient: 0x01FF00,<br>    specular: 0x01FF00,<br>    shininess: 20,<br>    reflectivity: 5.5<br>});<br>上面只是创建了形状及材质，需要将这两者组合在一起形成一个模型，才是我们看到的实际物体。下面通过一个循环创建了一字排开的柱条和对应的盖子，然后添加到场景中。</p>
+<p>//创建一字排开的柱条和盖子，并添加到场景中<br>for (var i = METERNUM - 1; i &gt;= 0; i–) {<br>    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);<br>    cube.position.x = -45 + (MWIDTH + GAP) <em> i;<br>    cube.position.y = -1;<br>    cube.position.z = 0.5;<br>    cube.castShadow = true;<br>    cube.name = ‘cube’ + i;<br>    scene.add(cube);<br>    var cap = new THREE.Mesh(capGeometry, capMaterial);<br>    cap.position.x = -45 + (MWIDTH + GAP) </em> i;<br>    cap.position.y = 0.5;<br>    cap.position.z = 0.5;<br>    cap.castShadow = true;<br>    cap.name = ‘cap’ + i;<br>    scene.add(cap);<br>};<br> 注意到我们为每个物体指定了名称以方便之后获取该物体。</p>
+<p>添加动画</p>
+<p>动画部分同时是使用requestAnimation，根据传入的音频分析器(analyser)的数据来更新每根柱条的长度。</p>
+<p>var renderAnimation = function() {<br>    if (analyser) {<br>        //从音频分析器中获取数据<br>        var array = new Uint8Array(analyser.frequencyBinCount);<br>        analyser.getByteFrequencyData(array);<br>        var step = Math.round(array.length / METERNUM);<br>        //更新每根柱条的高度<br>        for (var i = 0; i &lt; METERNUM; i++) {<br>            var value = array[i * step] / 4;<br>            value = value &lt; 1 ? 1 : value;<br>            var meter = scene.getObjectByName(‘cube’ + i, true);<br>            meter.scale.y = value;<br>        }<br>    };<br>    //重新渲染画面<br>    render.render(scene, camera);<br>    requestAnimationFrame(renderAnimation);<br>};<br>requestAnimationFrame(renderAnimation);<br>对于白色盖子的处理稍微不同，因为它是缓慢下落的，不能使用及时送达的音频数据来更新它。实现的方式是每次动画更新中检查当前柱条的高度与前一时刻盖子的高度，看谁大，如果柱条更高，则盖子使用新的高度，否则盖子高度减1，这样就实现了缓落的效果。</p>
+<p>var renderAnimation = function() {<br>    if (analyser) {<br>        var array = new Uint8Array(analyser.frequencyBinCount);<br>        analyser.getByteFrequencyData(array);<br>        var step = Math.round(array.length / METERNUM);<br>        for (var i = 0; i &lt; METERNUM; i++) {<br>            var value = array[i <em> step] / 4;<br>            value = value &lt; 1 ? 1 : value;<br>            var meter = scene.getObjectByName(‘cube’ + i, true),<br>                cap = scene.getObjectByName(‘cap’ + i, true);<br>            meter.scale.y = value;<br>            //计算柱条边沿尺寸以获得高度<br>            meter.geometry.computeBoundingBox();<br>            height = (meter.geometry.boundingBox.max.y - meter.geometry.boundingBox.min.y) </em> value;<br>            //将柱条高度与盖子高度进行比较<br>            if (height / 2 &gt; cap.position.y) {<br>                cap.position.y = height / 2;<br>            } else {<br>                cap.position.y -= controls.dropSpeed;<br>            };<br>        }<br>    };<br>    //重新渲染画面<br>    render.render(scene, camera);<br>    requestAnimationFrame(renderAnimation);<br>};<br>requestAnimationFrame(renderAnimation);<br>镜头控制</p>
+<p>镜头的控制使用的是与Three.js搭配的一个插件ObitControls.js，如果你下载了Three.js的源码可以在里面找到。只需获取一个鼠标拖动的前后时间差，然后在动画循环中调用插件进行画面更新即可。</p>
+<p>var orbitControls = new THREE.OrbitControls(camera);<br>orbitControls.minDistance = 50;<br>orbitControls.maxDistance = 200;<br>orbitControls.maxPolarAngle = 1.5;<br>var renderAnimation = function() {<br>    var delta = clock.getDelta();<br>    orbitControls.update(delta);<br>    if (analyser) {<br>        var array = new Uint8Array(analyser.frequencyBinCount);<br>        analyser.getByteFrequencyData(array);<br>        var step = Math.round(array.length / METERNUM);<br>        for (var i = 0; i &lt; METERNUM; i++) {<br>            var value = array[i <em> step] / 4;<br>            value = value &lt; 1 ? 1 : value;<br>            var meter = scene.getObjectByName(‘cube’ + i, true),<br>                cap = scene.getObjectByName(‘cap’ + i, true);<br>            meter.scale.y = value;<br>            //计算柱条边沿尺寸以获得高度<br>            meter.geometry.computeBoundingBox();<br>            height = (meter.geometry.boundingBox.max.y - meter.geometry.boundingBox.min.y) </em> value;<br>            //将柱条高度与盖子高度进行比较<br>            if (height / 2 &gt; cap.position.y) {<br>                cap.position.y = height / 2;<br>            } else {<br>                cap.position.y -= controls.dropSpeed;<br>            };<br>        }<br>    };<br>    //重新渲染画面<br>    render.render(scene, camera);<br>    requestAnimationFrame(renderAnimation);<br>};<br>requestAnimationFrame(renderAnimation);<br>注意到在实例化一个ObitControls后，进行了一些角度和镜头伸缩方面的设置，限制了用户把画面翻转到平面的底部，也保证了镜头在伸缩时不会太远及太近。</p>
+<p>参数控制</p>
+<p>右上角的控制面板可以进行画面的一些参数更改，使用的是谷歌员工创建的一个插件dat.gui.js 。</p>
+<p>首先需要定义一个包含全部需要控制的参数的对象：</p>
+<p>var controls = new function() {<br>        this.capColor = 0xFFFFFF;<br>        this.barColor = 0x01FF00;<br>        this.ambientColor = 0x0c0c0c;<br>        this.dropSpeed = 0.1;<br>        this.autoRotate = false;<br>    };<br>然后实例化一个控制器，将这个对象及相应参数进行绑定：</p>
+<p>var gui = new dat.GUI();<br>//添加盖子下降速度的控制<br>gui.add(controls, ‘dropSpeed’, 0.1, 0.5);<br>//盖子颜色控制<br>gui.addColor(controls, ‘capColor’).onChange(function(e) {<br>    scene.children.forEach(function(child) {<br>        if (child.name.indexOf(‘cap’) &gt; -1) {<br>            child.material.color.setStyle(e);<br>            child.material.ambient = new THREE.Color(e)<br>            child.material.emissive = new THREE.Color(e)<br>            child.material.needsUpdate = true;<br>        }<br>    });<br>});<br>//柱条颜色控制<br>gui.addColor(controls, ‘barColor’).onChange(function(e) {<br>    scene.children.forEach(function(child) {<br>        if (child.name.indexOf(‘cube’) &gt; -1) {<br>            child.material.color.setStyle(e);<br>            child.material.ambient = new THREE.Color(e)<br>            child.material.emissive = new THREE.Color(e)<br>            child.material.needsUpdate = true;<br>        }<br>    });<br>});<br>//镜头自动移动控制<br>gui.add(controls, ‘autoRotate’).onChange(function(e) {<br>    orbitControls.autoRotate = e;<br>});<br>总结</p>
+<p>完成了主要功能，但没达到我预期的效果，我想的是把柱条做成发光的，调研了一下，需要用更复杂的材质，同时也不能用WebGL来渲染画面了，性能是一方面，同时也还没研究得那么深入，所以就先出了这个版本先。以后或许弄个水波效果。</p>
+<p>REFERENCE</p>
+<p>Offical Documentation: <a href="http://threejs.org/docs/" target="_blank" rel="external">http://threejs.org/docs/</a></p>
+<p>A Demo: <a href="http://srchea.com/blog/2013/05/experimenting-with-web-audio-api-three-js-webgl/" target="_blank" rel="external">http://srchea.com/blog/2013/05/experimenting-with-web-audio-api-three-js-webgl/</a></p>
+<p>Another Example: <a href="https://github.com/arirusso/three-audio-spectrum" target="_blank" rel="external">https://github.com/arirusso/three-audio-spectrum</a></p>
+<p>A Working Demo: <a href="http://badassjs.com/post/27056714305/plucked-html5-audio-editor-and-threeaudio-js" target="_blank" rel="external">http://badassjs.com/post/27056714305/plucked-html5-audio-editor-and-threeaudio-js</a></p>
+<p>Dat GUI plugin: <a href="https://code.google.com/p/dat-gui/" target="_blank" rel="external">https://code.google.com/p/dat-gui/</a></p>
+<p>PLEASE KINDLY SHOW YOUR RESPECT TO THE AUTHOR OF THIS ARTICLE</p>
+<p>Feel free to repost but keep the link to this page please!</p>
+<p>本文链接：<a href="http://www.cnblogs.com/Wayou/p/html5_audio_api_3d_visualizer_with_threejs.html" target="_blank" rel="external">http://www.cnblogs.com/Wayou/p/html5_audio_api_3d_visualizer_with_threejs.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/threejs/">threejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webgl/">webgl</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/03/25/timthumb-e7-bc-a9-e7-95-a5-e5-9b-be-e4-b8-8d-e6-98-be-e7-a4-ba-e9-97-ae-e9-a2-98-e5-a4-84-e7-90-86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TimThumb缩略图不显示问题处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/03/18/javascript-dom-e4-ba-8b-e4-bb-b6-e7-9a-84-e4-b8-80-e4-ba-9b-e8-b5-84-e6-96-99/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">javascript DOM事件的一些资料</div>
+    </a>
+  
+</nav>
+
+  
+
+
+<div class="ds-thread" data-thread-key="2014/03/24/e8-bd-acthree-js-html5-audio-api-e6-89-93-e9-80-a03d-e9-9f-b3-e4-b9-90-e9-a2-91-e8-b0-b1-ef-bc-8clets-rock/"></div>
+
+</article></section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类 Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/">CSS &amp; HTML</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/javascript-amp-Ajax/">javascript &amp; Ajax</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/javascript-amp-Ajax/移动端开发/">移动端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/web-development/">web development</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/web-development/移动端开发/">移动端开发</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/">computer science</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/java-web/">java web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/web-development/">web development</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/算法/">算法</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java-web/">java web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/">javascript &amp; Ajax</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/jquery/">jquery</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/jquery/web-development/">web development</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/web-development/">web development</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/算法/">算法</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-development/">web development</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/">智趣</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/游戏/">游戏</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/生活/">生活</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签 Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-3/">CSS 3</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/">Design</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structure/">Structure</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dojo/">dojo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-ui/">easy ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/">firefox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free-hosting/">free hosting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geekTime/">geekTime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/">ie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery-mobile/">jquery mobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp/">jsp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mobile/">mobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photos/">photos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seam/">seam</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/threejs/">threejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ued/">ued</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/w3c标准/">w3c标准</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpage/">webpage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/上下文/">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能/">性能</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率/">效率</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理论/">理论</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社会化网络/">社会化网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动/">移动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端开发/">移动端开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美女/">美女</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义网/">语义网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风景/">风景</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云 Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angularjs/" style="font-size: 10px;">Angularjs</a> <a href="/tags/CSS/" style="font-size: 19.09px;">CSS</a> <a href="/tags/CSS-3/" style="font-size: 13.64px;">CSS 3</a> <a href="/tags/D2/" style="font-size: 10px;">D2</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Design/" style="font-size: 10.91px;">Design</a> <a href="/tags/Structure/" style="font-size: 16.36px;">Structure</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/css3/" style="font-size: 14.55px;">css3</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dojo/" style="font-size: 10px;">dojo</a> <a href="/tags/easy-ui/" style="font-size: 10px;">easy ui</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/free-hosting/" style="font-size: 10px;">free hosting</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/geekTime/" style="font-size: 10px;">geekTime</a> <a href="/tags/html/" style="font-size: 13.64px;">html</a> <a href="/tags/html5/" style="font-size: 18.18px;">html5</a> <a href="/tags/hybrid/" style="font-size: 11.82px;">hybrid</a> <a href="/tags/ie/" style="font-size: 10.91px;">ie</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/java/" style="font-size: 17.27px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 15.45px;">jquery</a> <a href="/tags/jquery-mobile/" style="font-size: 10.91px;">jquery mobile</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/mobile/" style="font-size: 10.91px;">mobile</a> <a href="/tags/photos/" style="font-size: 10px;">photos</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/requirejs/" style="font-size: 10.91px;">requirejs</a> <a href="/tags/seam/" style="font-size: 10.91px;">seam</a> <a href="/tags/svg/" style="font-size: 10px;">svg</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/ued/" style="font-size: 10.91px;">ued</a> <a href="/tags/w3c标准/" style="font-size: 12.73px;">w3c标准</a> <a href="/tags/web/" style="font-size: 13.64px;">web</a> <a href="/tags/webapp/" style="font-size: 10.91px;">webapp</a> <a href="/tags/webgl/" style="font-size: 10px;">webgl</a> <a href="/tags/webpage/" style="font-size: 10.91px;">webpage</a> <a href="/tags/wordpress/" style="font-size: 11.82px;">wordpress</a> <a href="/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/tags/分享/" style="font-size: 10.91px;">分享</a> <a href="/tags/前端/" style="font-size: 16.36px;">前端</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/性能/" style="font-size: 12.73px;">性能</a> <a href="/tags/总结/" style="font-size: 10.91px;">总结</a> <a href="/tags/效率/" style="font-size: 11.82px;">效率</a> <a href="/tags/模块化/" style="font-size: 10.91px;">模块化</a> <a href="/tags/游戏/" style="font-size: 11.82px;">游戏</a> <a href="/tags/理论/" style="font-size: 14.55px;">理论</a> <a href="/tags/生活/" style="font-size: 10.91px;">生活</a> <a href="/tags/社会化网络/" style="font-size: 10.91px;">社会化网络</a> <a href="/tags/移动/" style="font-size: 10px;">移动</a> <a href="/tags/移动端开发/" style="font-size: 10px;">移动端开发</a> <a href="/tags/算法/" style="font-size: 13.64px;">算法</a> <a href="/tags/编程/" style="font-size: 18.18px;">编程</a> <a href="/tags/美女/" style="font-size: 10px;">美女</a> <a href="/tags/翻译/" style="font-size: 13.64px;">翻译</a> <a href="/tags/范式/" style="font-size: 12.73px;">范式</a> <a href="/tags/设计模式/" style="font-size: 11.82px;">设计模式</a> <a href="/tags/语义网/" style="font-size: 10px;">语义网</a> <a href="/tags/语言/" style="font-size: 19.09px;">语言</a> <a href="/tags/资源/" style="font-size: 10.91px;">资源</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a> <a href="/tags/风景/" style="font-size: 10px;">风景</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">文章 Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近 Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/28/使用Angularjs开发控制台类项目/">使用Angularjs开发控制台类项目</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/11/Apicloud开发app的问题总结/">Apicloud开发app的问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/25/前端面试经典问题/">前端面试经典问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/31/React-Native入门及一些问题处理/">React Native入门及一些问题处理</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/11/CSS大会的总结/">CSS大会的总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-wrap">
+<h3 class="widget-title">友情链接 Links</h3>
+<div class="widget">
+<ul>
+<li><a href="http://wande.me" title="玩的么" target="_blank">玩的么</a></li>
+</ul>
+</ul>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 宅鱼<br>
+      更多游戏： <a href="http://wande.me"  target="_blank">玩的么</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/raincss" class="mobile-nav-link">RainCSS</a>
+  
+</nav>
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"rainzhai"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+<script type="text/javascript" src="http://wandeme.com/js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F49ba6eabd43121d820d9120777bdaf30' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

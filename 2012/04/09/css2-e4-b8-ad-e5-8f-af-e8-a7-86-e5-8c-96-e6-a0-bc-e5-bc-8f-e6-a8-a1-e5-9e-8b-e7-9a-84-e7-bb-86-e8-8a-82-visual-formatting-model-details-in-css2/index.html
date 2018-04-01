@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS2中可视化格式模型的细节_Visual formatting model details in CSS2 | 宅鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="专有词汇:
+hypothetical box 假设盒automatic table layout algorithm 自动table布局算法shrink-to-fit 收缩适应computed value 计算值used value 使用值glyph 字形,图像字符ascender 字母的上出头部分descender 字母的下出头部分Ascent 上升Descent 下降
+10.1 包含块的定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS2中可视化格式模型的细节_Visual formatting model details in CSS2">
+<meta property="og:url" content="http://rainzhai.github.io/2012/04/09/css2-e4-b8-ad-e5-8f-af-e8-a7-86-e5-8c-96-e6-a0-bc-e5-bc-8f-e6-a8-a1-e5-9e-8b-e7-9a-84-e7-bb-86-e8-8a-82-visual-formatting-model-details-in-css2/index.html">
+<meta property="og:site_name" content="宅鱼">
+<meta property="og:description" content="专有词汇:
+hypothetical box 假设盒automatic table layout algorithm 自动table布局算法shrink-to-fit 收缩适应computed value 计算值used value 使用值glyph 字形,图像字符ascender 字母的上出头部分descender 字母的下出头部分Ascent 上升Descent 下降
+10.1 包含块的定义">
+<meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS2中可视化格式模型的细节_Visual formatting model details in CSS2">
+<meta name="twitter:description" content="专有词汇:
+hypothetical box 假设盒automatic table layout algorithm 自动table布局算法shrink-to-fit 收缩适应computed value 计算值used value 使用值glyph 字形,图像字符ascender 字母的上出头部分descender 字母的下出头部分Ascent 上升Descent 下降
+10.1 包含块的定义">
+  
+    <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico"  type="image/x-ico">
+   
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">宅鱼</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">部落格</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/raincss">RainCSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-css2-e4-b8-ad-e5-8f-af-e8-a7-86-e5-8c-96-e6-a0-bc-e5-bc-8f-e6-a8-a1-e5-9e-8b-e7-9a-84-e7-bb-86-e8-8a-82-visual-formatting-model-details-in-css2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/04/09/css2-e4-b8-ad-e5-8f-af-e8-a7-86-e5-8c-96-e6-a0-bc-e5-bc-8f-e6-a8-a1-e5-9e-8b-e7-9a-84-e7-bb-86-e8-8a-82-visual-formatting-model-details-in-css2/" class="article-date">
+  <time datetime="2012-04-09T14:48:50.000Z" itemprop="datePublished">2012-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS-amp-HTML/">CSS &amp; HTML</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS2中可视化格式模型的细节_Visual formatting model details in CSS2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>专有词汇:</p>
+<p>hypothetical box 假设盒<br>automatic table layout algorithm 自动table布局算法<br>shrink-to-fit 收缩适应<br>computed value 计算值<br>used value 使用值<br>glyph 字形,图像字符<br>ascender 字母的上出头部分<br>descender 字母的下出头部分<br>Ascent 上升<br>Descent 下降</p>
+<h2 id="10-1-包含块的定义-Definition-of-“containing-block”"><a href="#10-1-包含块的定义-Definition-of-“containing-block”" class="headerlink" title="10.1 包含块的定义 Definition of “containing block”"></a>10.1 包含块的定义 Definition of “containing block”</h2><p>一个元素的框的尺寸和位置的计算有时相对于某个特定的长方形，称为该元素的包含块。一个元素的包含块的定义如下:</p>
+<ol>
+<li>在<a href="http://www.w3.org/TR/CSS2/conform.html#root" target="_blank" rel="external">根元素</a>存在的包含块是一个矩形称作初始包含块.对于连续媒体,它具有<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">视口</a>的尺寸并且其锚在canvas的原点;它是分页媒体的<a href="http://www.w3.org/TR/CSS2/page.html#page-area" target="_blank" rel="external">页面区域</a>.初始包含块的’direction’属性和根元素一样.</li>
+<li>对于其它元素,如果元素的位置是’relative’ 或者 ‘static’,包含块由最近的<a href="http://www.w3.org/TR/CSS2/visuren.html#block-boxes" target="_blank" rel="external">块容器</a>的祖先盒子的内容边界形成.</li>
+<li>如果元素设置了’position: fixed’，在连续媒体或者页面区域在分页媒体这两种情况下包含块由<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">视口</a>创建.</li>
+<li>如果元素设置了’position: absolute’,包含块由最近’position’是’absolute’, ‘relative’ 或者 ‘fixed’的祖先创建,方式如下:<br>1. 在祖先是行内元素的情况下,包含块是绕着第一个和最后一个行内盒子的padding盒子的(为该元素生成的)<a href="http://www.w3.org/TR/CSS2/box.html#padding-edge" target="_blank" rel="external">边界盒</a>.在CSS 2.1中,如果行内元素分跨多行,包含块是未定义的.<br>2. 否则, 由祖先的padding边形成.</li>
+</ol>
+<p>如果没有该祖先,包含块是初始包含块.</p>
+<p>在分页媒体,一个绝对的定位元素的定位相对于它的包含块忽略任何页面中断符(好像文档是连续的).该元素可能随后打断几个页面.</p>
+<p>对于绝对定位内容处理一个页面的定位不同与页面进行布局(当前页面),或者处理一个当前页面的位置其已经为打印渲染完成,打印机可能放置该内容</p>
+<ul>
+<li>在当前页面的另一个位置</li>
+<li>在随后的页面,或者</li>
+<li>可能忽略它.<br>注意一个块级元素分跨多页可能在每个页面有一个不同的宽度,且它们可以受特定设备限制.<br>不考虑定位，下面文档的包含块(C.B.):</li>
+</ul>
+<p>&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Illustration of containing blocks&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY id=”body”&gt;<br>&lt;DIV id=”div1”&gt;<br>&lt;P id=”p1”&gt;This is text in the first paragraph…&lt;/P&gt;<br>&lt;P id=”p2”&gt;This is text &lt;EM id=”em1”&gt; in the<br>&lt;STRONG id=”strong1”&gt;second&lt;/STRONG&gt; paragraph.&lt;/EM&gt;&lt;/P&gt;<br>&lt;/DIV&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</p>
+<p>是这样创建的:</p>
+<p><table border="1"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><th>For box generated by</th></p>
+<p><td><strong>C.B. is established by</strong></td><br></p>
+<p><tr></tr></p>
+<p><td>html</td></p>
+<p><td>initial C.B. (UA-dependent)</td><br></p>
+<p><tr></tr></p>
+<p><td>body</td></p>
+<p><td>html</td><br></p>
+<p><tr></tr></p>
+<p><td>div1</td></p>
+<p><td>body</td><br></p>
+<p><tr></tr></p>
+<p><td>p1</td></p>
+<p><td>div1</td><br></p>
+<p><tr></tr></p>
+<p><td>p2</td></p>
+<p><td>div1</td><br></p>
+<p><tr></tr></p>
+<p><td>em1</td></p>
+<p><td>p2</td><br></p>
+<p><tr></tr></p>
+<p><td>strong1</td></p>
+<p><td>p2</td><br><br><br><br>如果我们定位”div1”：</p>
+<p>#div1 { position: absolute; left: 50px; top: 50px }</p>
+<p>它的包含块不再是”body”；而是初始包含块(因为没有其它定位的父级盒).</p>
+<p>如果我们再定位”em1”:</p>
+<p>#div1 { position: absolute; left: 50px; top: 50px }</p>
+<p>#em1  { position: absolute; left: 100px; top: 100px }</p>
+<p>包含块的表格成为:</p>
+<p><table border="1"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><th>For box generated by</th></p>
+<p><td><strong>C.B. is established by</strong></td><br></p>
+<p><tr></tr></p>
+<p><td>html</td></p>
+<p><td>initial C.B. (UA-dependent)</td><br></p>
+<p><tr></tr></p>
+<p><td>body</td></p>
+<p><td>html</td><br></p>
+<p><tr></tr></p>
+<p><td>div1</td></p>
+<p><td>initial C.B.</td><br></p>
+<p><tr></tr></p>
+<p><td>p1</td></p>
+<p><td>div1</td><br></p>
+<p><tr></tr></p>
+<p><td>p2</td></p>
+<p><td>div1</td><br></p>
+<p><tr></tr></p>
+<p><td>em1</td></p>
+<p><td>div1</td><br></p>
+<p><tr></tr></p>
+<p><td>strong1</td></p>
+<p><td>em1</td><br><br><br><br>“em1”定位后，它的包含块成为最靠近的前辈定位盒(即，由”div1”创建的那一个).</p>
+<h2 id="10-2-内容的宽度：‘widht’属性"><a href="#10-2-内容的宽度：‘widht’属性" class="headerlink" title="10.2 内容的宽度：‘widht’属性"></a>10.2 内容的宽度：<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>属性</h2><p>‘width’<br>值:   <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length" target="_blank" rel="external">&lt;length&gt;</a> | <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage" target="_blank" rel="external">&lt;percentage&gt;</a> | auto | <a href="http://www.w3.org/TR/CSS2/cascade.html#value-def-inherit" target="_blank" rel="external">inherit</a><br>初始值:   auto<br>适用于:   所有元素,除了行内非替换元素,表格行和行组(row groups).<br>可否继承:   否<br>百分比:   基于包含块的宽度<br>媒介:   <a href="http://www.w3.org/TR/CSS2/media.html#visual-media-group" target="_blank" rel="external">图形</a><br>计算值: 百分比或者指定为”auto”或者绝对绝对长度</p>
+<p>该属性指定盒子的<a href="http://www.w3.org/TR/CSS2/box.html#content-width" target="_blank" rel="external">内容宽度</a>。</p>
+<p>该元素并不适用于非替换的<a href="http://www.w3.org/TR/CSS2/visuren.html#inline-boxes" target="_blank" rel="external">行内</a>元素.非替换行内元素盒的宽度是它们中内容渲染后（在任何子元素相对偏移之前）的宽度.我们应该记得行内盒排列在<a href="http://www.w3.org/TR/CSS2/visuren.html#line-box" target="_blank" rel="external">行盒</a>内.而行盒的宽度由它们的<a href="http://www.w3.org/TR/CSS2/visuren.html#containing-block" target="_blank" rel="external">包含块</a>给出，但是可能由于出现<a href="http://www.w3.org/TR/CSS2/visuren.html#floats" target="_blank" rel="external">浮动</a>而被缩短.</p>
+<p>属性值的含义如下:</p>
+<p><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length" target="_blank" rel="external"><strong>&lt;length&gt; </strong></a><br>使用一个长度单元指定一个固定宽度.<br><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage" target="_blank" rel="external"><strong>&lt;percentage&gt; </strong></a><br>指定一个百分比宽度.百分比的计算基于生成盒的包含块的宽度. 如果包含块的宽度依据该元素的宽度,那么布局结果在css 2.1中未定义.注意:对绝对定位元素包含块基于一个块容器元素,百分比根据该元素的padding盒的宽度进行计算.这个和css1不同,其百分比宽度总是根据内容盒子的父级元素进行计算.<br><strong>auto</strong><br>宽度取决于其它属性的值。参加以后的节.<br>负的<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>值是非法的.</p>
+<p>例子:</p>
+<p>例如,下面的规则将段落的内容宽度固定为100点:</p>
+<p>P { width: 100px }</p>
+<h2 id="10-3-宽度和边距的计算"><a href="#10-3-宽度和边距的计算" class="headerlink" title="10.3 宽度和边距的计算"></a>10.3 宽度和边距的计算</h2><p>一个元素的<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>，<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external"><span style="text-decoration: underline;">‘margin-left’</span></a>，<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external"><span style="text-decoration: underline;">‘margin-right’</span></a>，<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-left" target="_blank" rel="external"><span style="text-decoration: underline;">‘left’</span></a>和<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-right" target="_blank" rel="external"><span style="text-decoration: underline;">‘right’</span></a>属性的计算值取决于产生的盒的类型，并互相影响(用于布局的值称作<a href="http://www.w3.org/TR/CSS2/cascade.html#usedValue" target="_blank" rel="external">使用值</a>)。一般而言，计算值和指定值相同，’auto’被某个合适的值取代,并且百分比根据包含块来进行计算。不过还是有例外。下面这些情况需要加以考虑:</p>
+<ol>
+<li>行内的非替换元素</li>
+<li>行内的替换元素</li>
+<li>常规流向中的块级、非替换元素</li>
+<li>常规流向中的块级、替换元素</li>
+<li>浮动的非替换元素</li>
+<li>浮动的替换元素</li>
+<li>绝对定位的非替换元素</li>
+<li>绝对定位的替换元素</li>
+<li>常规流向中的’inline-block’、非替换元素</li>
+<li>常规流向中的’inline-block’、替换元素<br>1-6和9-10,相对定位元素的案例中的’left’和’right’值由<a href="http://www.w3.org/TR/CSS2/visuren.html#relative-positioning" target="_blank" rel="external">9.4.3章节</a>的规则决定.</li>
+</ol>
+<p><strong>注意</strong>:’width’在下文使用的值是个假设性的值,并且它可能会根据<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-min-width" target="_blank" rel="external">‘min-width’</a>和<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-max-width" target="_blank" rel="external">‘max-width’</a>计算多次,见下文<a href="http://www.w3.org/TR/CSS2/visudet.html#min-max-widths" target="_blank" rel="external">Minimum and maximum widths</a>章节.</p>
+<h3 id="10-3-1-行内的非替换元素"><a href="#10-3-1-行内的非替换元素" class="headerlink" title="10.3.1 行内的非替换元素"></a>10.3.1 行内的非替换元素</h3><p><a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>属性不适用。<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>或<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a> ‘auto’ 的计算值的实际使用值是’0’.</p>
+<h3 id="10-3-2-行内的替换元素"><a href="#10-3-2-行内的替换元素" class="headerlink" title="10.3.2 行内的替换元素"></a>10.3.2 行内的替换元素</h3><p><a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>或<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a> ‘auto’的计算值的实际使用值是’0’.</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-height" target="_blank" rel="external">‘height’</a>和<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>的计算值都是’auto’并且元素有固定的宽度,那么固定宽度使用值为<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>的值.</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-height" target="_blank" rel="external">‘height’</a>和<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>的计算值都是’auto’并且元素没有固定的宽度,但其有一个固定高度和固定比例;或者如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>的计算值是’auto’,<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-height" target="_blank" rel="external">‘height’</a>有其他的计算值,并且元素没有固定比例;那么<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>使用值是:</p>
+<p>(使用高度)*(固定比例)</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-height" target="_blank" rel="external">‘height’</a>和<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>的计算值都是’auto’并且元素有固定的比例,但没有固定的高度和宽度,那么<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>的使用值在css 2.1中未定义.然而,建议如果包含块的宽度不是根据替换元素的宽度,那么<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘widht’</a>的使用值由块级的约束等式计算而来,不可替换元素在普通流中.</p>
+<p>否则,如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>有一个计算值’auto’,并且元素有一个固定宽度,那么固定宽度使用值为<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>的值.</p>
+<p>否则,如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>有一个计算值’auto’,但上面的条件都不符合,那么<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>的使用值设为300px.如果300px对设备来说太宽,客户端应该使用宽度适合设备的比例为2:1的最大矩形来代替.</p>
+<h3 id="10-3-3-常规流中的块类、非替换元素"><a href="#10-3-3-常规流中的块类、非替换元素" class="headerlink" title="10.3.3 常规流中的块类、非替换元素"></a>10.3.3 常规流中的块类、非替换元素</h3><p>以下的约束必须保持其他属性的使用值:<br><a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a> + <a href="http://www.w3.org/TR/CSS2/box.html#propdef-border-left-width" target="_blank" rel="external">‘border-left-width’</a> + <a href="http://www.w3.org/TR/CSS2/box.html#propdef-padding-left" target="_blank" rel="external">‘padding-left’</a> + <a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a> + <a href="http://www.w3.org/TR/CSS2/box.html#propdef-padding-right" target="_blank" rel="external">‘padding-right’</a> + <a href="http://www.w3.org/TR/CSS2/box.html#propdef-border-right-width" target="_blank" rel="external">‘border-right-width’</a> + <a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a> = <a href="http://www.w3.org/TR/CSS2/visudet.html#containing-block-details" target="_blank" rel="external">包含块</a>的宽</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>不 是’auto’并且’border-left-width’ + ‘padding-left’ + ‘width’ +  ‘padding-right’ + ‘border-right-width’ (加上任意的 ‘margin-left’ or  ‘margin-right’ 而值不是 ‘auto’) 大于包含块的宽度,那么’margin-left’ 或者  ‘margin-right’的值是’auto’,依照下面的规则,设置为0.</p>
+<p>如果上述所有的属性指定了非’auto’的值，这些值被称为是”过度约束”，其中之一的计算值将不得不和它的指定值不同.如果<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-direction" target="_blank" rel="external">‘direction’</a>属性为’ltr’，<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a>的指定值被忽略,并重新计算以满足上面的等式。如果<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-direction" target="_blank" rel="external">‘direction’</a>为’rtl’,对<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>采取上述的方法.</p>
+<p>如果只有一个值指定为’auto’，它的计算值从等式中得出。</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>设置为’auto’，则其它的’auto’值成为’0’而<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>从等式的剩余部分得到。</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>和<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a>为’auto’，它们的使用值相同.相对于包含块的边缘水平地居中该元素.</p>
+<h3 id="10-3-4-常规流向中的块类、替换元素"><a href="#10-3-4-常规流向中的块类、替换元素" class="headerlink" title="10.3.4 常规流向中的块类、替换元素"></a>10.3.4 常规流向中的块类、替换元素</h3><p><a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>的使用值取决于<a href="http://www.w3.org/TR/CSS2/visudet.html#inline-replaced-width" target="_blank" rel="external">行内替换元素</a>.然后<a href="http://www.w3.org/TR/CSS2/visudet.html#blockwidth" target="_blank" rel="external">非替换块级元素</a>的规则被应用来决定margin.</p>
+<h3 id="10-3-5-浮动的非替换元素"><a href="#10-3-5-浮动的非替换元素" class="headerlink" title="10.3.5 浮动的非替换元素"></a>10.3.5 浮动的非替换元素</h3><p>如果<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>或<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a>指定为’auto’，它们的使用值为’0’.</p>
+<p>如果<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-width" target="_blank" rel="external">‘width’</a>计算为’auto’,使用值是”shrink-to-fit”宽度.</p>
+<p>shrink-to-fit宽度的计算类似计算table  cell的宽度使用自动table布局算法.概略地:通过格式化除换行符外的内容而不是明确的换行符发生的位置来计算优先的宽度,同样计算优先的最小宽度 等等.CSS 2.1没有定义明确的算法.第三,找到有效的宽度:在这个例子中,这个是包含块的宽度减去’margin-left’,  ‘border-left-width’, ‘padding-left’, ‘padding-right’,  ‘border-right-width’, ‘margin-right’, 和任意相关滚动条的使用值.</p>
+<p>那么shrink-to-fit 宽度是: min(max(优先的最小宽度, 有效的宽度), 优先宽度).</p>
+<h3 id="10-3-6-浮动的替换元素"><a href="#10-3-6-浮动的替换元素" class="headerlink" title="10.3.6 浮动的替换元素"></a>10.3.6 浮动的替换元素</h3><p>如果<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-left" target="_blank" rel="external">‘margin-left’</a>或<a href="http://www.w3.org/TR/CSS2/box.html#propdef-margin-right" target="_blank" rel="external">‘margin-right’</a>指定为’auto’，它们的使用值为’0’。’width’的使用值取决于<a href="http://www.w3.org/TR/CSS2/visudet.html#inline-replaced-width" target="_blank" rel="external">行内替换元素</a>.</p>
+<h3 id="10-3-7-绝对定位的非替换元素"><a href="#10-3-7-绝对定位的非替换元素" class="headerlink" title="10.3.7 绝对定位的非替换元素"></a>10.3.7 绝对定位的非替换元素</h3><p>对于该章节和下一章节,”static position”(对于一个元素)条款,大概地,对于该定位一个元素将在普通流.更准确地:</p>
+<ul>
+<li>static-position包含块是一个假设的盒的包含块,如果指定<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-position" target="_blank" rel="external">‘position’</a>值为’static’并且’float’设定为’none’其将是元素的第一个盒(注意对于<a href="http://www.w3.org/TR/CSS2/visuren.html#dis-pos-flo" target="_blank" rel="external">9.7章节</a>的规则计算同样需要给’display’赋一个计算过的值.)</li>
+<li>如果<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-position" target="_blank" rel="external">‘position’</a>属性是’static’且<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-float" target="_blank" rel="external">‘float’</a>是’none’,静态定位对于’left’是从包含块的左边界到一个假设盒的左margin的距离其将是元素的第一个盒子.如果假设盒相对于包含块的左边的值是负的.</li>
+<li>静态定位对于’right’是从包含块的右边界到和上面一样的假设盒的右margin边界.如果假设盒是相对于包含块的左边该值是负的.<br>但如果不是实际地计算假设盒的尺寸,客户端可以自由地设定一个可能的定位.</li>
+</ul>
+<p>对于计算静态定位的目的,固定定位元素的包含块是初始包含块而不是视口.并且所有可滚动盒应该假定滚动到其原点.</p>
+<p>约束决定这些元素的使用值为:</p>
+<p>‘left’ + ‘margin-left’ + ‘border-left-width’ + ‘padding-left’ +  ‘width’ + ‘padding-right’ + ‘border-right-width’ + ‘margin-right’ +  ‘right’ = 包含块的宽度</p>
+<p>如果’left’, ‘width’, 和 ‘right’ 三个属性的值都是 ‘auto’:首先将’margin-left’ 和  ‘margin-right’的任何’auto’值设置为0.然后,如果元素的’direction’属性建立static-position包含块是 ‘ltr’设置’left’给<a href="http://www.w3.org/TR/CSS2/visudet.html#static-position" target="_blank" rel="external">静态定位</a>并且应用下面的3号规则;否则,设置’right’给<a href="http://www.w3.org/TR/CSS2/visudet.html#static-position" target="_blank" rel="external">静态定位</a>并且应用下面的1号规则.</p>
+<p>==============================================</p>
+<p>如果三个值都不是’auto’:如果’margin-left’ 和  ‘margin-right’都是’auto’,在额外的约束下解决这个方程式,这两个margin的值相等,除非这将使它们为负,在这个案例中当包含块 的direction是’ltr’(‘rtl’),设置’margin-left’  (‘margin-right’)为0并且求出’margin-right’ (‘margin-left’).如果’margin-left’ 或  ‘margin-right’ 中有一个值是  ‘auto’,求出该值的方程式.如果值是过度约束的,忽略’left’(在例子中包含块的’direction’属性是’rtl’)或 ‘right’(在例子中’direction’是’ltr’)的值并求出该值.</p>
+<p>否则,将’margin-left’ 和 ‘margin-right’的’auto’值设置为0,并在下面6个规则中采用一个:</p>
+<ol>
+<li>‘left’和’width’都是’auto’且’right’不是’auto’, 那么width是shrink-to-fit. 然后求出’left’</li>
+<li>‘left’和’right’值是’auto’并且’width’不是’auto’,那么如果元素的’direction’属性建立<a href="http://www.w3.org/TR/CSS2/visudet.html#static-position" target="_blank" rel="external">static-position</a>的包含块是’ltr’设置’left’给静态定位,否则设置’right’给静态定位.然后求出’left’(如果’direction’值是’rtl’)或’right’(如果’direction’值是’ltr’)</li>
+<li>‘width’和’right’都是’auto’但’left’不是’auto’, 那么宽度是shrink-to-fit.然后求出’right’</li>
+<li>‘left’值是’auto’, ‘width’和’right’值不是’auto’, 那么求出’left’</li>
+<li>‘width’值是’auto’, ‘left’和’right’都不是’auto’,那么求出’width’</li>
+<li>‘right’值是’auto’, ‘left’和’width’都不是’auto’,那么求出’right’<br>shrink-to-fit width的计算类似计算一个table  cell的width使用自动table布局算法.大概地:概略地:通过格式化除换行符外的内容而不是明确的换行符发生的位置来计算优先的宽度,同样计算 优先的最小宽度等等.CSS  2.1没有定义明确的算法.第三,计算有效宽度:这建立在设置’left’(在例1)或’right’(在例3)为0之后求出’width’.</li>
+</ol>
+<p>那么shrink-to-fit宽度是: min(max(优先的最小width, 有效width), 优先的width).</p>
+<h2 id="10-3-8-绝对定位的替换元素"><a href="#10-3-8-绝对定位的替换元素" class="headerlink" title="10.3.8 绝对定位的替换元素"></a>10.3.8 绝对定位的替换元素</h2><p>在这种情况下,通过<a href="http://www.w3.org/TR/CSS2/visudet.html#abs-non-replaced-width" target="_blank" rel="external">章节10.3.7</a>适用,包括约束方程,但10.3.7章节其余的部分被以下规则取代:</p>
+<ol>
+<li>‘width’的使用值由行内替换元素决定.如果’margin-left’或’margin-right’设定为’auto’使用值由下面的规则决定.</li>
+<li>如果’left’和’right’值为’auto’,那么如果元素的’direction’属性建立static-position包含块是’ltr’,设置静态定位为’left’;否则如果’direction’是’rtl’,设置静态定位为’right’.</li>
+<li>如果’left’或者’right’为’auto’, 将’margin-left’或’margin-right’的with的’auto’值用’0’替换.</li>
+<li>如果这时候’margin-left’和’margin-right’仍然都是’auto’在两个margin必须等值这个额外的约束下 求出等式,除非这个使得它们为负,在这个例子中当包含块的direction是’ltr’(rtl),设置’margin-left’  (‘margin-right’)为0并求出’margin-right’(‘margin-left’).</li>
+<li>如果这个时候有一个’auto’剩下,求出该值的等式.</li>
+<li>如果这个时候值是过度约束的,忽略’left’(在例子中包含块的’direction’属性是’rtl’)或者’right’(在例子中’direction’是’ltr’)的值求出该值.</li>
+</ol>
+<h3 id="10-3-9-普通流中的’Inline-block’-不可替换元素"><a href="#10-3-9-普通流中的’Inline-block’-不可替换元素" class="headerlink" title="10.3.9 普通流中的’Inline-block’, 不可替换元素"></a>10.3.9 普通流中的’Inline-block’, 不可替换元素</h3><p>如果’width’值是’auto’, 浮动元素的使用值是<a href="http://www.w3.org/TR/CSS2/visudet.html#shrink-to-fit-float" target="_blank" rel="external">shrink-to-fit</a>宽度.</p>
+<p>‘margin-left’或者’margin-right’的一个计算值’auto’设置为使用值’0’.</p>
+<h3 id="10-3-10-普通流中的’Inline-block’-替换元素"><a href="#10-3-10-普通流中的’Inline-block’-替换元素" class="headerlink" title="10.3.10  普通流中的’Inline-block’, 替换元素"></a>10.3.10  普通流中的’Inline-block’, 替换元素</h3><p>和<a href="http://www.w3.org/TR/CSS2/visudet.html#inline-replaced-width" target="_blank" rel="external">行内替换元素</a>一致</p>
+<h3 id="10-4-最小和最大宽度-’min-width’及’max-width’"><a href="#10-4-最小和最大宽度-’min-width’及’max-width’" class="headerlink" title="10.4 最小和最大宽度:’min-width’及’max-width’"></a>10.4 最小和最大宽度:’min-width’及’max-width’</h3><p><strong>‘min-width’</strong></p>
+<p>值:   &lt;length&gt; | &lt;percentage&gt; | inherit<br>初始值:   取决于用户端<br>使用于:   所有元素,除了非替换行内元素,表格行元素和行元素组<br>可否继承:   否<br>百分比:   基于包含块的宽度<br>媒介:   图形<br>计算值: 设定的百分比或者绝对长度</p>
+<p><strong>‘max-width’</strong></p>
+<p>值:   &lt;length&gt; | &lt;percentage&gt; | none | inherit<br>初始值:   none<br>适用于:   所有元素,除了非替换行内元素,表格行元素和行元素组<br>可否继承:   否<br>百分比:   基于包含块的宽度<br>媒介:   图形<br>计算值: 设定的百分比或者绝对长度或者’none’</p>
+<p>这两个属性允许作者将内容的宽度限制在一个确定的范围内.取值的含义如下:<br><strong>
+</strong><ins><strong>&lt;length&gt; </strong></ins><br>指定一个固定的最小和最大的使用的宽度.</p>
+<p><ins><strong>&lt;percentage&gt; </strong></ins><br>指定确定使用值的百分比.百分比的计算基于生成盒的包含块的宽度.如果包含块的宽度是负的,那么使用值是0.如果包含块的宽度根据元素的宽度,那么生成布局在CSS 2.1中未定义.</p>
+<p><strong>none </strong><br>（仅用于’max-width’）对盒的宽度没有限制.</p>
+<p>负的’min-width’和’max-width’是非法的.</p>
+<p>在CSS2.1,tables, inline tables, table cells, table columns, 和column groups的’min-width’ 和 ‘max-width’效果未定义.</p>
+<p>下面的算法描述了这两个属性如何影响’width’属性的使用值:</p>
+<p>1.试验性的使用宽根据上文中的”Calculating widths and margins”规则来计算(除了’min-width’和’max-width’).<br>2.如果试验性的使用宽大于’max-width’,上面的规则再次被应用,但是’max-width’使用的计算值和’width’使用的计算值一样.<br>3.如果结果宽度小于’min-width’,上面的规则又被应用,但是’min-width’使用的计算值和’width’使用的计算值一样.</p>
+<p>这些步骤不会影响以上属性真实的计算值.</p>
+<p>然而,对于固定比例的’width’和’height’指定为’auto’的可替换元素,算法如下:</p>
+<p>选择table为适当的约束违例求出高度和宽度值.把max-width和max-height当作max(min, max)那么min ≤  max为真.在这个table w和h代表width和height的计算结果忽略’min-width’, ‘min-height’,  ‘max-width’ and ‘max-height’ 属性.通常这些事固定的宽度和高度,但是他们可能不在固定比例的替换元素的例子中.</p>
+<p>注意:在例子中当一个明确的宽度或者高度设定了,并且其他尺寸是auto,应用一个最小或者最大约束在auto的边会导致过度约束的发生.规范在行为上是清楚的但是它可能不是作者期望的.CSS3 object-fit属性能够用来在这个情形下获取不同的结果.</p>
+<p><table rules="all"></table></p>
+<p><thead></thead></p>
+<p><tr></tr></p>
+<p><th>Constraint Violation约束违例</th></p>
+<p><th>Resolved Width求宽</th></p>
+<p><th>Resolved Height求高</th><br><br></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>none</td></p>
+<p><td><var>w</var></td></p>
+<p><td><var>h</var></td><br></p>
+<p><tr></tr></p>
+<p><td><var>w &gt; max-width</var></td></p>
+<p><td><var>max-width</var></td></p>
+<p><td><var>max(max-width * h/w, min-height)</var></td><br></p>
+<p><tr></tr></p>
+<p><td><var>w &lt; min-width</var></td></p>
+<p><td><var>min-width</var></td></p>
+<p><td><var>min(min-width * h/w, max-height)</var></td><br></p>
+<p><tr></tr></p>
+<p><td><var>h &gt; max-height</var></td></p>
+<p><td><var>max(max-height * w/h, min-width)</var></td></p>
+<p><td><var>max-height</var></td><br></p>
+<p><tr></tr></p>
+<p><td><var>h &lt; min-height</var></td></p>
+<p><td><var>min(min-height * w/h, max-width)</var></td></p>
+<p><td><var>min-height</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &gt; max-width</var>) and (<var>h &gt; max-height</var>), where (<var>max-width/w ≤ max-height/h</var>)</td></p>
+<p><td><var>max-width</var></td></p>
+<p><td><var>max(min-height, max-width * h/w)</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &gt; max-width</var>) and (<var>h &gt; max-height</var>), where (<var>max-width/w &gt; max-height/h</var>)</td></p>
+<p><td><var>max(min-width, max-height * w/h)</var></td></p>
+<p><td><var>max-height</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &lt; min-width</var>) and (<var>h &lt; min-height</var>), where (<var>min-width/w ≤ min-height/h</var>)</td></p>
+<p><td><var>min(max-width, min-height * w/h)</var></td></p>
+<p><td><var>min-height</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &lt; min-width</var>) and (<var>h &lt; min-height</var>), where (<var>min-width/w &gt; min-height/h</var>)</td></p>
+<p><td><var>min-width</var></td></p>
+<p><td><var>min(max-height, min-width * h/w)</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &lt; min-width</var>) and (<var>h &gt; max-height</var>)</td></p>
+<p><td><var>min-width</var></td></p>
+<p><td><var>max-height</var></td><br></p>
+<p><tr></tr></p>
+<p><td>(<var>w &gt; max-width</var>) and (<var>h &lt; min-height</var>)</td></p>
+<p><td><var>max-width</var></td></p>
+<p><td><var>min-height</var></td><br><br><br><br>然后应用上文”Calculating widths and margins”的规则,好像’width’和这个值一样被计算.</p>
+<h2 id="10-5-内容的高度-’height’属性"><a href="#10-5-内容的高度-’height’属性" class="headerlink" title="10.5 内容的高度:’height’属性"></a>10.5 内容的高度:’height’属性</h2><p>‘height’<br>值:   &lt;length&gt; | &lt;percentage&gt; | auto | inherit<br>初始值:   auto<br>适用于:   所有元素，除了非替换行内元素，表格列和列组<br>可否继承:   否<br>百分比:   见描述<br>媒介:   图形<br>计算值: 百分比或’auto’(见&lt;percentage&gt;下的描述)或绝对长度</p>
+<p>该属性指定了盒的内容高度.</p>
+<p>本属性不适用于非替换行内元素.见章节computing heights and margins for non-replaced inline elements使用的规则替换.</p>
+<p>取值的含义如下:</p>
+<p>&lt;length&gt;<br>使用长度值指定内容区域的高度.<br>&lt;percentage&gt;<br>指定一个百分比高度.百分比的计算基于生成盒的包含块的高度。如果包含块的高度没有显式给出(即，它取决于内容的高度),并且该元素不是绝对定位,该值等同于’auto’.在根元素上的百分比高度相对于初始包含块.<br>注意:对于绝对定位元素其包含块基于一个块级元素,百分比的计算依据该元素的padding盒的高度.这是一个从CSS1的变化,在CSS1中百分比总是依据父元素的内容盒进行计算.</p>
+<p>auto<br>高度取决于其它属性.见下面的描述.</p>
+<p>注意一个绝对定位元素的包含块的高度独立于元素本身的尺寸,因此在这样一个元素上的百分比高度总能被求出.然而,可能高度并不知道直到元素进入到文档中已经处理完成.</p>
+<p>‘height’的负值是非法的.</p>
+<p>例如,下面的规则将段落的高度固定为100点:</p>
+<p>P { height: 100px }</p>
+<p>高度超过100点的段落将根据’overflow’属性而产生溢出.</p>
+<h2 id="10-6-高度和边距的计算"><a href="#10-6-高度和边距的计算" class="headerlink" title="10.6 高度和边距的计算"></a>10.6 高度和边距的计算</h2><p>在计算’top’,’margin-top’,’height’,’margin-bottom’和’bottom’的值时,必须对不同种类的框加以区别:</p>
+<p>行内的非替换元素<br>行内的替换元素<br>常规流向中的块类、非替换元素<br>常规流向中的块类、替换元素<br>浮动的非替换元素<br>浮动的替换元素<br>绝对定位的非替换元素<br>绝对定位的替换元素<br>‘inline-block’,普通流中的不可替换元素<br>‘inline-block’,普通流中的替换元素</p>
+<p>1-6和9-10,’top’ 和 ‘bottom’ 的使用值由9.4.3章节的规则决定.</p>
+<p>注意:这些规则应用给根元素就像其他的元素一样.</p>
+<p>注意.下面计算的’height’的使用值是一个假设值,并且可能需要多次计算,依据’min-height’ 和 ‘max-height’, 见下面的Minimum and maximum heights章节.</p>
+<h3 id="10-6-1-行内的非替换元素"><a href="#10-6-1-行内的非替换元素" class="headerlink" title="10.6.1 行内的非替换元素"></a>10.6.1 行内的非替换元素</h3><p>‘height’属性并不适用,内容区域的高度应该基于font,但是这个规范并没有指定.一个客户端可能,举例来说,使用em-box或者字体的 最大的字母的上出头部分和字母的下出头部分.(后者将保证部分靠上或者部分靠下的字形em-box仍然落到内容区域,但是导致不同的字体有不同的尺寸盒 子;样板会允许作者依据’line-height’控制背景样式,但导致字形绘制超出内容区域.)</p>
+<p>注意:CSS3将可能包含一个属性来选择font的哪个尺寸用作内容高.</p>
+<p>垂直的padding,border和一个行内的margin,不可替换元素盒从内容区域的顶部和底部开始,并且对’line-height’没有影响.但是当计算行盒的高度时仅仅只有’line-height’被使用.</p>
+<p>如果多于一个字体被用到(当字形建立在不同的字体内这个将会发生),内容区域的高度在该规范里面没有定义.然而,我们建议高度选择内容区域对em- box或者元素中所有字体的最大的字母上出头部分和字母下出头部分.注意这可能会比涉及的任何字体尺寸都大,根据字体的基线对齐来决定.</p>
+<h3 id="10-6-2-行内的替换元素-常规流向中的块类替换元素-常规流向中的’inline-block’替换元素-浮动的替换元素"><a href="#10-6-2-行内的替换元素-常规流向中的块类替换元素-常规流向中的’inline-block’替换元素-浮动的替换元素" class="headerlink" title="10.6.2 行内的替换元素,常规流向中的块类替换元素,常规流向中的’inline-block’替换元素,浮动的替换元素"></a>10.6.2 行内的替换元素,常规流向中的块类替换元素,常规流向中的’inline-block’替换元素,浮动的替换元素</h3><p>如果’margin-top’或’margin-bottom’为’auto’,它们的使用值为0.</p>
+<p>如果’height’和’width’计算值为’auto’并且元素有一个固定高度,那么固定高度是’height’的使用值.</p>
+<p>否则,如果’高度’有一个计算值为’auto’且元素有一个固定比例,那么height的使用值是:</p>
+<p>(使用宽)/(固定比例)</p>
+<p>否则,如果’height’有一个计算值为’auto’,且元素有一个固定高,那么固定高是’height’的使用值.</p>
+<p>否则,如果’height’有一个计算值为’auto’,但都不和上面的情况相符,那么’height’的使用值必须设置为最大矩形的高度其有2:1的比例,高度不大于150px,且宽度不大于设备宽度.</p>
+<h3 id="10-6-3-常规流向中的块级非替换元素当’overflow’计算为’visible’"><a href="#10-6-3-常规流向中的块级非替换元素当’overflow’计算为’visible’" class="headerlink" title="10.6.3 常规流向中的块级非替换元素当’overflow’计算为’visible’"></a>10.6.3 常规流向中的块级非替换元素当’overflow’计算为’visible’</h3><p>该章节同样应用给常规流向中的块级非替换元素当’overflow’不计算为’visible’但传播到视口.</p>
+<p>如果’margin-top’, 或’margin-bottom’为’auto’,它们的使用值是0.如果’height’是’auto’,高度根据是否该元素有任意的块级子元素且是否其具有padding或borders:</p>
+<p>元素的高度是从顶部内容边缘到第一个以下可用的情形的距离:</p>
+<ol>
+<li>最新的行盒的底边,如果盒子和一至多个行建立一个行内格式化上下文</li>
+<li>最新的in-flow子元素的底部(可能收缩的)margin的底边,如果子元素的底部margin没有和元素的底部margin折叠.</li>
+<li>最新的in-flow子元素的底部border边其顶margin和元素的底部margin没有重叠.</li>
+<li>否则,为0<br>只有在普通流中的子元素参与计算(例如,浮动盒子和绝对定位盒子被忽略,且相对定位盒不考虑它们的偏移).注意子盒子可能是个匿名块盒.</li>
+</ol>
+<h3 id="10-6-4-绝对定位的非替换元素"><a href="#10-6-4-绝对定位的非替换元素" class="headerlink" title="10.6.4 绝对定位的非替换元素"></a>10.6.4 绝对定位的非替换元素</h3><p>对于该章节和下一章节的目标,(一个元素)”static  position”引用的条款,概略地,对于定位一个元素将必须在普通流中.更准确地,’top’的静态定位是从包含块的顶边倒假想盒的顶margin边 的距离其将成为元素的第一个盒子如果它指定’position’值为’static’,且指定’float’值为’none’且指定’clear’为 ‘none’.(注意对于 9.7章节的规则这可能需要指定’display’一个不同的计算值.)该值为负如果假想盒在包含块之上.</p>
+<p>但是不是实际地计算假设盒的尺寸,用户端可以自由地猜测它的可能位置.</p>
+<p>对于计算静态位置,固定定位元素的包含块以初始包含块替代视口.</p>
+<p>对于绝对定位的元素，垂直方向的尺寸必须满足如下约束:</p>
+<p>‘top’ + ‘margin-top’ + ‘border-top-width’ + ‘padding-top’ +  ‘height’ + ‘padding-bottom’ + ‘border-bottom-width’ + ‘margin-bottom’ +  ‘bottom’ = 包含块的高度</p>
+<p>如果’top’, ‘height’, 和 ‘bottom’三个值都为auto,设置’top’为静态定位应用下面的3号规则.</p>
+<p>如果三个值都不是’auto’:如果’margin-top’和’margin-bottom’为’auto’,求出在额外约束下的等式其两个 margin值相等.如果’margin-top’或’margin-bottom’其中一个值为’auto’,求出那个值的等式.如果值超出约束,忽略 ‘bottom’的值并求出该值.</p>
+<p>否则,选择下面的六个规则中的一个来应用:</p>
+<ol>
+<li>‘top’和’height’为’auto’,’bottom’不是’auto’, 那么高度依据per 10.6.7内容的高度, 设置’margin-top’和’margin-bottom’的’auto’值为0, 并求出’top’.</li>
+<li>‘top’和’bottom’都是’auto’,’height’不是’auto’,那么设置’top’到静态定位, 设置’margin-top’和’margin-bottom’的’auto’值为0,并求出’bottom’.</li>
+<li>‘height’和’bottom’是’auto’,’top’不是’auto’, 那么高度依据per 10.6.7内容的高度, 设置’margin-top’和’margin-bottom’的’auto’值为0, 并求出’bottom’.</li>
+<li>‘top’为’auto’, ‘height’和’bottom’不是’auto’, 那么设置’margin-top’和’margin-bottom’的’auto’值为0, 并求出’top’.</li>
+<li>‘height’是’auto’, ‘top’和’bottom’不是’auto’,那么设置’margin-top’和’margin-bottom’的’auto’值为0, 并求出’height’</li>
+<li>‘bottom’是’auto’, ‘top’和’height’不是’auto’, 那么设置’margin-top’和’margin-bottom’的’auto’值为0, 并求出’bottom’</li>
+</ol>
+<h3 id="10-6-5-绝对定位的替换元素"><a href="#10-6-5-绝对定位的替换元素" class="headerlink" title="10.6.5 绝对定位的替换元素"></a>10.6.5 绝对定位的替换元素</h3><p>这一情形和前述类似，只是元素有一个内在高度。替换的顺序变为:</p>
+<p>如果’height’为’auto’，将其替换为元素的内在高度。<br>如果’top’为’auto’，将它替换为：包含块的顶边到假定它的’position’属性设置为’static’，而生成元素的第一个框的那个假想框 的顶边距边的距离。（但是为了不去实际计算那个框，用户端可以自由地猜想它可能在的位置。）如果假想框在包含块上面，该值为负数。<br>如果’bottom’为’auto’，将’margin-top’或’margin-bottom’的’auto’替换为’0’。<br>如果在这一步’margin-top’和’margin-bottom’还是’auto’，根据附加的约束，即两个边距必须相等来解出等式。<br>如果在这一步只有一个’auto’，根据等式解出该值。<br>如果在这一步各值间过度约束，忽略’bottom’值，然后根据等式解出那个值。</p>
+<h3 id="10-6-6-复杂的情况-Complicated-cases"><a href="#10-6-6-复杂的情况-Complicated-cases" class="headerlink" title="10.6.6 复杂的情况 Complicated cases"></a>10.6.6 复杂的情况 Complicated cases</h3><p>这个章节应用给:</p>
+<ul>
+<li>块级,常规流向中的块级非替换元素当’overflow’不计算为’visible’(除’overflow’属性值被传播到视口).</li>
+<li>‘Inline-block’, 不可替换元素.</li>
+<li>浮动, 不可替换元素.<br>如果’margin-top’, 或’margin-bottom’为’auto’, 它们的使用值是0. 如果’height’是’auto’, 高度按照10.6.7依照元素的子元素.</li>
+</ul>
+<p>对于’inline-block’元素, 当计算行盒的高度时margin盒被使用.</p>
+<h3 id="10-6-7-块格式化上下文根的’Auto’高度-‘Auto’-heights-for-block-formatting-context-roots"><a href="#10-6-7-块格式化上下文根的’Auto’高度-‘Auto’-heights-for-block-formatting-context-roots" class="headerlink" title="10.6.7 块格式化上下文根的’Auto’高度 ‘Auto’ heights for block formatting context roots"></a>10.6.7 块格式化上下文根的’Auto’高度 ‘Auto’ heights for block formatting context roots</h3><p>在某些情形(见上面10.6.4和10.6.6章节),一个元素建立块格式化上下文的高度按以下方式计算:</p>
+<p>如果只有行内级别子元素,高度是最顶端行盒的顶部到最下面行盒底部的距离.</p>
+<p>如果有块级子元素,高度是从最顶端块级子盒的顶部margin-edge到最底部块级子盒的底部margin-edge的距离.</p>
+<p>绝对定位子元素被忽略,且相对定位盒子不考虑偏移.注意子盒可能是匿名块盒.</p>
+<p>附加的,如果元素有任何浮动后代它的底部margin边在元素底部内容边下面,那么高度增长到去包含它们的边界.只有参与该块格式化上下文的浮动被考虑,等等,在绝对定位里面子元素的浮动或其他浮动不被考虑.</p>
+<h2 id="10-7-最小和最大高度-’min-height’和’max-height’"><a href="#10-7-最小和最大高度-’min-height’和’max-height’" class="headerlink" title="10.7 最小和最大高度:’min-height’和’max-height’"></a>10.7 最小和最大高度:’min-height’和’max-height’</h2><p>有时将元素的高度控制在一个特定的范围内很有用.有两个属性提供了这样的功能:</p>
+<p>‘min-height’<br>值:   &lt;length&gt; | &lt;percentage&gt; | inherit<br>初始值:   0<br>适用于:   所有元素，除了非替换行内元素和表格元素<br>可否继承:   否<br>百分比:   见正文<br>媒介:   图形<br>计算值: 指定的百分比或者绝对长度</p>
+<p>‘max-height’<br>值:   &lt;length&gt; | &lt;percentage&gt; | none | inherit<br>初始值:   none<br>适用于:   所有元素，除了非替换行内元素和表格元素<br>可否继承:   否<br>百分比:   见正文<br>媒介:   图形<br>计算值: 指定的百分比或者绝对长度</p>
+<p>这两个属性允许作者将盒的高度限制在一定的范围内.取值含义如下:</p>
+<p>&lt;length&gt;<br>指定一个固定的最小或最大高度.<br>&lt;percentage&gt;<br>指定一个百分比来确定计算值.百分比的计算基于生成盒的包含块的高度.如果包含块的高度没有显式指定(即,它取决于内容的高度),且该元素没有绝对地定位,该百分比值等同于’0’(对于’min-height’)或’none’(对于’max-height’).<br>none<br>(仅对’max-height’适用)对盒的高度没有限制.</p>
+<p>在CSS2.1,’min-height’和’max-height’在tables, inline tables, table cells, table rows, 和 row groups 上的效果没有定义.</p>
+<p>下面的算法描述了这两个属性怎么影响’height’属性的使用值:</p>
+<ol>
+<li>假设的使用高度按照上面”Calculating heights and margins”的规则来计算(除’min-height’和’max-height’).</li>
+<li>如果假设高度大于’max-height’上面的规则被再次使用,但是这次使用’max-height’的值作为’height’的使用值.</li>
+<li>如果假设高度小于’min-height’上面的规则被再次使用,但是这次使用’min-height’的值作为’height’的使用值.<br>这些步骤不影响上面属性的真正计算值.使用的’height’的变化对margin的折叠没有影响除”Collapsing margins” (8.3.1)中对’min-height’或’max-height’的规则又特别地要求.</li>
+</ol>
+<p>然而,对’width’和’height’计算为’auto’的替换元素,使用上文的Minimum and maximum  widths的算法来找到使用的宽度和高度.然后应用上文”Computing heights and  margins”的规则,使用width和height的结果就好像它们是计算值.</p>
+<h2 id="10-8-行高的计算-‘line-height’及’vertical-align’属性"><a href="#10-8-行高的计算-‘line-height’及’vertical-align’属性" class="headerlink" title="10.8 行高的计算: ‘line-height’及’vertical-align’属性"></a>10.8 行高的计算: ‘line-height’及’vertical-align’属性</h2><p>就像在行内格式化上下文的章节中描述的,用户端将行内级的盒排列到垂直方向的行盒的堆叠.行盒高度是这样决定的:</p>
+<ol>
+<li>在行盒里的每个行内级别盒的高度被计算.对替换元素,inline-block元素,和inline-table元素,该高度是它们 margin盒的高度;对行内盒,该高度是它们的’line-height’.(见”Calculating heights and  margins”和 the height of inline boxes 在”Leading and half-leading”.)</li>
+<li>行内级盒根据其’vertical-align’属性而在垂直方向对齐,在实例中它们对齐’top’或’bottom’,它们必须 aligned so as to minimize the line box  height.如果该盒足够高,有多重方案CSS2.1总没有定义行盒基线的位置(即,srut见下文 的位置).</li>
+<li>行盒的高度是最上面的盒的顶边到最下面的盒的底边的距离.(这包含strut,就像下面’line-height’解释的.)<br>空的行内元素产生空的行内盒,但是这些盒也包括边距，边白，边框和行高, 因此和那些有内容的元素一样,影响上述的计算.</li>
+</ol>
+<h3 id="10-8-1-差异和半差异"><a href="#10-8-1-差异和半差异" class="headerlink" title="10.8.1 差异和半差异"></a>10.8.1 差异和半差异</h3><p>CSS假定每个字体有字体矩阵其指定一个字符高度在基线的上面且一个深度在它下面.在这个章节我们使用A代表高度(对一个给出的字体的给定 size)且D是深度.我们同样定义AD=A+D,为从顶部到底部的距离.(见how to find A and D for TrueType  and OpenType fonts 的记录),注意这些字体的矩阵作为一个整体且不需要和任何单独字符的上升和下行字母保持一致.</p>
+<p>客户端必须在一个不可替换行内盒中通过它们相关的基线对齐每个字符.那么对每个字符,确定A和D.注意字符在单个元素可能来自不同的字体且这样不需要所有 的具有同样的A和D.如果行内盒不包含字符,它被考虑包含一个strut(一个独立的宽度为0的字符)带有元素的首个可用字体的A和D.</p>
+<p>仍然对于每个字符,决定添加差异L,当L=’line-height’ - AD. 一半的差异加在A的上面和D下面的一半,giving the  glyph and its leading a total height above the baseline of A’ = A + L/2  and a total depth of D’ = D + L/2.</p>
+<p>注意.L可能为负.</p>
+<p>行内盒的高度在其两边装入所有字符和它们半差异且这是准确地’line-height’.子元素的盒子没有影响该高度.</p>
+<p>尽管不可替换元素的margins, borders, and  padding不计入行盒的计算,它们仍然在行内盒周围进行渲染.这意味着如果高度同感’line-height’来指定小于包含块的内容高 度,padding和border的backgrounds和colors可能会流入到相邻的行盒.客户端应该在文档顺序中渲染盒子.这将导致随后的行的 border绘制超出之前行的border和文本.</p>
+<p>注意.CSS 2.1不定义行内盒子的内容区域(见上文10.6.1),因此不同的客户端可以在不同的地方绘出不同backgrouds和borders.</p>
+<p>注意.建议实现上使用OpenType或TrueType字体使用度量标准”sTypoAscender”和”sTypoDescender”从字体的OS/2表和D(在扩展到当前元素的字体大小).在缺乏这些度量标准,”上升”和”下降”指标从HHEA表应该被使用.</p>
+<p><strong>‘line-height’ </strong><br>值：   normal | &lt;number&gt; | &lt;length&gt; | &lt;percentage&gt; | inherit<br>初始值：   normal<br>适用于：   所有元素<br>可否继承：   可<br>百分比：   基于元素自身的字体尺寸<br>媒介：   图形<br>计算值:      对于 &lt;length&gt; 和 &lt;percentage&gt; 绝对值; 否则指定</p>
+<p>在一个块容器元素的内容是由inline-level元素,’line-height’在元素中指定行盒的最小高度.最小身高由最小高度在基线和和在其下 面最小深度构成,就好像每个线框始于一个0宽行内盒元素的字体和行高属性。我们称这个假想盒子之为”strut”(这个名字的灵感来源于Tex.).</p>
+<p>字体上方的高度和基线下的深度,假定包含在字体的度量中.(有关更多细节,请参阅CSS level 3).</p>
+<p>在一个不可替换行内元素,’line-height’指定的高度适用于计算行盒的高度.</p>
+<p>该属性取值的含义如下:</p>
+<p><strong>normal </strong><br>指示用户端基于元素的字体尺寸将计算值设置为一个“合理”的值。该值的含义和&lt;number&gt;相同。我们推荐’normal’的计算值在1.0到1.2之间。<br><strong>&lt;length&gt; </strong><br>框的高度设置到该数值。负数是非法的。<br><strong>&lt;number&gt;</strong><br>该属性的计算值是该数字乘以元素的字体尺寸。负数是非法的。不过，该数字而不是计算值将被继承。<br><strong>&lt;percentage&gt;</strong><br>该属性的计算值是百分比乘以元素的计算的字体尺寸。负数是非法的。<br>例子：</p>
+<p>下例的三条规则设置了相同的行高:</p>
+<p>DIV { line-height: 1.2; font-size: 10pt }     /<em> number </em>/<br>DIV { line-height: 1.2em; font-size: 10pt }   /<em> length </em>/<br>DIV { line-height: 120%; font-size: 10pt }    /<em> percentage </em>/</p>
+<p>如果一个元素包含不止一个字体渲染的文本，用户端应该根据最大的字体尺寸来确定’line-height’的值.</p>
+<p>注意.当在一个块容器所有的行内盒只有一个’line-height’值,它们都是使用相同的字体(且没有替换元素,inline-block元 素,等等),上面将确保后续行的基线’line-height’是完全分开的.这是重要的,当文本列有不同的字体需要对齐,例如在一个table.</p>
+<p>‘vertical-align’<br>值:   baseline | sub | super | top | text-top | middle | bottom | text-bottom | &lt;percentage&gt; | &lt;length&gt; | inherit<br>初始值:   baseline<br>适用于:   行内元素和表格单元元素<br>可否继承:   否<br>百分比:   基于元素自身的’line-height’<br>媒介:   图形<br>计算值:&lt;percentage&gt;和&lt;length&gt;绝对的长度,否则和指定的一样</p>
+<p>该属性决定一个行内级元素产生的盒在一个行盒内垂直方向的位置.</p>
+<p>注意.这些属性的值在表格内容中含义略微有所不同容.请参见表格高度算法以了解更多细节.</p>
+<p>以下值只有意义对于父级行内元素,或一个父块容器元素的strut.</p>
+<p>在下面的定义,因为行内不可替换元素,用于对齐的盒子是高度是’line-height’的盒子(包含盒子的字形,每一侧的half-leading,见上).对于所有其他元素,盒子用于对齐是margin盒子.</p>
+<p>baseline<br>将盒的基线对齐父框的基线.如果该盒没有基线,将盒的底线对齐父的基线.<br>middle<br>将盒的垂直中间点对齐父盒的基线,加上父的x高度的一半.<br>sub<br>将盒的基线降低到父框的下标的恰当位置.(该值对元素文本的字体尺寸没有影响.)<br>super<br>将盒的基线升高到父框的上标的恰当位置.(该值对元素文本的字体尺寸没有影响.)<br>text-top<br>盒的顶对齐父元素字体的顶.<br>text-bottom<br>盒的底对齐父元素字体的底.<br>&lt;percentage&gt;<br>将盒升高(正值)或降低(负值)这一距离(‘line-height’值的百分比).’0%’等同于’baseline’.<br>&lt;length&gt;<br>将盒升高(正值)或降低(负值)这一距离.’0cm’等同于’baseline’.</p>
+<p>以下值排列元素相对于行盒.既然元素可能有孩子相对于它对齐(这反过来又可能他们后代相对它们对齐),这些值使用对齐的子树的边界范围.对齐的子树中行内 元素包含该元素和所有子行内元素的对齐子树,这些行内元素计算”vertical-align”值不是”top”或”bottom”.子树的顶端对齐是在 子树内盒子中最高的盒的顶部,底部是类似的.</p>
+<p>top<br>盒的顶对齐线框的顶.<br>bottom<br>盒的底对齐线框的底.</p>
+<p>一个”inline-table”的基线table的第一行的基线.</p>
+<p>一个”inline-block”的基线是在普通流中最后一个行盒的基线,除非它没有in-flow行盒或如果它的”溢出”属性有一个计算值且不是”visible”,在这种情况下,基线是底部margin边缘.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/w3c标准/">w3c标准</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/翻译/">翻译</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/04/23/e9-ab-98-e9-98-b6-e5-87-bd-e6-95-b0-e4-b8-8e-e7-ac-ac-e4-b8-80-e5-9e-8b-higher-order-function-and-first-class-object/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          高阶函数与第一型_Higher-order function and First-class object
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/03/29/dijit-e4-b8-ad-e5-af-b9-e8-b1-a1-e7-bb-84-e4-bb-b6-e7-9a-84-e5-a3-b0-e6-98-8e-e5-92-8c-e4-bd-bf-e7-94-a8-object-component-declare-in-dijit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dijit中对象组件的声明和使用_Object component declare in dijit</div>
+    </a>
+  
+</nav>
+
+  
+
+
+<div class="ds-thread" data-thread-key="2012/04/09/css2-e4-b8-ad-e5-8f-af-e8-a7-86-e5-8c-96-e6-a0-bc-e5-bc-8f-e6-a8-a1-e5-9e-8b-e7-9a-84-e7-bb-86-e8-8a-82-visual-formatting-model-details-in-css2/"></div>
+
+</article></section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类 Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/">CSS &amp; HTML</a><span class="category-list-count">29</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/html5/">html5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/javascript-amp-Ajax/">javascript &amp; Ajax</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/javascript-amp-Ajax/移动端开发/">移动端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/web-development/">web development</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS-amp-HTML/web-development/移动端开发/">移动端开发</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/">computer science</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/java-web/">java web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/web-development/">web development</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/computer-science/算法/">算法</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html5/">html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/">hybrid</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/hybrid/phonegap/">phonegap</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java-web/">java web</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/">javascript &amp; Ajax</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/jquery/">jquery</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/jquery/web-development/">web development</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/web-development/">web development</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-amp-Ajax/算法/">算法</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/php/">php</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-development/">web development</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/">智趣</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/游戏/">游戏</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智趣/生活/">生活</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/模块化/">模块化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/游戏/">游戏</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签 Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angularjs/">Angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-3/">CSS 3</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D2/">D2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/">Design</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structure/">Structure</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dojo/">dojo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/easy-ui/">easy ui</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/">firefox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/free-hosting/">free hosting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/game/">game</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geekTime/">geekTime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hybrid/">hybrid</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ie/">ie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery-mobile/">jquery mobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp/">jsp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mobile/">mobile</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photos/">photos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seam/">seam</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/threejs/">threejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ued/">ued</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/w3c标准/">w3c标准</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp/">webapp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webgl/">webgl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpage/">webpage</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/上下文/">上下文</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分享/">分享</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能/">性能</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/效率/">效率</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/游戏/">游戏</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理论/">理论</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/社会化网络/">社会化网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动/">移动</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端开发/">移动端开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程/">编程</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美女/">美女</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/范式/">范式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语义网/">语义网</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源/">资源</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风景/">风景</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云 Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Angularjs/" style="font-size: 10px;">Angularjs</a> <a href="/tags/CSS/" style="font-size: 19.09px;">CSS</a> <a href="/tags/CSS-3/" style="font-size: 13.64px;">CSS 3</a> <a href="/tags/D2/" style="font-size: 10px;">D2</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/Design/" style="font-size: 10.91px;">Design</a> <a href="/tags/Structure/" style="font-size: 16.36px;">Structure</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/css3/" style="font-size: 14.55px;">css3</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/dojo/" style="font-size: 10px;">dojo</a> <a href="/tags/easy-ui/" style="font-size: 10px;">easy ui</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/free-hosting/" style="font-size: 10px;">free hosting</a> <a href="/tags/game/" style="font-size: 10px;">game</a> <a href="/tags/geekTime/" style="font-size: 10px;">geekTime</a> <a href="/tags/html/" style="font-size: 13.64px;">html</a> <a href="/tags/html5/" style="font-size: 18.18px;">html5</a> <a href="/tags/hybrid/" style="font-size: 11.82px;">hybrid</a> <a href="/tags/ie/" style="font-size: 10.91px;">ie</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/java/" style="font-size: 17.27px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 15.45px;">jquery</a> <a href="/tags/jquery-mobile/" style="font-size: 10.91px;">jquery mobile</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/mobile/" style="font-size: 10.91px;">mobile</a> <a href="/tags/photos/" style="font-size: 10px;">photos</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/requirejs/" style="font-size: 10.91px;">requirejs</a> <a href="/tags/seam/" style="font-size: 10.91px;">seam</a> <a href="/tags/svg/" style="font-size: 10px;">svg</a> <a href="/tags/threejs/" style="font-size: 10px;">threejs</a> <a href="/tags/ued/" style="font-size: 10.91px;">ued</a> <a href="/tags/w3c标准/" style="font-size: 12.73px;">w3c标准</a> <a href="/tags/web/" style="font-size: 13.64px;">web</a> <a href="/tags/webapp/" style="font-size: 10.91px;">webapp</a> <a href="/tags/webgl/" style="font-size: 10px;">webgl</a> <a href="/tags/webpage/" style="font-size: 10.91px;">webpage</a> <a href="/tags/wordpress/" style="font-size: 11.82px;">wordpress</a> <a href="/tags/上下文/" style="font-size: 10px;">上下文</a> <a href="/tags/分享/" style="font-size: 10.91px;">分享</a> <a href="/tags/前端/" style="font-size: 16.36px;">前端</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/性能/" style="font-size: 12.73px;">性能</a> <a href="/tags/总结/" style="font-size: 10.91px;">总结</a> <a href="/tags/效率/" style="font-size: 11.82px;">效率</a> <a href="/tags/模块化/" style="font-size: 10.91px;">模块化</a> <a href="/tags/游戏/" style="font-size: 11.82px;">游戏</a> <a href="/tags/理论/" style="font-size: 14.55px;">理论</a> <a href="/tags/生活/" style="font-size: 10.91px;">生活</a> <a href="/tags/社会化网络/" style="font-size: 10.91px;">社会化网络</a> <a href="/tags/移动/" style="font-size: 10px;">移动</a> <a href="/tags/移动端开发/" style="font-size: 10px;">移动端开发</a> <a href="/tags/算法/" style="font-size: 13.64px;">算法</a> <a href="/tags/编程/" style="font-size: 18.18px;">编程</a> <a href="/tags/美女/" style="font-size: 10px;">美女</a> <a href="/tags/翻译/" style="font-size: 13.64px;">翻译</a> <a href="/tags/范式/" style="font-size: 12.73px;">范式</a> <a href="/tags/设计模式/" style="font-size: 11.82px;">设计模式</a> <a href="/tags/语义网/" style="font-size: 10px;">语义网</a> <a href="/tags/语言/" style="font-size: 19.09px;">语言</a> <a href="/tags/资源/" style="font-size: 10.91px;">资源</a> <a href="/tags/转载/" style="font-size: 10px;">转载</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a> <a href="/tags/风景/" style="font-size: 10px;">风景</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">文章 Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">November 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/10/">October 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">September 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">April 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">February 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">January 2011</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">December 2010</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">November 2010</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">October 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">September 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">June 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04/">April 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">January 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">August 2009</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近 Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/28/使用Angularjs开发控制台类项目/">使用Angularjs开发控制台类项目</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/11/Apicloud开发app的问题总结/">Apicloud开发app的问题总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/25/前端面试经典问题/">前端面试经典问题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/31/React-Native入门及一些问题处理/">React Native入门及一些问题处理</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/11/CSS大会的总结/">CSS大会的总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-wrap">
+<h3 class="widget-title">友情链接 Links</h3>
+<div class="widget">
+<ul>
+<li><a href="http://wande.me" title="玩的么" target="_blank">玩的么</a></li>
+</ul>
+</ul>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 宅鱼<br>
+      更多游戏： <a href="http://wande.me"  target="_blank">玩的么</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/raincss" class="mobile-nav-link">RainCSS</a>
+  
+</nav>
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"rainzhai"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+<script type="text/javascript" src="http://wandeme.com/js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F49ba6eabd43121d820d9120777bdaf30' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
