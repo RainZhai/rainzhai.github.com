@@ -5,19 +5,18 @@
   
   <title>计算机编程中的作用域_Scope in Computer Programming | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x.
-有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
+  <meta name="description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x. 有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
+<meta name="keywords" content="语言,编程,理论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机编程中的作用域_Scope in Computer Programming">
-<meta property="og:url" content="http://rainzhai.github.io/2012/02/04/e8-ae-a1-e7-ae-97-e6-9c-ba-e7-bc-96-e7-a8-8b-e4-b8-ad-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f-scope-in-computer-programming/index.html">
+<meta property="og:url" content="http://ikkkr.com/2012/02/04/e8-ae-a1-e7-ae-97-e6-9c-ba-e7-bc-96-e7-a8-8b-e4-b8-ad-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f-scope-in-computer-programming/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x.
-有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
+<meta property="og:description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x. 有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机编程中的作用域_Scope in Computer Programming">
-<meta name="twitter:description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x.
-有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
+<meta name="twitter:description" content="《程序语言设计》书中关于作用域有如下介绍:如果标识符x出现在函数体,而x又不是在函数内部定义的,那么x的值必然依赖于函数外部的某个变量.这 种情况下x的存储位置不在函数的活动记录中.因为x在其他某个块中定义,所以为了函数中能访问x,需要在栈里的其他活动记录中找到x. 有两个主要规则用于寻找全局标志符的声明:1.静态作用域  一个全局标志符表示距离当前作用域最近的外层作用域中声明的同名变量.2.动态">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -62,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

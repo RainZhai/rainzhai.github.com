@@ -5,19 +5,18 @@
   
   <title>java中的上下文与javascript中的上下文分析_Context in java And javascript | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。
-在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
+  <meta name="description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。 在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
+<meta name="keywords" content="javascript,java,上下文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java中的上下文与javascript中的上下文分析_Context in java And javascript">
-<meta property="og:url" content="http://rainzhai.github.io/2010/08/29/java-e4-b8-ad-e7-9a-84-e4-b8-8a-e4-b8-8b-e6-96-87-e4-b8-8ejavascript-e4-b8-ad-e7-9a-84-e4-b8-8a-e4-b8-8b-e6-96-87-e5-88-86-e6-9e-90-context-in-java-and-javascript/index.html">
+<meta property="og:url" content="http://ikkkr.com/2010/08/29/java-e4-b8-ad-e7-9a-84-e4-b8-8a-e4-b8-8b-e6-96-87-e4-b8-8ejavascript-e4-b8-ad-e7-9a-84-e4-b8-8a-e4-b8-8b-e6-96-87-e5-88-86-e6-9e-90-context-in-java-and-javascript/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。
-在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
+<meta property="og:description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。 在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java中的上下文与javascript中的上下文分析_Context in java And javascript">
-<meta name="twitter:description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。
-在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
+<meta name="twitter:description" content="context一词在计算机术语中被意为上下文，但我觉得要理解它还不如用其本来的意义：背景, 环境, （事情发生的）背景。因为就上下文这个词很难将事实准确的描述,下面是我对其在java和javascript中的一点分析。 在java中Context是一个接口，他表示一个命名环境，并由一组名字到对象的绑定组成，它包含方法检查并更新这些绑定。原文如下:This interface represents">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -62,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

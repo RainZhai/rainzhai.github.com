@@ -5,20 +5,19 @@
   
   <title>CSS2技术讲解_ID选择器与类(ID Selector And Class) | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。
-怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
+  <meta name="description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。 怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS2技术讲解_ID选择器与类(ID Selector And Class)">
-<meta property="og:url" content="http://rainzhai.github.io/2013/12/07/css2-e6-8a-80-e6-9c-af-e8-ae-b2-e8-a7-a3-id-e9-80-89-e6-8b-a9-e5-99-a8-e4-b8-8e-e7-b1-bbid-selector-and-class/index.html">
+<meta property="og:url" content="http://ikkkr.com/2013/12/07/css2-e6-8a-80-e6-9c-af-e8-ae-b2-e8-a7-a3-id-e9-80-89-e6-8b-a9-e5-99-a8-e4-b8-8e-e7-b1-bbid-selector-and-class/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。
-怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
+<meta property="og:description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。 怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.webdevelopmentmachine.com/blog/wp-content/uploads/2013/12/142d82d3f5be392b3bf3cff2.jpg">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS2技术讲解_ID选择器与类(ID Selector And Class)">
-<meta name="twitter:description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。
-怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
+<meta name="twitter:description" content="id选择器，我们从另一个方面思考，它和数据库表里面的主键是同一个作用，唯一标示，所以id是唯一的.对于class我们可以联想到java中的类，对于同样的功能，我们使用或继承同一个类就可以了，不需要编写新的类，css中的class也是如此，同样的样式用同一个class实现。 怎样确定使用id选择器还是类选择器1.网页上多次使用一个样式2.id用来辨别网页上只出现一次的部分3.id可以用来避免样式冲突">
 <meta name="twitter:image" content="http://www.webdevelopmentmachine.com/blog/wp-content/uploads/2013/12/142d82d3f5be392b3bf3cff2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -64,7 +63,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

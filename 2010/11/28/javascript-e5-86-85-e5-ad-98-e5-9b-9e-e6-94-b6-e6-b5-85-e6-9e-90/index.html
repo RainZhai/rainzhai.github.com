@@ -5,19 +5,18 @@
   
   <title>javascript内存回收浅析 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？
-并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
+  <meta name="description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？ 并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
+<meta name="keywords" content="语言,javascript,性能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript内存回收浅析">
-<meta property="og:url" content="http://rainzhai.github.io/2010/11/28/javascript-e5-86-85-e5-ad-98-e5-9b-9e-e6-94-b6-e6-b5-85-e6-9e-90/index.html">
+<meta property="og:url" content="http://ikkkr.com/2010/11/28/javascript-e5-86-85-e5-ad-98-e5-9b-9e-e6-94-b6-e6-b5-85-e6-9e-90/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？
-并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
+<meta property="og:description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？ 并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript内存回收浅析">
-<meta name="twitter:description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？
-并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
+<meta name="twitter:description" content="我对JavaScript在内存管理上有一个很大的疑问，JavaScript有预解析这一步，所以在执行前，变量可以被缓存，但方法被执行后，方法体内 的变量(无论是引用栈还是引用堆)会被废弃，并等待回收。那么是不是表示被缓存的变量被废弃，并被回收？换句话说：方法执行后，变量的引用值被释放？ 并且在js中，变量若为基本类型变量，其调用都发生在栈中，所以其是被及时使用及时回收。例如：var t = 0;f">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -62,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

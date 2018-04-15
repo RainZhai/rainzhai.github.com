@@ -5,22 +5,18 @@
   
   <title>用闭包实现私有成员_Private methods with closures | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。
-var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication
-// Private attributes.">
+  <meta name="description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。 var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication // Private attributes.">
+<meta name="keywords" content="javascript,编程,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用闭包实现私有成员_Private methods with closures">
-<meta property="og:url" content="http://rainzhai.github.io/2013/01/27/e7-94-a8-e9-97-ad-e5-8c-85-e5-ae-9e-e7-8e-b0-e7-a7-81-e6-9c-89-e6-88-90-e5-91-98-private-methods-with-closures/index.html">
+<meta property="og:url" content="http://ikkkr.com/2013/01/27/e7-94-a8-e9-97-ad-e5-8c-85-e5-ae-9e-e7-8e-b0-e7-a7-81-e6-9c-89-e6-88-90-e5-91-98-private-methods-with-closures/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。
-var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication
-// Private attributes.">
+<meta property="og:description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。 var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication // Private attributes.">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用闭包实现私有成员_Private methods with closures">
-<meta name="twitter:description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。
-var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication
-// Private attributes.">
+<meta name="twitter:description" content="javascript设计模式中讲到的一种私有成员实现方式,前面有讲到过使用下划线约定的方式实现私有成员变量，而闭包保证在函数中定义的变量只能被当前函数作用域里面的函数所访问，从而保证了变量的私有性。 var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication // Private attributes.">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -65,7 +61,7 @@ var Book = function(newIsbn, newTitle, newAuthor) { // implements Publication
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

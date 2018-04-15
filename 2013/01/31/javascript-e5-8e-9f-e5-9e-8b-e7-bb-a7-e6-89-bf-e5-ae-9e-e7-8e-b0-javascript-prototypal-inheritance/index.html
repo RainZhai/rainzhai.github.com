@@ -5,19 +5,18 @@
   
   <title>javascript原型继承实现_javascript Prototypal inheritance | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。
-书中原型继承">
+  <meta name="description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。 书中原型继承">
+<meta name="keywords" content="Structure,javascript,编程,范式,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript原型继承实现_javascript Prototypal inheritance">
-<meta property="og:url" content="http://rainzhai.github.io/2013/01/31/javascript-e5-8e-9f-e5-9e-8b-e7-bb-a7-e6-89-bf-e5-ae-9e-e7-8e-b0-javascript-prototypal-inheritance/index.html">
+<meta property="og:url" content="http://ikkkr.com/2013/01/31/javascript-e5-8e-9f-e5-9e-8b-e7-bb-a7-e6-89-bf-e5-ae-9e-e7-8e-b0-javascript-prototypal-inheritance/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。
-书中原型继承">
+<meta property="og:description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。 书中原型继承">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript原型继承实现_javascript Prototypal inheritance">
-<meta name="twitter:description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。
-书中原型继承">
+<meta name="twitter:description" content="javascript设计模式中原型继承有说明设置一个对象属性和读取一个对象属性存在差异的问题，本质上其实应该归结到原型编程的特性上，因为javascript使用原型链来实现对象继承特性，但是原型编程中有一个很重要的概念：原型槽，访问一个属性，先访问对象本身的名为这个属性名的属性，若属性不存在，则访问原型中同名的属性。而修改对象本身的一个属性却不会影响到原型对象，所以才会造成这种差异。 书中原型继承">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -62,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

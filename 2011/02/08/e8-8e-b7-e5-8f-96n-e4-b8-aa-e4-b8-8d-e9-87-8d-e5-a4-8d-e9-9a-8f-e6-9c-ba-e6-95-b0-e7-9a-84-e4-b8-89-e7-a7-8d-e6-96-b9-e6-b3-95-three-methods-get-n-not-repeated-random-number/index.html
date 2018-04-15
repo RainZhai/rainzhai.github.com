@@ -5,28 +5,17 @@
   
   <title>获取n个不重复随机数的三种方法_Three methods get n+ not repeated random number | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法.
-优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小)
-2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值.
-3.用一个方法来专门生成值并使其和上一个值不同
-var a = genTwoRandomNumber();aler">
+  <meta name="description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法. 优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小) 2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值. 3.用一个方法来专门生成值并使其和上一个值不同 var a = genTwoRandomNumber();aler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取n个不重复随机数的三种方法_Three methods get n+ not repeated random number">
-<meta property="og:url" content="http://rainzhai.github.io/2011/02/08/e8-8e-b7-e5-8f-96n-e4-b8-aa-e4-b8-8d-e9-87-8d-e5-a4-8d-e9-9a-8f-e6-9c-ba-e6-95-b0-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-b3-95-three-methods-get-n-not-repeated-random-number/index.html">
+<meta property="og:url" content="http://ikkkr.com/2011/02/08/e8-8e-b7-e5-8f-96n-e4-b8-aa-e4-b8-8d-e9-87-8d-e5-a4-8d-e9-9a-8f-e6-9c-ba-e6-95-b0-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-b3-95-three-methods-get-n-not-repeated-random-number/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法.
-优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小)
-2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值.
-3.用一个方法来专门生成值并使其和上一个值不同
-var a = genTwoRandomNumber();aler">
+<meta property="og:description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法. 优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小) 2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值. 3.用一个方法来专门生成值并使其和上一个值不同 var a = genTwoRandomNumber();aler">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取n个不重复随机数的三种方法_Three methods get n+ not repeated random number">
-<meta name="twitter:description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法.
-优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小)
-2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值.
-3.用一个方法来专门生成值并使其和上一个值不同
-var a = genTwoRandomNumber();aler">
+<meta name="twitter:description" content="1.获取n个随机数，若n个随机数不相同，则赋值，否则使用递归继续调用该方法. 优化:若需要由小到大，先判断各个数互不相等，再赋值，若相等则进行递归(概率会很小) 2.声明一个array 包含元素[0…9]，然后随机生成一个中间值4-6,然后加上一个生成的合理随机值保证排除之前生成值. 3.用一个方法来专门生成值并使其和上一个值不同 var a = genTwoRandomNumber();aler">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -71,7 +60,7 @@ var a = genTwoRandomNumber();aler">
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

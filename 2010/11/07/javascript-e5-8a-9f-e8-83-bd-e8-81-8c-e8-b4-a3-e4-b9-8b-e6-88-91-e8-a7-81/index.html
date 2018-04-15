@@ -5,30 +5,20 @@
   
   <title>javascript功能职责之我见 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。
-首先，js可以自己创建dom节点，可以认为是生成html结构代码
-其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。
-而且，js在概率和统计等算法问题上可以解决部分问题。
-其三，js可以提供">
+  <meta name="description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。 首先，js可以自己创建dom节点，可以认为是生成html结构代码 其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。 而且，js在概率和统计等算法问题上可以解决部分问题。 其三，js可以提供">
+<meta name="keywords" content="Structure,语言,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript功能职责之我见">
-<meta property="og:url" content="http://rainzhai.github.io/2010/11/07/javascript-e5-8a-9f-e8-83-bd-e8-81-8c-e8-b4-a3-e4-b9-8b-e6-88-91-e8-a7-81/index.html">
+<meta property="og:url" content="http://ikkkr.com/2010/11/07/javascript-e5-8a-9f-e8-83-bd-e8-81-8c-e8-b4-a3-e4-b9-8b-e6-88-91-e8-a7-81/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。
-首先，js可以自己创建dom节点，可以认为是生成html结构代码
-其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。
-而且，js在概率和统计等算法问题上可以解决部分问题。
-其三，js可以提供">
+<meta property="og:description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。 首先，js可以自己创建dom节点，可以认为是生成html结构代码 其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。 而且，js在概率和统计等算法问题上可以解决部分问题。 其三，js可以提供">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.webdevelopmentmachine.com/images/js_functionality.jpg">
 <meta property="og:image" content="http://www.webdevelopmentmachine.com/images/jscsshtml_relation.jpg">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript功能职责之我见">
-<meta name="twitter:description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。
-首先，js可以自己创建dom节点，可以认为是生成html结构代码
-其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。
-而且，js在概率和统计等算法问题上可以解决部分问题。
-其三，js可以提供">
+<meta name="twitter:description" content="写这篇文章是因为对前端分离的概念有一点疑惑，大部分观点都偏向于：内容，表现和行为分离。并且js的作用被划分到表现那一块，而我个人更倾向于结构，表现相互分离，因为js所涉及的领域非常的广泛。 首先，js可以自己创建dom节点，可以认为是生成html结构代码 其次，js可以自由设定html元素的样式，可以认为其在改变页面的表现。 而且，js在概率和统计等算法问题上可以解决部分问题。 其三，js可以提供">
 <meta name="twitter:image" content="http://www.webdevelopmentmachine.com/images/js_functionality.jpg">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -74,7 +64,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

@@ -5,42 +5,20 @@
   
   <title>如何开发一个简单易用的前端代码库 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##一些问题
-
-现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
-
-我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
-
-我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
-
-优点?多浏览器兼容,遵循web标准,代码量">
+  <meta name="description" content="##一些问题  现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。  我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。  我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。  优点?多浏览器兼容,遵循web标准,代码量">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何开发一个简单易用的前端代码库">
-<meta property="og:url" content="http://rainzhai.github.io/2014/11/12/如何开发一个简单易用的前端代码库/index.html">
+<meta property="og:url" content="http://ikkkr.com/2014/11/12/如何开发一个简单易用的前端代码库/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="##一些问题
-
-现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
-
-我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
-
-我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
-
-优点?多浏览器兼容,遵循web标准,代码量">
+<meta property="og:description" content="##一些问题  现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。  我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。  我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。  优点?多浏览器兼容,遵循web标准,代码量">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/629342f9jw1emabetso54j20dp09l75a.jpg">
 <meta property="og:updated_time" content="2014-11-14T02:32:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何开发一个简单易用的前端代码库">
-<meta name="twitter:description" content="##一些问题
-
-现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。
-
-我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。
-
-我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。
-
-优点?多浏览器兼容,遵循web标准,代码量">
+<meta name="twitter:description" content="##一些问题  现有框架解决了什么问题，缺点是什么？样式重设，IE bug处理，缺点是没有进行对象结构扩展，实现最大程度的复用。  我所面临的问题？不断重复类似功能的代码,并且面向结构，复用度太低,应该在功能上进行完全的分离。  我要实现的目标？90%以上css代码的重用，面向对象结构，加入细粒度对象和布局对象，加入CSS交互控制模块和css插件模块。  优点?多浏览器兼容,遵循web标准,代码量">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
@@ -86,7 +64,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>
@@ -130,7 +108,7 @@
 </li>
 </ol>
 <p>##一个前端库诞生<br><img src="http://ww1.sinaimg.cn/mw690/629342f9jw1em81vgn3jpj20go0dbt9f.jpg" alt="rain css"></p>
-<p><a href="http://rainzhai.github.io/raincss/" target="_blank" rel="external">rain css代码库</a></p>
+<p><a href="http://rainzhai.github.io/raincss/">rain css代码库</a></p>
 <p>##Rain css代码结构<br><img src="http://ww4.sinaimg.cn/mw690/629342f9jw1emabetso54j20dp09l75a.jpg" alt="结构"></p>
 <p>##css代码库过大如何处理<br>使用copyCss来进行过滤</p>
 <p>##兼容移动端<br>使用 CSS3 Media Queries来对专门的class进行重写，并新增移动端专用class</p>

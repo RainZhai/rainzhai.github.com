@@ -5,19 +5,18 @@
   
   <title>自执行函数的学习_study self-invoking function | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？
-之前有问过winter和catchen，他们有讲到js">
+  <meta name="description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？ 之前有问过winter和catchen，他们有讲到js">
+<meta name="keywords" content="语言,javascript,编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自执行函数的学习_study self-invoking function">
-<meta property="og:url" content="http://rainzhai.github.io/2011/01/27/e8-87-aa-e6-89-a7-e8-a1-8c-e5-87-bd-e6-95-b0-e7-9a-84-e5-ad-a6-e4-b9-a0-study-self-invoking-function/index.html">
+<meta property="og:url" content="http://ikkkr.com/2011/01/27/e8-87-aa-e6-89-a7-e8-a1-8c-e5-87-bd-e6-95-b0-e7-9a-84-e5-ad-a6-e4-b9-a0-study-self-invoking-function/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？
-之前有问过winter和catchen，他们有讲到js">
+<meta property="og:description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？ 之前有问过winter和catchen，他们有讲到js">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自执行函数的学习_study self-invoking function">
-<meta name="twitter:description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？
-之前有问过winter和catchen，他们有讲到js">
+<meta name="twitter:description" content="JavaScript  中的自执行函数让我感到很奇怪，因为对于一个在解析期间就自己进行执行的这样一个特性，我从程序原理的角度怎么也看不明白，为了搞个清楚这个问题花了不少 时间，最后问题如下：1.自执行函数是匿名函数吗？2.匿名函数与函数式编程的关系是什么？3.匿名函数与lampda表达式有什么联 系？4.JavaScript 函数式编程实现？ 之前有问过winter和catchen，他们有讲到js">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -62,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

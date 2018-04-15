@@ -5,28 +5,18 @@
   
   <title>CSS3 2D和3D矩阵的原理_CSS3 2D and 3D matrix | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2d的变形:
--webkit-transform: matrix3d(1, 0, 0, 1);
-这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变.
-3d的变形:
--webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
+  <meta name="description" content="2d的变形: -webkit-transform: matrix3d(1, 0, 0, 1); 这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变. 3d的变形: -webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
+<meta name="keywords" content="CSS,CSS 3,语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3 2D和3D矩阵的原理_CSS3 2D and 3D matrix">
-<meta property="og:url" content="http://rainzhai.github.io/2011/10/14/css3-2d-e5-92-8c3d-e7-9f-a9-e9-98-b5-e7-9a-84-e5-8e-9f-e7-90-86-css3-2d-and-3d-matrix/index.html">
+<meta property="og:url" content="http://ikkkr.com/2011/10/14/css3-2d-e5-92-8c3d-e7-9f-a9-e9-98-b5-e7-9a-84-e5-8e-9f-e7-90-86-css3-2d-and-3d-matrix/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="2d的变形:
--webkit-transform: matrix3d(1, 0, 0, 1);
-这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变.
-3d的变形:
--webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
+<meta property="og:description" content="2d的变形: -webkit-transform: matrix3d(1, 0, 0, 1); 这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变. 3d的变形: -webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3 2D和3D矩阵的原理_CSS3 2D and 3D matrix">
-<meta name="twitter:description" content="2d的变形:
--webkit-transform: matrix3d(1, 0, 0, 1);
-这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变.
-3d的变形:
--webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
+<meta name="twitter:description" content="2d的变形: -webkit-transform: matrix3d(1, 0, 0, 1); 这里的``(1, 0, 0, 1)是两个向量a(1,0) b(0,1),向量a是x轴方向上的,向量b是y轴方向上的.向量值的变化使得图形在方向和大小上有所改变. 3d的变形: -webkit-transform: matrix3d(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1,">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -71,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>

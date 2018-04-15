@@ -5,22 +5,18 @@
   
   <title>EasyUI 组件两次加载的问题及解决方法 | 宅鱼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载：
-标签生成：
-&amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
+  <meta name="description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载： 标签生成： &amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
+<meta name="keywords" content="jquery,easy ui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EasyUI 组件两次加载的问题及解决方法">
-<meta property="og:url" content="http://rainzhai.github.io/2012/11/22/easyui-e7-bb-84-e4-bb-b6-e4-b8-a4-e6-ac-a1-e5-8a-a0-e8-bd-bd-e7-9a-84-e9-97-ae-e9-a2-98-e5-8f-8a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/index.html">
+<meta property="og:url" content="http://ikkkr.com/2012/11/22/easyui-e7-bb-84-e4-bb-b6-e4-b8-a4-e6-ac-a1-e5-8a-a0-e8-bd-bd-e7-9a-84-e9-97-ae-e9-a2-98-e5-8f-8a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/index.html">
 <meta property="og:site_name" content="宅鱼">
-<meta property="og:description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载：
-标签生成：
-&amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
+<meta property="og:description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载： 标签生成： &amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-04-01T12:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EasyUI 组件两次加载的问题及解决方法">
-<meta name="twitter:description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载：
-标签生成：
-&amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
+<meta name="twitter:description" content="easyui 在用标签写组件的时候再用代码生成组件的时候，如果设置了url，会进行两次加载： 标签生成： &amp;lt;div id=”tt” class=”easyui-tabs” style=”width:500px;height:250px;”&amp;gt;&amp;lt;div title=”Tab1” data-options=”href:’xxx’”&amp;gt;tab1&amp;lt;/div&amp;gt;&amp;lt;div">
   
     <link rel="alternative" href="/atom.xml" title="宅鱼" type="application/atom+xml">
   
@@ -65,7 +61,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://rainzhai.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ikkkr.com"></form>
       </div>
     </div>
   </div>
